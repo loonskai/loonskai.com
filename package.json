@@ -1,25 +1,39 @@
 {
-	"name": "blog",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"start": "svelte-kit start",
-		"lint": "eslint --ignore-path .gitignore ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "next",
-		"svelte": "^3.29.0",
-		"vite": "^2.1.0",
-		"typescript": "^4.0.0",
-		"tslib": "^2.0.0",
-		"svelte-preprocess": "^4.0.0",
-		"sass": "^1.0.0",
-		"@typescript-eslint/eslint-plugin": "^4.19.0",
-		"@typescript-eslint/parser": "^4.19.0",
-		"eslint": "^7.22.0",
-		"eslint-plugin-svelte3": "^3.1.0"
-	},
-	"type": "module"
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "loonskai.com",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiarheiLunski/blog.git"
+  },
+  "author": "Siarhei Lunski <loonskai@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiarheiLunski/blog/issues"
+  },
+  "homepage": "https://github.com/SiarheiLunski/blog#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gray-matter": "^4.0.2",
+    "next": "^10.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.3"
+  }
 }
