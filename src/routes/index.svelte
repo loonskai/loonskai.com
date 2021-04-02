@@ -1,39 +1,45 @@
-<style>
-	h1, figure, p {
+<script lang="ts">
+	import Counter from '$lib/Counter.svelte';
+</script>
+
+<main>
+	<h1>Hello world!</h1>
+
+	<Counter />
+
+	<p>Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
+</main>
+
+<style lang="scss">
+	main {
 		text-align: center;
+		padding: 1em;
 		margin: 0 auto;
 	}
 
 	h1 {
-		font-size: 2.8em;
+		color: #ff3e00;
 		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
+		font-size: 4rem;
+		font-weight: 100;
+		line-height: 1.1;
+		margin: 4rem auto;
+		max-width: 14rem;
 	}
 
 	p {
-		margin: 1em auto;
+		max-width: 14rem;
+		margin: 2rem auto;
+		line-height: 1.35;
 	}
 
 	@media (min-width: 480px) {
 		h1 {
-			font-size: 4em;
+			max-width: none;
+		}
+
+		p {
+			max-width: none;
 		}
 	}
 </style>
-
-<svelte:head>
-	<title>Sapper project template</title>
-</svelte:head>
-
-<h1>Great success!</h1>
-
-<figure>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>

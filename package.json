@@ -1,34 +1,25 @@
 {
-  "name": "loonskai-dev",
-  "description": "loonskai-dev",
-  "version": "0.0.1",
-  "author": {
-    "email": "loonskai@gmail.com",
-    "name": "Siarhei Lunski",
-    "url": "https://loonskai.dev"
-  },
-  "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
-    "start": "node __sapper__/build"
-  },
-  "dependencies": {
-    "apollo-boost": "^0.4.9",
-    "compression": "^1.7.1",
-    "express": "^4.17.1",
-    "graphql": "^15.4.0",
-    "sirv": "^1.0.0",
-    "svelte-apollo": "^0.4.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.17.0",
-    "eslint-plugin-svelte3": "^3.0.0",
-    "file-loader": "^6.0.0",
-    "sapper": "^0.28.0",
-    "svelte": "^3.17.3",
-    "svelte-loader": "^2.9.0",
-    "webpack": "^4.7.0",
-    "webpack-modules": "^1.0.0"
-  }
+	"name": "blog",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"start": "svelte-kit start",
+		"lint": "eslint --ignore-path .gitignore ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-node": "next",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.29.0",
+		"vite": "^2.1.0",
+		"typescript": "^4.0.0",
+		"tslib": "^2.0.0",
+		"svelte-preprocess": "^4.0.0",
+		"sass": "^1.0.0",
+		"@typescript-eslint/eslint-plugin": "^4.19.0",
+		"@typescript-eslint/parser": "^4.19.0",
+		"eslint": "^7.22.0",
+		"eslint-plugin-svelte3": "^3.1.0"
+	},
+	"type": "module"
 }
