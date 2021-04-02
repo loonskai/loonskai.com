@@ -10,7 +10,7 @@ type Props = {
   allPosts: Post[];
 }
 
-export default function Index({ allPosts }: Props): JSX.Element {
+export default function IndexPage({ allPosts }: Props): JSX.Element {
   return (
     <>
       <Layout>

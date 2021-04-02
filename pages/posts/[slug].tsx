@@ -12,7 +12,7 @@ type Props = {
   post: Post
 }
 
-export default function Post({ post }: Props): JSX.Element {
+export default function PostPage({ post }: Props): JSX.Element {
   const router = useRouter();
 
   return (
