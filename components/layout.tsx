@@ -1,20 +1,19 @@
-import React, { useState, createContext } from 'react';
+import { useState, createContext, PropsWithChildren, ReactNode, ChangeEvent } from 'react';
 import Meta from './meta';
 import Header from './header';
 import Toolbar from './toolbar';
-import { ChildrenProps } from '../types/Props';
 
 export const themes = {
-  dark: 'dark',
-  light: 'light',
+  dark: 'theme-dark',
+  light: 'theme-light',
 };
 
 export const ThemeContext = createContext(themes.light);
 
-export default function Layout({ children }: ChildrenProps): JSX.Element {
+export default function Layout({ children }: PropsWithChildren<ReactNode>): JSX.Element {
   const [ theme, setTheme ] = useState(themes.light);
 
-  const toggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (value === theme) return;
     setTheme(value);
@@ -24,12 +23,14 @@ export default function Layout({ children }: ChildrenProps): JSX.Element {
     <>
       <Meta/>
       <ThemeContext.Provider value={theme}>
-        <Header>
-          <Toolbar toggleTheme={toggleTheme} />
-        </Header>
-        <main>
-          {children}
-        </main>
+        <div className={theme}>
+          <Header>
+            <Toolbar toggleTheme={toggleTheme} />
+          </Header>
+          <main>
+            {children}
+          </main>
+        </div>
       </ThemeContext.Provider>
     </>
   );

@@ -1,5 +1,5 @@
-import { ChildrenProps } from '../types/Props';
+import { PropsWithChildren, ReactNode } from 'react';
 
-export default function Container({ children }: ChildrenProps): JSX.Element {
+export default function Container({ children }: PropsWithChildren<ReactNode>): JSX.Element {
   return <div>{children}</div>;
 }

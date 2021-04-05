@@ -2,11 +2,16 @@ module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
     extend: {
-      colors: {
-        green: {
-          current: '#70DC67'
+      textColor: {
+        skin: {
+          base: 'var(--color-text-base)'
         }
       },
+      backgroundColor: {
+        skin: {
+          base: 'var(--color-fill)'
+        }
+      }
     },
   },
   variants: {},

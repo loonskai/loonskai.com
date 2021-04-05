@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+import { useContext, ChangeEvent } from 'react';
 import { ThemeContext, themes } from './layout';
 
 type Props = {
-  toggleTheme(e: React.ChangeEvent<HTMLInputElement>): void
+  toggleTheme(e: ChangeEvent<HTMLInputElement>): void
 }
 
 export default function Toolbar({ toggleTheme }: Props): JSX.Element {
