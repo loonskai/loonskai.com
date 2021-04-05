@@ -29,12 +29,29 @@ module.exports = {
       rules: {
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react/self-closing-comp': 2,
+        'react/jsx-first-prop-new-line': [2, 'multiline'],
+        'react/jsx-max-props-per-line': [
+          2,
+          { maximum: 1, when: 'multiline' },
+        ],
+        'react/jsx-indent-props': [2, 2],
+        'react/jsx-closing-bracket-location': [2, 'line-aligned'],
+        'react/jsx-wrap-multilines': [2, {
+          'declaration': 'parens-new-line',
+          'assignment': 'parens-new-line',
+          'return': 'parens-new-line',
+          'arrow': 'parens-new-line',
+        }],
         'jsx-a11y/anchor-is-valid': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
         semi: 'error',
         quotes: ['error', 'single'],
         indent: ["error", 2],
-        'comma-dangle': ['error', 'always-multiline']
+        'comma-dangle': ['error', 'always-multiline'],
+        'array-bracket-spacing': ['error', 'always'],
+        'object-curly-spacing': ['error', 'always'],
+        "@typescript-eslint/no-empty-function": ["error"]
       }
     }
   ]

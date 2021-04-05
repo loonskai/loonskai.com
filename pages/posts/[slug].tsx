@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Container from '../../components/container';
 import Layout from '../../components/layout';
-import Header from '../../components/header';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { Post } from '../../types/Post';
@@ -18,7 +17,6 @@ export default function PostPage({ post }: Props): JSX.Element {
   return (
     <Layout>
       <Container>
-        <Header />
         {router.isFallback ? <div>Loading...</div> : <>
           <article>
             <Head>
@@ -55,7 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts([ 'slug' ]);
   return {
     paths: posts.map(post => ({
       params: {
