@@ -4,12 +4,13 @@
 
 @layer base {
   .theme-light {
-    --color-text-base: #FFFFFF;
-    --color-fill: #4ECDC4;
+    --color-text-base: #414142;
+    /* --color-fill: #86ff6d; */
+    --color-fill: #eae9e5;
   }
 
   .theme-dark {
-    --color-text-base: #4ECDC4;
-    --color-fill: #000000;
+    --color-text-base: #eae9e5;
+    --color-fill: #414142;
   }
 }

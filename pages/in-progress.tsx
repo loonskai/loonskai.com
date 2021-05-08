@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import Container from '../components/container';
+import { Container } from '../components/container';
+import { Layout } from '../components/layout';
 
 export default function IndexPage(): JSX.Element {
   return (
-    <>
+    <Layout>
       <Head>
         <title>loonskai.com</title>
       </Head>
@@ -13,6 +14,6 @@ export default function IndexPage(): JSX.Element {
           <p className="font-sans">This resource is currently in progress.</p>
         </div>
       </Container>
-    </>
+    </Layout>
   );
 }

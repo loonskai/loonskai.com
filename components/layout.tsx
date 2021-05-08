@@ -1,37 +1,25 @@
-import { useState, createContext, PropsWithChildren, ReactNode, ChangeEvent } from 'react';
-import Meta from './meta';
-import Header from './header';
-import Toolbar from './toolbar';
+import { PropsWithChildren, ReactNode } from 'react';
+import { Meta } from './meta';
+import { Header } from './header';
+import { ThemeToggler } from './ui/theme-toggler';
+import { useTheme } from '../context/theme';
 
-export const themes = {
-  dark: 'theme-dark',
-  light: 'theme-light',
-};
+export function Layout({ children }: PropsWithChildren<ReactNode>): JSX.Element {
+  const [ theme, toggleTheme ] = useTheme();
 
-export const ThemeContext = createContext(themes.light);
-
-export default function Layout({ children }: PropsWithChildren<ReactNode>): JSX.Element {
-  const [ theme, setTheme ] = useState(themes.light);
-
-  const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    if (value === theme) return;
-    setTheme(value);
-  };
-  
   return (
     <>
       <Meta/>
-      <ThemeContext.Provider value={theme}>
-        <div className={theme}>
-          <Header>
-            <Toolbar toggleTheme={toggleTheme} />
-          </Header>
-          <main>
-            {children}
-          </main>
-        </div>
-      </ThemeContext.Provider>
+      <div className={`${theme} text-skin-base bg-skin-base`}>
+        <Header>
+          {/* <Toolbar> */}
+          <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+          {/* </Toolbar> */}
+        </Header>
+        <main>
+          {children}
+        </main>
+      </div>
     </>
   );
 }

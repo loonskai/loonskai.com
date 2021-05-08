@@ -8,13 +8,15 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="en-US">
         <Head>
           <link href="/styles/fonts.css" rel="stylesheet"/>
           <link href="/styles/styles.css" rel="stylesheet"/>
         </Head>
-        <body className="bg-gray-100">
+        <body>
+
           <Main />
+
           <NextScript />
         </body>
       </Html>

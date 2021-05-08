@@ -1,18 +1,19 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import NavigationLink from './navigation/navigation-link';
+import { NavigationLink } from './navigation/navigation-link';
 
-export default function Header({ children }: PropsWithChildren<ReactNode>): JSX.Element {
+export function Header({ children }: PropsWithChildren<ReactNode>): JSX.Element {
   return (
-    <header className="bg-skin-base text-skin-base">
-      <div className="logo">
-        <span className="text-2xl font-bold text-brand">
+    <header className="flex justify-between p-2">
+      <div className="flex">
+        <span className="flex items-center text-2xl font-bold mx-8 font-serif">
           loonskai.com
         </span>
-        <span>Siarhei Lunski</span>
+        <NavigationLink href="/">Blog</NavigationLink>
+        <NavigationLink href="/about">About</NavigationLink>
       </div>
-      <NavigationLink href="/">Blog</NavigationLink>
-      <NavigationLink href="/about">About</NavigationLink>
-      {children}
+      <div>
+        {children}
+      </div>
     </header>
   );
 }

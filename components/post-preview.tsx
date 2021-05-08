@@ -8,7 +8,7 @@ type Props = {
   date?: string;
 }
 
-export default function PostPreview({ 
+export function PostPreview({ 
   title,
   excerpt,
   coverImage,

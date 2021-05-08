@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Layout from '../components/layout';
-import Container from '../components/container';
+import { Container } from '../components/container';
+import { Layout } from '../components/layout';
 
 export default function IndexPage(): JSX.Element {
   return (

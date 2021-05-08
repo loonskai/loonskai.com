@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import Container from '../../components/container';
-import Layout from '../../components/layout';
+import { Container } from '../../components/container';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { Post } from '../../types/Post';
@@ -15,23 +14,19 @@ export default function PostPage({ post }: Props): JSX.Element {
   const router = useRouter();
 
   return (
-    <Layout>
-      <Container>
-        {router.isFallback ? <div>Loading...</div> : <>
-          <article>
-            <Head>
-              <title>
-                {post.title}
-              </title>
-            </Head>
-            <h1>{post.title}</h1>
-            <div 
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-          </article>
-        </>}
-      </Container>
-    </Layout>
+    <Container>
+      {router.isFallback ? <div>Loading...</div> : <>
+        <article>
+          <Head>
+            <title>
+              {post.title}
+            </title>
+          </Head>
+          <h1>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </article>
+      </>}
+    </Container>
   );
 }
 
