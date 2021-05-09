@@ -4,7 +4,7 @@ import { Header } from './header';
 import { ThemeToggler } from './ui/theme-toggler';
 import { useTheme } from '../context/theme';
 
-export function Layout({ children }: PropsWithChildren<ReactNode>): JSX.Element {
+export const Layout = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => {
   const [ theme, toggleTheme ] = useTheme();
 
   return (
@@ -22,4 +22,4 @@ export function Layout({ children }: PropsWithChildren<ReactNode>): JSX.Element 
       </div>
     </>
   );
-}
+};

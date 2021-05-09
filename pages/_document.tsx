@@ -14,9 +14,7 @@ class MyDocument extends Document {
           <link href="/styles/styles.css" rel="stylesheet"/>
         </Head>
         <body>
-
           <Main />
-
           <NextScript />
         </body>
       </Html>

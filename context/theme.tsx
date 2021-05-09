@@ -1,6 +1,5 @@
 import { useState, createContext, PropsWithChildren, ReactNode, useContext } from 'react';
 
-
 export const themes = {
   dark: 'theme-dark',
   light: 'theme-light',
@@ -16,7 +15,7 @@ export const useTheme = (): [string, (theme: string) => void] => {
   return [ theme, toggleTheme ];
 };
 
-export function ThemeProvider({ children }: PropsWithChildren<ReactNode>): JSX.Element {
+export const ThemeProvider = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => {
   const [ theme, setTheme ] = useState(themes.light);
   const toggleTheme = value => {
     if (value !== theme) {
@@ -31,4 +30,4 @@ export function ThemeProvider({ children }: PropsWithChildren<ReactNode>): JSX.E
       </ToggleThemeContext.Provider>
     </ThemeContext.Provider>
   );
-}
+};

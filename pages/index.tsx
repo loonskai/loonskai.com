@@ -5,21 +5,20 @@ import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { PostPreview } from '../components/post-preview';
 import { Post } from '../types/Post';
+import { InProgress } from '../components/in-progress';
 
 type Props = {
   allPosts: Post[];
 }
 
-export default function IndexPage({ allPosts }: Props): JSX.Element {
+const IndexPage = ({ allPosts }: Props): JSX.Element => {
   return (
     <Layout>
       <Head>
         <title>loonskai.com</title>
       </Head>
       <Container>
-        <div>
-          <h1 className="text-5xl">Hi</h1>
-        </div>
+        <InProgress />
         {/* {allPosts.map(post => (
           <PostPreview
             key={post.slug}
@@ -33,7 +32,9 @@ export default function IndexPage({ allPosts }: Props): JSX.Element {
       </Container>
     </Layout>
   );
-}
+};
+
+export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPosts = getAllPosts([

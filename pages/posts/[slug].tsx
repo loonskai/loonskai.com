@@ -10,7 +10,7 @@ type Props = {
   post: Post
 }
 
-export default function PostPage({ post }: Props): JSX.Element {
+const PostPage = ({ post }: Props): JSX.Element => {
   const router = useRouter();
 
   return (
@@ -28,7 +28,9 @@ export default function PostPage({ post }: Props): JSX.Element {
       </>}
     </Container>
   );
-}
+};
+
+export default PostPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = typeof params.slug === 'string' && params.slug;

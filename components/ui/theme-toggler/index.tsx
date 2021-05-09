@@ -8,7 +8,7 @@ type Props = {
 
 // const THEME_TOGGLER_ID = 'theme_toggler';
 
-export function ThemeToggler({ theme, toggleTheme }: Props): JSX.Element {
+export const ThemeToggler = ({ theme, toggleTheme }: Props): JSX.Element => {
   // const theme = useContext(ThemeContext);
   // const [ theme, toggleTheme ] = useTheme();
   const darkThemeActive = theme === themes.dark;
@@ -30,4 +30,4 @@ export function ThemeToggler({ theme, toggleTheme }: Props): JSX.Element {
       {/* {`${darkThemeActive ? 'Light' : 'Dark'} mode`} */}
     </button>
   );
-}
+};
