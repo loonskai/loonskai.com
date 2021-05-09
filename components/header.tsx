@@ -3,7 +3,7 @@ import { NavigationLink } from './navigation/navigation-link';
 
 export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element =>  (
   <header className="flex justify-between p-2">
-    <div className="flex">
+    <div className="flex flex-wrap">
       <span className="flex items-center text-2xl font-bold mx-8 font-serif">
         loonskai.com
       </span>

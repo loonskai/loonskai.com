@@ -1,5 +1,6 @@
 
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   mode: 'jit',
@@ -12,12 +13,13 @@ module.exports = {
       textColor: {
         skin: {
           base: 'var(--color-text-base)'
-        }
+        },
       },
       backgroundColor: {
         skin: {
-          base: 'var(--color-fill)'
-        }
+          base: 'var(--color-fill)',
+          content: 'var(--color-content-fill)',
+        },
       },
       fontFamily: {
         serif: ['Orelega One', ...fontFamily.serif],
@@ -26,5 +28,13 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: []
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.border-main': {
+          borderColor: 'var(--color-main)',
+        },
+      });
+    }),
+  ]
 }

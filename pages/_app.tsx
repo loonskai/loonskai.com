@@ -4,7 +4,7 @@ import '../styles/index.css';
 const App = ({ Component, pageProps }): JSX.Element => {
   return (
     <ThemeProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 };

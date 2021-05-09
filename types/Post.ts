@@ -4,5 +4,6 @@ export type Post = {
   excerpt?: string;
   content?: string;
   date?: string;
-  [key: string]: string;
+  keywords?: string[];
+  coverImage?: string;
 }

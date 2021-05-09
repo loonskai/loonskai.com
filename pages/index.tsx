@@ -5,7 +5,6 @@ import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { PostPreview } from '../components/post-preview';
 import { Post } from '../types/Post';
-import { InProgress } from '../components/in-progress';
 
 type Props = {
   allPosts: Post[];
@@ -18,17 +17,19 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
         <title>loonskai.com</title>
       </Head>
       <Container>
-        <InProgress />
-        {/* {allPosts.map(post => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            excerpt={post.excerpt}
-            coverImage={post.coverImage}
-            slug={post.slug}
-            date={post.date}
-          />
-        ))} */}
+        <div className="grid grid-cols-1 auto-rows-max md:grid-cols-2 lg:grid-cols-3">
+          {allPosts.map(post => (
+            <PostPreview
+              key={post.slug}
+              title={post.title}
+              excerpt={post.excerpt}
+              coverImage={post.coverImage}
+              slug={post.slug}
+              keywords={post.keywords}
+              date={post.date}
+            />
+          ))}
+        </div>
       </Container>
     </Layout>
   );
@@ -42,6 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'slug',
     'excerpt',
     'coverImage',
+    'keywords',
     'date',
   ]);
   return {
