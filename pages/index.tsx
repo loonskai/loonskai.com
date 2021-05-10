@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import { getAllPosts } from '../lib/api';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
+import { SearchBar } from '../components/ui/search-bar';
 import { PostPreview } from '../components/post-preview';
 import { Post } from '../types/Post';
 
@@ -17,7 +18,8 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
         <title>loonskai.com</title>
       </Head>
       <Container>
-        <div className="grid grid-cols-1 auto-rows-max md:grid-cols-2 lg:grid-cols-3">
+        <SearchBar />
+        <div className="grid grid-cols-1 gap-4 auto-rows-max md:grid-cols-2 lg:grid-cols-3">
           {allPosts.map(post => (
             <PostPreview
               key={post.slug}

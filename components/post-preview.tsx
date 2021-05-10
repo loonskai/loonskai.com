@@ -21,7 +21,7 @@ export const PostPreview = ({
 }: Props): JSX.Element => (
   <section className="block bg-skin-content rounded-3xl p-4" key={slug}>
     <div className="w-full text-center">
-      <h2 className="text-3xl font-serif">{title}</h2>
+      <h2 className="text-2xl font-serif">{title}</h2>
     </div>
     <div className="flex justify-between w-full mb-1 text-sm">
       <div className="inline-block">

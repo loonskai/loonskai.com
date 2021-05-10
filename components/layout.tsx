@@ -12,9 +12,7 @@ export const Layout = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
       <Meta/>
       <div className={`${theme} text-skin-base bg-skin-base`}>
         <Header>
-          {/* <Toolbar> */}
           <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
-          {/* </Toolbar> */}
         </Header>
         <main>
           {children}
