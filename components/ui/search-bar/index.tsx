@@ -6,7 +6,6 @@ export const SearchBar = (): JSX.Element => (
       <input type="search outline-none" aria-label="Search bar" />
       <label>
         <input className="visually-hidden" type="submit" />
-        {/* <img src="./assets/images/search-icon.svg" alt=""> */}
         <SearchIcon className="absolute top-0 bottom-0 my-auto left-2" />
       </label>
     </form>

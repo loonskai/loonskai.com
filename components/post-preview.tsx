@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import { Tag } from './ui/tag';
+import { PrimaryLink } from './ui/primary-link';
 
 type Props = {
   title?: string;
@@ -19,7 +20,7 @@ export const PostPreview = ({
   date,
   keywords,
 }: Props): JSX.Element => (
-  <section className="block bg-skin-content rounded-3xl p-4" key={slug}>
+  <section className="flex flex-col justify-between gap-1 bg-skin-content rounded-3xl p-4" key={slug}>
     <div className="w-full text-center">
       <h2 className="text-2xl font-serif">{title}</h2>
     </div>
@@ -37,11 +38,16 @@ export const PostPreview = ({
       />
     </div>
     <p>{excerpt}</p>
-    <Link
-      as={`/posts/${slug}`}
-      href="/posts/[slug]"
-    >
-      <a>Read more</a>
-    </Link>
+    <div className="full text-right">
+      <Link
+        as={`/posts/${slug}`}
+        href="/posts/[slug]"
+        passHref
+      >
+        <PrimaryLink>
+        Read more
+        </PrimaryLink>
+      </Link>
+    </div>
   </section>
 );
