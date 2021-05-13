@@ -1,15 +1,78 @@
-/* orelega-one-regular - latin */
 @font-face {
-  font-family: 'Orelega One';
+  font-family: 'Tiempos Text';
+  src: url('../fonts/tiempos-headline/TiemposText-BoldItalic.eot');
+  src: local('Tiempos Text Bold Italic'), local('TiemposText-BoldItalic'),
+      url('../fonts/tiempos-headline/') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposText-BoldItalic.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposText-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('../fonts/tiempos-headline/TiemposHeadline-Black.eot');
+  src: local('Tiempos Headline Black'), local('TiemposHeadline-Black'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Black.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Black.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Black.ttf') format('truetype');
+  font-weight: 900;
   font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/orelega-one/orelega-one-v1-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('../fonts/orelega-one/orelega-one-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/orelega-one/orelega-one-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/orelega-one/orelega-one-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/orelega-one/orelega-one-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/orelega-one/orelega-one-v1-latin-regular.svg#OrelegaOne') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('../fonts/tiempos-headline/TiemposHeadline-Medium.eot');
+  src: local('Tiempos Headline Medium'), local('TiemposHeadline-Medium'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Medium.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('../fonts/tiempos-headline/TiemposText-Regular.eot');
+  src: local('Tiempos Text Regular'), local('TiemposText-Regular'),
+      url('../fonts/tiempos-headline/TiemposText-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposText-Regular.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposText-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('../fonts/tiempos-headline/TiemposText-Italic.eot');
+  src: local('Tiempos Text Italic'), local('TiemposText-Italic'),
+      url('../fonts/tiempos-headline/TiemposText-Italic.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposText-Italic.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposText-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('../fonts/tiempos-headline/TiemposHeadline-Light.eot');
+  src: local('Tiempos Headline Light'), local('TiemposHeadline-Light'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Light.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Light.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposHeadline-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('../fonts/tiempos-headline/TiemposText-Bold.eot');
+  src: local('Tiempos Text Bold'), local('TiemposText-Bold'),
+      url('../fonts/tiempos-headline/TiemposText-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/tiempos-headline/TiemposText-Bold.woff') format('woff'),
+      url('../fonts/tiempos-headline/TiemposText-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* roboto-regular - latin */
@@ -17,37 +80,37 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('../fonts/roboto/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/roboto/roboto-v27-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/roboto/roboto-v27-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/roboto/roboto-v27-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/roboto/roboto-v27-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/tiempos-headline/../fonts/roboto/roboto-v27-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto/roboto-v27-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto/roboto-v27-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto/roboto-v27-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 /* roboto-italic - latin */
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/roboto-v27-latin-italic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('../fonts/roboto-v27-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/roboto-v27-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/roboto-v27-latin-italic.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/roboto-v27-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/roboto-v27-latin-italic.svg#Roboto') format('svg'); /* Legacy iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-italic.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 /* roboto-700 - latin */
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/roboto-v27-latin-700.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('../fonts/roboto-v27-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/roboto-v27-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/roboto-v27-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/roboto-v27-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/roboto-v27-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/tiempos-headline/../fonts/roboto-v27-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }

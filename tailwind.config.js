@@ -12,18 +12,17 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
-        skin: {
-          base: 'var(--color-text-base)'
-        },
+        main: 'var(--color-main)',
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)'
       },
       backgroundColor: {
-        skin: {
-          base: 'var(--color-fill)',
-          content: 'var(--color-content-fill)',
-        },
+        main: 'var(--color-main)',
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)'
       },
       fontFamily: {
-        serif: ['Orelega One', ...fontFamily.serif],
+        serif: ['Tiempos Headline', ...fontFamily.serif],
         sans: ['Roboto', ...fontFamily.sans]
       }
     },

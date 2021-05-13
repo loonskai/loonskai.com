@@ -5,5 +5,4 @@ export type Post = {
   content?: string;
   date?: string;
   keywords?: string[];
-  coverImage?: string;
 }

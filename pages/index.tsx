@@ -25,7 +25,6 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
               key={post.slug}
               title={post.title}
               excerpt={post.excerpt}
-              coverImage={post.coverImage}
               slug={post.slug}
               keywords={post.keywords}
               date={post.date}
@@ -44,7 +43,6 @@ export const getStaticProps: GetStaticProps = async () => {
     'title',
     'slug',
     'excerpt',
-    'coverImage',
     'keywords',
     'date',
   ]);

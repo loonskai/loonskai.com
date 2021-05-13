@@ -10,7 +10,7 @@ export const Layout = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
   return (
     <>
       <Meta/>
-      <div className={`${theme} text-skin-base bg-skin-base`}>
+      <div className={`${theme} text-primary bg-primary`}>
         <Header>
           <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
         </Header>

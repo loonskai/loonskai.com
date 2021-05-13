@@ -5,16 +5,18 @@
 @layer base {
   .theme-light {
     --color-main: #86ff6d;
-    --color-text-base: #414142;
-    --color-fill: #eae9e5;
-    --color-content-fill: #ffffff;
+    --color-text-primary: #414142;
+    --color-bg-primary: #eae9e5;
+    /* --color-text-secondary:  */
+    --color-bg-secondary: #ffffff;
   }
   
   .theme-dark {
     --color-main: #86ff6d;
-    --color-text-base: #eae9e5;
-    --color-fill: #414142;
-    --color-content-fill: #2f2f2f;
+    --color-text-primary: #eae9e5;
+    --color-bg-primary: #414142;
+    /* --color-text-secondary:  */
+    --color-bg-secondary: #2f2f2f;
   }
 
   .visually-hidden {
