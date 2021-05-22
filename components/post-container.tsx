@@ -13,8 +13,7 @@ export const PostContainer = ({ post }: Props): JSX.Element => (
       </title>
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
     </Head>
-    <article>
-      <h1 className="font-serif text-5xl">{post.title}</h1>
+    <article className="post-container">
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
   </>

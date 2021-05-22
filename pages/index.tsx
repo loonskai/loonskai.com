@@ -19,7 +19,7 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
       </Head>
       <Container>
         <SearchBar />
-        <div className="grid grid-cols-1 gap-4 auto-rows-max md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 auto-rows-max md:grid-cols-2">
           {allPosts.map(post => (
             <PostPreview
               key={post.slug}

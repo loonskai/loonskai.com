@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  div#__next {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
   .theme-light {
     --color-main: #86ff6d;
     --color-text-primary: #414142;
@@ -28,5 +36,95 @@
     padding: 0;
     clip: rect(0 0 0 0);
     overflow: hidden;
+  }
+
+  .post-container pre {
+    line-height: inherit;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background: #2f2f2f;
+  }
+
+  .post-container p {
+    margin-bottom: 10px;
+  }
+
+  .post-container h1,
+  .post-container h2,
+  .post-container h3,
+  .post-container h4,
+  .post-container h5,
+  .post-container h6 {
+    font-family: Tiempos Headline, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 700;
+  }
+
+  .post-container h1 {
+    font-size: 3.75rem;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .post-container h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .hljs {
+    color: #eae9e5;
+    background: #2f2f2f;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal,
+  .hljs-section,
+  .hljs-link {
+    color: white;
+  }
+
+  .hljs-subst {
+    /* default */
+  }
+
+  .hljs-string,
+  .hljs-title,
+  .hljs-name,
+  .hljs-type,
+  .hljs-attribute,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-built_in,
+  .hljs-addition,
+  .hljs-variable,
+  .hljs-template-tag,
+  .hljs-template-variable {
+    color: var(--color-main);
+  }
+
+  .hljs-comment,
+  .hljs-quote,
+  .hljs-deletion,
+  .hljs-meta {
+    color: #777;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal,
+  .hljs-title,
+  .hljs-section,
+  .hljs-doctag,
+  .hljs-type,
+  .hljs-name,
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
   }
 }

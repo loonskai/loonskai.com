@@ -11,7 +11,6 @@ class MyDocument extends Document {
       <Html lang="en-US">
         <Head>
           <link href="/styles/fonts.css" rel="stylesheet"/>
-          <link href="/styles/styles.css" rel="stylesheet"/>
         </Head>
         <body>
           <Main />
