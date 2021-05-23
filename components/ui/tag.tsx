@@ -1,7 +1,20 @@
+import { css, useTheme } from '@emotion/react';
+
 type Props = {
   tag: string
 }
 
-export const Tag = ({ tag }: Props): JSX.Element => (
-  <span className="bg-primary rounded-md p-1 mr-0.5">{tag}</span>
-);
+export const Tag = ({ tag }: Props): JSX.Element => {
+  const theme = useTheme();
+
+  return (
+    <span
+      css={css`
+        background: ${theme.backgroundPrimary};
+        border-radius: 0.375rem;
+        padding: 0.25rem;
+        margin-right: 0.125rem;
+      `}
+    >{tag}</span>
+  );
+}; 

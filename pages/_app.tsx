@@ -1,12 +1,10 @@
-import { ThemeProvider } from '../context/theme';
-import '../styles/index.css';
+import { resetStyles } from '../shared/styles';
 
-const App = ({ Component, pageProps }): JSX.Element => {
-  return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
-};
+const App = ({ Component, pageProps }): JSX.Element => (
+  <>
+    {resetStyles}
+    <Component {...pageProps} />
+  </>
+);
 
 export default App;

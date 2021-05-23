@@ -5,10 +5,10 @@ import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { SearchBar } from '../components/ui/search-bar';
 import { PostPreview } from '../components/post-preview';
-import { Post } from '../types/Post';
+import { PostType } from '../components/post';
 
 type Props = {
-  allPosts: Post[];
+  allPosts: PostType[];
 }
 
 const IndexPage = ({ allPosts }: Props): JSX.Element => {
@@ -19,7 +19,7 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
       </Head>
       <Container>
         <SearchBar />
-        <div className="grid grid-cols-1 gap-4 auto-rows-max md:grid-cols-2">
+        <div>
           {allPosts.map(post => (
             <PostPreview
               key={post.slug}

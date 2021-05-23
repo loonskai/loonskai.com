@@ -1,17 +1,32 @@
 import { PropsWithChildren } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-export const NavigationLink = ({ href, as, children }: PropsWithChildren<{
+type StyledLinkProps = {
+  isActive: boolean
+}
+
+type NavigationLinkProps = {
   href: string;
   as?: string;
-}>): JSX.Element => {
+}
+
+const StyledLink = styled.a<StyledLinkProps>(({ isActive }) => css`
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  font-weight: ${isActive ? 700 : 400};
+`);
+
+export const NavigationLink = ({ href, as, children }: PropsWithChildren<NavigationLinkProps>): JSX.Element => {
   const { asPath } = useRouter();
   const isActive = asPath === href || asPath === as;
 
   return (
     <Link href={href}>
-      <a className={`flex items-center mx-2${isActive ? ' font-bold' : ''}`}>{children}</a>
+      <StyledLink isActive={isActive}>{children}</StyledLink>
     </Link>
   );
 };
