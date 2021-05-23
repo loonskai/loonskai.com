@@ -1,11 +1,17 @@
 import { css, Global } from '@emotion/react';
 import { mainColor } from './themes';
+import { mapValues } from '../lib/mapValues';
 
 /* Media queries */
-export const breakpoints = [ 640, 768, 1024, 1280, 1536 ].map(b => `${b}px`);
-export const mediaQueries = breakpoints.map(
-  bp => `@media (min-width: ${bp})`,
-);
+export const breakpoints = {
+  mobile: '640px', 
+  tablet: '768px', 
+  laptopSmall: '1024px', 
+  laptopMedium: '1280px', 
+  laptopWide: '1536px', 
+};
+
+export const mediaQueries = mapValues(breakpoints, bp => `@media (min-width: ${bp})`);
 
 /* Reset CSS */
 export const resetStyles = (

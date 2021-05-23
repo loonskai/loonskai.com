@@ -34,7 +34,7 @@ export const PostPreview = ({
         gap: 0.25rem;
         background: ${theme.backgroundSecondary};
         border-radius: 1.5rem;
-        padding: 1rem;
+        padding: 1rem 2rem;
       `}
     >
       <div

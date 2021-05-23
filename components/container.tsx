@@ -6,14 +6,15 @@ export const containerCss = css`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  ${mediaQueries[0]} {
-    max-width: ${breakpoints[0]};
+
+  ${mediaQueries.mobile} {
+    max-width: ${breakpoints.mobile};
   }
-  ${mediaQueries[1]} {
-    max-width: ${breakpoints[1]};
+  ${mediaQueries.tablet} {
+    max-width: ${breakpoints.tablet};
   }
-  ${mediaQueries[2]} {
-    max-width: ${breakpoints[2]};
+  ${mediaQueries.laptopSmall} {
+    max-width: ${breakpoints.laptopSmall};
   }
 `;
 

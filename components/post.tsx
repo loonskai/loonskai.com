@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from '@emotion/styled';
 import { css, useTheme } from '@emotion/react';
 import { containerCss } from './container';
+import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
 
 export type PostType = {
@@ -18,11 +19,13 @@ type Props = {
 }
 
 type StyledArticleProps = {
+  textColor: string
+  mainColor: string
   codeBg: string
   snippetBg: string
 }
 
-const StyledArticle = styled.article<StyledArticleProps>(({ snippetBg, codeBg }) => css`
+const StyledArticle = styled.article<StyledArticleProps>(({ textColor, mainColor, snippetBg, codeBg }) => css`
   pre {
     line-height: inherit;
     padding: 1rem;
@@ -51,6 +54,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ snippetBg, codeBg })
     padding: 0.125rem 0.250rem;
     border-radius: 0.2rem;
     background: ${codeBg};
+    word-wrap: break-word;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -69,6 +73,13 @@ const StyledArticle = styled.article<StyledArticleProps>(({ snippetBg, codeBg })
     margin-top: 20px;
     margin-bottom: 10px;
   }
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    color: ${textColor};
+    border-bottom: 2px solid ${mainColor};
+  }
 `);
 
 
@@ -77,9 +88,14 @@ export const Post = ({ post }: Props): JSX.Element => {
 
   const postContainerCss = css`
     margin-top: 2rem;
-    padding: 5rem;
+    padding: 2rem;
     background: ${theme.backgroundSecondary};
     border-radius: 2rem;
+    box-sizing: border-box;
+
+    ${mediaQueries.laptopMedium} {
+      padding: 5rem;
+    }
   `;
 
   return (
@@ -89,7 +105,12 @@ export const Post = ({ post }: Props): JSX.Element => {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
-        <StyledArticle snippetBg={theme.snippet.background} codeBg={theme.backgroundPrimary} >
+        <StyledArticle 
+          textColor={theme.textPrimary} 
+          mainColor={theme.mainColor} 
+          snippetBg={theme.snippet.background} 
+          codeBg={theme.backgroundPrimary}
+        >
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>
       </div>
