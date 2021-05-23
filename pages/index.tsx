@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { getAllPosts } from '../lib/api';
 import { Container } from '../components/container';
-import { Layout } from '../components/layout';
 import { SearchBar } from '../components/ui/search-bar';
 import { PostPreview } from '../components/post-preview';
 import { PostType } from '../components/post';
@@ -13,7 +12,7 @@ type Props = {
 
 const IndexPage = ({ allPosts }: Props): JSX.Element => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>loonskai.com</title>
       </Head>
@@ -32,7 +31,7 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
           ))}
         </div>
       </Container>
-    </Layout>
+    </>
   );
 };
 

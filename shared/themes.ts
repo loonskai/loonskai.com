@@ -1,12 +1,14 @@
 export const mainColor = '#86ff6d';
 
-export const THEMES = {
-  LIGHT: 'light',
-  DARK: 'dark',
-};
+export enum THEME {
+  LIGHT,
+  DARK,
+}
+
+export type ThemeValue = keyof typeof THEME;
 
 export const themeValues = {
-  [THEMES.LIGHT]: {
+  [THEME.LIGHT]: {
     mainColor,
     textPrimary: '#414142',
     backgroundPrimary: '#eae9e5',
@@ -15,11 +17,11 @@ export const themeValues = {
       background: '#414142',
       color: '#ffffff',
     },
-    code: {
+    snippet: {
       background: '#414142',
     },
   },
-  [THEMES.DARK]: {
+  [THEME.DARK]: {
     mainColor,
     textPrimary: '#eae9e5',
     backgroundPrimary: '#414142',
@@ -28,7 +30,7 @@ export const themeValues = {
       background: mainColor,
       color: '#414142',
     },
-    code: {
+    snippet: {
       background: '#414142',
     },
   },

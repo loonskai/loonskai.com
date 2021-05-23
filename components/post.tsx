@@ -18,24 +18,39 @@ type Props = {
 }
 
 type StyledArticleProps = {
-  codeBackground: string
+  codeBg: string
+  snippetBg: string
 }
 
-const StyledArticle = styled.article<StyledArticleProps>(({ codeBackground }) => css`
+const StyledArticle = styled.article<StyledArticleProps>(({ snippetBg, codeBg }) => css`
   pre {
     line-height: inherit;
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 0.5rem;
+    overflow-x: auto;
   }
 
   pre,
   pre > code {
-    background: ${codeBackground};
+    background: ${snippetBg};
+  }
+
+  pre > code {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   p {
-    margin-bottom: 10px;
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.725rem;
+  }
+
+  p > code {
+    padding: 0.125rem 0.250rem;
+    border-radius: 0.2rem;
+    background: ${codeBg};
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -74,7 +89,7 @@ export const Post = ({ post }: Props): JSX.Element => {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
-        <StyledArticle codeBackground={theme.code.background} >
+        <StyledArticle snippetBg={theme.snippet.background} codeBg={theme.backgroundPrimary} >
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>
       </div>

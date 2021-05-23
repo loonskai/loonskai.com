@@ -10,7 +10,7 @@ declare module '@emotion/react' {
       background: string
       color: string
     }
-    code: {
+    snippet: {
       background: string
     }
   }

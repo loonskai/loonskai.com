@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import { css } from '@emotion/react';
 import { NavigationLink } from './navigation/navigation-link';
-import { StyledLogo } from './styled/StyledLogo';
+import { StyledLogo } from './styled/styled-logo';
 
 export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element =>  (
   <header

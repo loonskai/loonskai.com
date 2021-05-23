@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
-import { Layout } from '../../components/layout';
 import { Post } from '../../components/post';
 import { codeStyles } from '../../shared/styles';
 
@@ -12,9 +11,7 @@ const PostPage = (props): JSX.Element => {
   return (
     <>
       {codeStyles}
-      <Layout>
-        {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
-      </Layout>
+      {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
     </>
   );
 };

@@ -1,11 +1,11 @@
-import { useState, PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { css, ThemeProvider } from '@emotion/react';
+import { css } from '@emotion/react';
 import { Meta } from './meta';
 import { Header } from './header';
 import { ThemeToggler } from './ui/theme-toggler';
-import { themeValues, THEMES } from '../shared/themes';
 import { sans } from '../shared/fonts';
+import { THEME } from '../shared/themes';
 
 const Wrapper = styled.div(({ theme }) => css`
   min-height: 100vh;
@@ -14,21 +14,22 @@ const Wrapper = styled.div(({ theme }) => css`
   ${sans}
 `);
 
-export const Layout = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => {
-  const [ theme, setTheme ] = useState(THEMES.LIGHT);
-  const toggleTheme = () => {
-    setTheme(theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT);
-  };
+type Props = {
+  activeTheme: THEME
+  toggleTheme(string): void
+} & PropsWithChildren<ReactNode>
+
+export const Layout = ({ children, activeTheme, toggleTheme }: Props): JSX.Element => {
 
   return (
-    <ThemeProvider theme={themeValues[theme]}>
+    <>
       <Meta/>
       <Wrapper>
         <Header>
-          <ThemeToggler activeTheme={theme} toggleTheme={toggleTheme} />
+          <ThemeToggler activeTheme={activeTheme} toggleTheme={toggleTheme} />
         </Header>
         <main>{children}</main>
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 };

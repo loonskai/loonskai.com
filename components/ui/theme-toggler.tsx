@@ -1,13 +1,13 @@
 import { css } from '@emotion/react';
-import { THEMES } from '../../shared/themes';
+import { THEME } from '../../shared/themes';
 
 type Props = {
-  activeTheme: string
+  activeTheme: THEME
   toggleTheme(string): void
 }
 
 export const ThemeToggler = ({ activeTheme, toggleTheme }: Props): JSX.Element => {
-  const darkThemeActive = activeTheme === THEMES.DARK;
+  const darkThemeActive = activeTheme === THEME.DARK;
 
   return (
     <button
@@ -46,6 +46,7 @@ export const ThemeToggler = ({ activeTheme, toggleTheme }: Props): JSX.Element =
         }
       `}
       aria-pressed={darkThemeActive}
+      aria-label="Change theme"
       type="submit"
       onClick={toggleTheme}
     >
