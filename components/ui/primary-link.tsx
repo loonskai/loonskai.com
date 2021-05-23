@@ -1,12 +1,31 @@
 import { forwardRef } from 'react';
+import { css, useTheme } from '@emotion/react';
 
-const Component = forwardRef<HTMLLinkElement, any>(({ children, ...props }, ref) => (
-  <a className="font-bold cursor-pointer border-b-2 border-main" ref={ref} {...props}>
-    {children}
-  </a>
-));
+const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...props }, ref) => {
+  const theme = useTheme();
 
-Component.displayName = 'PrimaryLink';
+  return (
+    <a
+      ref={ref}
+      css={css`
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+        color: ${theme.buttons.color};
+        background-color: ${theme.buttons.background};
+        border-radius: 0.5rem;
+      `}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+});
 
-export const PrimaryLink = Component;
+PrimaryLinkComponent.displayName = 'PrimaryLink';
+
+export const PrimaryLink = PrimaryLinkComponent;
 

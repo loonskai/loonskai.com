@@ -21,10 +21,6 @@ export const resetStyles = (
         background:transparent;
       }
 
-      body {
-        line-height:1;
-      }
-
       article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
         display:block;
       }
@@ -57,6 +53,13 @@ export const resetStyles = (
 
       input, select {
         vertical-align:middle;
+      }
+
+      html,
+      body,
+      div#__next {
+        min-height: 100vh;
+        box-sizing: border-box;
       }
     `}
   />

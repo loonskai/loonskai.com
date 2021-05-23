@@ -8,6 +8,7 @@ import { themeValues, THEMES } from '../shared/themes';
 import { sans } from '../shared/fonts';
 
 const Wrapper = styled.div(({ theme }) => css`
+  min-height: 100vh;
   color: ${theme.textPrimary};
   background: ${theme.backgroundPrimary};
   ${sans}

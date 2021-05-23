@@ -18,6 +18,7 @@ const StyledLink = styled.a<StyledLinkProps>(({ isActive }) => css`
   align-items: center;
   margin: 0 0.5rem;
   font-weight: ${isActive ? 700 : 400};
+  cursor: pointer;
 `);
 
 export const NavigationLink = ({ href, as, children }: PropsWithChildren<NavigationLinkProps>): JSX.Element => {

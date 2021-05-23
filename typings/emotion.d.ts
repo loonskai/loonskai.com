@@ -6,5 +6,12 @@ declare module '@emotion/react' {
     textPrimary: string
     backgroundPrimary: string
     backgroundSecondary: string
+    buttons: {
+      background: string
+      color: string
+    }
+    code: {
+      background: string
+    }
   }
 }

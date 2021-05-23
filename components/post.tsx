@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
 import { containerCss } from './container';
 import { serif } from '../shared/fonts';
 
@@ -17,18 +17,21 @@ type Props = {
   post: PostType
 }
 
-const postContainerCss = css`
-  padding: 5rem;
-  background: white;
-`;
+type StyledArticleProps = {
+  codeBackground: string
+}
 
-const StyledArticle = styled.article`
+const StyledArticle = styled.article<StyledArticleProps>(({ codeBackground }) => css`
   pre {
     line-height: inherit;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    background: #2f2f2f;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+  }
+
+  pre,
+  pre > code {
+    background: ${codeBackground};
   }
 
   p {
@@ -51,18 +54,30 @@ const StyledArticle = styled.article`
     margin-top: 20px;
     margin-bottom: 10px;
   }
-`;
+`);
 
-export const Post = ({ post }: Props): JSX.Element => (
-  <>
-    <Head>
-      <title>{post.title}</title>
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-    </Head>
-    <div css={[ containerCss, postContainerCss ]}>
-      <StyledArticle>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </StyledArticle>
-    </div>
-  </>
-);
+
+export const Post = ({ post }: Props): JSX.Element => {
+  const theme = useTheme();
+
+  const postContainerCss = css`
+    margin-top: 2rem;
+    padding: 5rem;
+    background: ${theme.backgroundSecondary};
+    border-radius: 2rem;
+  `;
+
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      </Head>
+      <div css={[ containerCss, postContainerCss ]}>
+        <StyledArticle codeBackground={theme.code.background} >
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </StyledArticle>
+      </div>
+    </>
+  );
+}; 

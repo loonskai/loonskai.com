@@ -26,6 +26,8 @@ export const PostPreview = ({
     <section
       key={slug}
       css={css`
+        max-width: 800px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -54,7 +56,11 @@ export const PostPreview = ({
           margin-bottom: 0.25rem;
         `}
       >{dayjs(date).format('MMMM D, YYYY')}</span>
-      <p>{excerpt}</p>
+      <p
+        css={css`
+          margin-bottom: 0.5rem;
+        `}
+      >{excerpt}</p>
       <div
         css={css`
           width: 100%;
