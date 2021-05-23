@@ -17,6 +17,10 @@ export const themeValues = {
       background: '#414142',
       color: '#ffffff',
     },
+    buttonsHover: {
+      background: mainColor,
+      color: '#2f2f2f',
+    },
     snippet: {
       background: '#414142',
     },
@@ -29,6 +33,10 @@ export const themeValues = {
     buttons: {
       background: mainColor,
       color: '#414142',
+    },
+    buttonsHover: {
+      background: '#414142',
+      color: mainColor,
     },
     snippet: {
       background: '#414142',

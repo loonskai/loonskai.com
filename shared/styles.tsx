@@ -107,9 +107,12 @@ export const codeStyles = (
         color: ${mainColor};
       }
 
+      .hljs-deletion {
+        color: #8e8e90;
+      }
+
       .hljs-comment,
       .hljs-quote,
-      .hljs-deletion,
       .hljs-meta {
         color: #777;
       }

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import { css, useTheme } from '@emotion/react';
+import { css, useTheme, Theme } from '@emotion/react';
 import { containerCss } from './container';
 import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
@@ -19,13 +19,10 @@ type Props = {
 }
 
 type StyledArticleProps = {
-  textColor: string
-  mainColor: string
-  codeBg: string
-  snippetBg: string
+  theme: Theme
 }
 
-const StyledArticle = styled.article<StyledArticleProps>(({ textColor, mainColor, snippetBg, codeBg }) => css`
+const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   pre {
     line-height: inherit;
     padding: 1rem;
@@ -36,7 +33,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ textColor, mainColor
 
   pre,
   pre > code {
-    background: ${snippetBg};
+    background: ${theme.snippet.background};
   }
 
   pre > code {
@@ -53,7 +50,8 @@ const StyledArticle = styled.article<StyledArticleProps>(({ textColor, mainColor
   p > code {
     padding: 0.125rem 0.250rem;
     border-radius: 0.2rem;
-    background: ${codeBg};
+    background: ${theme.backgroundPrimary};
+    font-size: 1rem;
     word-wrap: break-word;
   }
 
@@ -65,20 +63,63 @@ const StyledArticle = styled.article<StyledArticleProps>(({ textColor, mainColor
 
   h1 {
     font-size: 3.75rem;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
   }
 
   h2 {
     font-size: 2.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin: 2rem 0;
   }
 
   a {
-    text-decoration: none;
     font-weight: 600;
-    color: ${textColor};
-    border-bottom: 2px solid ${mainColor};
+    color: ${theme.textPrimary};
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 1px;
+    transition: color ease 0.3s;
+    z-index: 0;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 10%;
+    left: 0;
+    bottom: 0;
+    background-color: ${theme.mainColor};
+    transition: all ease 0.3s;
+  }
+  
+  a:hover {
+    color: #ffffff;
+  }
+
+  a:hover::after {
+    height: 100%;
+  }
+
+  img {
+    display: block;
+    border-radius: 0.2rem;
+    margin: 2rem auto;
+    box-shadow: 0px 0px 30px -15px rgba(0,0,0,0.4);
+  }
+
+  blockquote {
+    padding: 1rem 2rem;
+    border-left: 4px solid ${theme.mainColor};
+    margin-bottom: 1.5rem;
+    background: ${theme.backgroundPrimary};
+  }
+
+  blockquote > p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0;
   }
 `);
 
@@ -105,12 +146,7 @@ export const Post = ({ post }: Props): JSX.Element => {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
-        <StyledArticle 
-          textColor={theme.textPrimary} 
-          mainColor={theme.mainColor} 
-          snippetBg={theme.snippet.background} 
-          codeBg={theme.backgroundPrimary}
-        >
+        <StyledArticle theme={theme}>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>
       </div>

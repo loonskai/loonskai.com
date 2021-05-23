@@ -10,6 +10,10 @@ declare module '@emotion/react' {
       background: string
       color: string
     }
+    buttonsHover: {
+      background: string
+      color: string
+    },
     snippet: {
       background: string
     }

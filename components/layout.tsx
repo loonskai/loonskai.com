@@ -11,6 +11,7 @@ const Wrapper = styled.div(({ theme }) => css`
   min-height: 100vh;
   color: ${theme.textPrimary};
   background: ${theme.backgroundPrimary};
+  transition: all ease 0.3s;
   ${sans}
 `);
 
@@ -20,7 +21,6 @@ type Props = {
 } & PropsWithChildren<ReactNode>
 
 export const Layout = ({ children, activeTheme, toggleTheme }: Props): JSX.Element => {
-
   return (
     <>
       <Meta/>

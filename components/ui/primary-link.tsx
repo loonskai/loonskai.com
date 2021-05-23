@@ -17,6 +17,12 @@ const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...pr
         color: ${theme.buttons.color};
         background-color: ${theme.buttons.background};
         border-radius: 0.5rem;
+        transition: all ease 0.3s;
+
+        &:hover {
+          color: ${theme.buttonsHover.color};
+          background-color: ${theme.buttonsHover.background};
+        }
       `}
       {...props}
     >
