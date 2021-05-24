@@ -1,6 +1,8 @@
 import { Theme } from '@emotion/react';
 
 export const mainColor = '#86ff6d';
+export const whiteColor = '#ffffff';
+export const blackColor ='#2f2f2f';
 
 export enum THEME {
   LIGHT,
@@ -16,7 +18,7 @@ export const themeValues = {
     },
     background: {
       primary: '#eae9e5',
-      secondary: '#ffffff',
+      secondary: whiteColor,
     },
     buttons: {
       background: '#414142',
@@ -24,7 +26,7 @@ export const themeValues = {
     },
     buttonsHover: {
       background: mainColor,
-      color: '#2f2f2f',
+      color: blackColor,
     },
     snippet: {
       background: '#414142',
@@ -38,7 +40,7 @@ export const themeValues = {
     },
     background: {
       primary: '#414142',
-      secondary: '#2f2f2f',
+      secondary: blackColor,
     },
     buttons: {
       background: mainColor,

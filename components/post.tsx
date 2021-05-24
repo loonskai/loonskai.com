@@ -154,6 +154,7 @@ export const Post = ({ post }: Props): JSX.Element => {
     background: ${theme.background.secondary};
     border-radius: 2rem;
     box-sizing: border-box;
+    box-shadow: rgba(51, 51, 51, 0.1) 0px 32px 64px 0px;
 
     ${mediaQueries.laptopMedium} {
       padding: 5rem;

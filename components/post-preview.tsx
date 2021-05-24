@@ -33,6 +33,7 @@ export const PostPreview = ({
         justify-content: space-between;
         gap: 0.25rem;
         background: ${theme.background.secondary};
+        box-shadow: rgba(51, 51, 51, 0.1) 0px 32px 64px 0px;
         border-radius: 1.5rem;
         padding: 1rem 2rem;
       `}
