@@ -108,7 +108,7 @@ export const codeStyles = (
       }
 
       .hljs-deletion {
-        color: #8e8e90;
+        color: #f1b0b0;
       }
 
       .hljs-comment,

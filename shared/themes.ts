@@ -1,3 +1,5 @@
+import { Theme } from '@emotion/react';
+
 export const mainColor = '#86ff6d';
 
 export enum THEME {
@@ -5,14 +7,17 @@ export enum THEME {
   DARK,
 }
 
-export type ThemeValue = keyof typeof THEME;
-
 export const themeValues = {
   [THEME.LIGHT]: {
     mainColor,
-    textPrimary: '#414142',
-    backgroundPrimary: '#eae9e5',
-    backgroundSecondary: '#ffffff',
+    text: {
+      primary: '#414142',
+      description: '#747474',
+    },
+    background: {
+      primary: '#eae9e5',
+      secondary: '#ffffff',
+    },
     buttons: {
       background: '#414142',
       color: '#ffffff',
@@ -27,9 +32,14 @@ export const themeValues = {
   },
   [THEME.DARK]: {
     mainColor,
-    textPrimary: '#eae9e5',
-    backgroundPrimary: '#414142',
-    backgroundSecondary: '#2f2f2f',
+    text: {
+      primary: '#eae9e5',
+      description: '#d1d1d1',
+    },
+    background: {
+      primary: '#414142',
+      secondary: '#2f2f2f',
+    },
     buttons: {
       background: mainColor,
       color: '#414142',
@@ -42,4 +52,4 @@ export const themeValues = {
       background: '#414142',
     },
   },
-};
+} as { [T in THEME]: Theme };

@@ -32,7 +32,7 @@ export const PostPreview = ({
         flex-direction: column;
         justify-content: space-between;
         gap: 0.25rem;
-        background: ${theme.backgroundSecondary};
+        background: ${theme.background.secondary};
         border-radius: 1.5rem;
         padding: 1rem 2rem;
       `}

@@ -10,7 +10,7 @@ export const Tag = ({ tag }: Props): JSX.Element => {
   return (
     <span
       css={css`
-        background: ${theme.backgroundPrimary};
+        background: ${theme.background.primary};
         border-radius: 0.375rem;
         padding: 0.25rem;
         margin-right: 0.5rem;

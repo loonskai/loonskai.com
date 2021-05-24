@@ -9,8 +9,8 @@ import { THEME } from '../shared/themes';
 
 const Wrapper = styled.div(({ theme }) => css`
   min-height: 100vh;
-  color: ${theme.textPrimary};
-  background: ${theme.backgroundPrimary};
+  color: ${theme.text.primary};
+  background: ${theme.background.primary};
   transition: all ease 0.3s;
   ${sans}
 `);

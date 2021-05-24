@@ -47,10 +47,10 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     line-height: 1.725rem;
   }
 
-  p > code {
+  p > code, li > code {
     padding: 0.125rem 0.250rem;
     border-radius: 0.2rem;
-    background: ${theme.backgroundPrimary};
+    background: ${theme.background.primary};
     font-size: 1rem;
     word-wrap: break-word;
   }
@@ -73,9 +73,10 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
 
   a {
     font-weight: 600;
-    color: ${theme.textPrimary};
+    color: ${theme.text.primary};
     position: relative;
     text-decoration: none;
+    font-style: italic;
     display: inline-block;
     padding: 0 1px;
     transition: color ease 0.3s;
@@ -105,7 +106,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   img {
     display: block;
     border-radius: 0.2rem;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem auto;
     box-shadow: 0px 0px 30px -15px rgba(0,0,0,0.4);
   }
 
@@ -113,13 +114,33 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     padding: 1rem 2rem;
     border-left: 4px solid ${theme.mainColor};
     margin-bottom: 1.5rem;
-    background: ${theme.backgroundPrimary};
+    background: ${theme.background.primary};
   }
 
   blockquote > p {
     font-size: 1.2rem;
     font-style: italic;
     margin: 0;
+  }
+
+  ul {
+    padding: 1rem 5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    font-size: 1.125rem;
+    margin-bottom: 1.125rem;
+    line-height: 1.5;
+  }
+
+  .img-description {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    font-style: italic;
+    color: ${theme.text.description};
   }
 `);
 
@@ -130,7 +151,7 @@ export const Post = ({ post }: Props): JSX.Element => {
   const postContainerCss = css`
     margin-top: 2rem;
     padding: 2rem;
-    background: ${theme.backgroundSecondary};
+    background: ${theme.background.secondary};
     border-radius: 2rem;
     box-sizing: border-box;
 
