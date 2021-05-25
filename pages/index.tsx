@@ -19,16 +19,7 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
       <Container>
         <SearchBar />
         <div>
-          {allPosts.map(post => (
-            <PostPreview
-              key={post.slug}
-              title={post.title}
-              excerpt={post.excerpt}
-              slug={post.slug}
-              keywords={post.keywords}
-              date={post.date}
-            />
-          ))}
+          {allPosts.map(post => <PostPreview key={post.slug} post={post} />)}
         </div>
       </Container>
     </>
@@ -44,6 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'excerpt',
     'keywords',
     'date',
+    'estimated',
   ]);
   return {
     props: { allPosts },

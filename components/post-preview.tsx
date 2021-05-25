@@ -1,26 +1,17 @@
 import Link from 'next/link';
-import dayjs from 'dayjs';
 import { css, useTheme } from '@emotion/react';
-import { Tag } from './ui/tag';
 import { PrimaryLink } from './ui/primary-link';
 import { serif } from '../shared/fonts';
+import { PostType } from '../components/post';
+import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 
 type Props = {
-  title?: string;
-  excerpt?: string;
-  slug?: string;
-  date?: string;
-  keywords?: string[];
+  post: PostType;
 }
 
-export const PostPreview = ({ 
-  title,
-  excerpt,
-  slug,
-  date,
-  keywords,
-}: Props): JSX.Element => {
+export const PostPreview = ({ post }: Props): JSX.Element => {
   const theme = useTheme();
+  const { title, excerpt, slug } = post;
 
   return (
     <section
@@ -51,12 +42,7 @@ export const PostPreview = ({
           `}
         >{title}</h2>
       </div>
-      <span
-        css={css`
-          width: 100%;
-          margin-bottom: 0.25rem;
-        `}
-      >{dayjs(date).format('MMMM D, YYYY')}</span>
+      <PostPreviewPublicationInfo post={post} />
       <p
         css={css`
           margin-bottom: 0.5rem;
@@ -64,18 +50,9 @@ export const PostPreview = ({
       >{excerpt}</p>
       <div
         css={css`
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
+          align-self: flex-end;
         `}
       >
-        <div
-          css={css`
-            margin: 0.5rem 0;
-          `}
-        >
-          {keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
-        </div>
         <Link
           as={`/posts/${slug}`}
           href="/posts/[slug]"

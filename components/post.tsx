@@ -2,16 +2,18 @@ import Head from 'next/head';
 import styled from '@emotion/styled';
 import { css, useTheme, Theme } from '@emotion/react';
 import { containerCss } from './container';
+import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
 
 export type PostType = {
-  title?: string;
-  slug?: string;
-  excerpt?: string;
-  content?: string;
-  date?: string;
-  keywords?: string[];
+  title?: string
+  slug?: string
+  excerpt?: string
+  content?: string
+  date?: string
+  keywords?: string[]
+  estimated?: string
 }
 
 type Props = {
@@ -144,7 +146,6 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 `);
 
-
 export const Post = ({ post }: Props): JSX.Element => {
   const theme = useTheme();
 
@@ -168,6 +169,7 @@ export const Post = ({ post }: Props): JSX.Element => {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
+        <PostPreviewPublicationInfo post={post} />
         <StyledArticle theme={theme}>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>

@@ -3,6 +3,7 @@ title: Telegram speech to text bot with Node.js
 excerpt: How to combine Telegram Bot API with a speech recognition service to transcribe voice messages to text.
 keywords: [Node.js, DIY]
 date: '2020-03-16T05:35:07.322Z'
+estimated: 15 minutes
 ---
 
 # Telegram speech to text bot with Node.js
@@ -17,6 +18,9 @@ I realized almost immediately that this idea is not new and there are already ma
 But then I thought that this might be a nice opportunity to write my own Telegram bot and see how easily we can customise our own experience with Telegram. So enough talk and let’s see how it can be done with Node.js.
 
 ## Initialize bot with BotFather
+
+> The full version of the code is [available on Github](https://github.com/loonskai/voice-textify-bot).
+
 Before starting to write code we need to initialize our bot. Fortunately Telegram provides a friendly way to do this by using [BotFather](https://t.me/botfather). The documentation is very clear on this process so you can [check it](https://core.telegram.org/bots#3-how-do-i-create-a-bot) for more details.
 
 After we choose our bot’s name and username, BotFather will give us an access token for Telegram HTTP API which we’ll need to use in our Node.js application. We should not forget also to switch the privacy mode off to make our bot automatically process voice messages from group chats. Send the `/setprivacy` command to BotFather, choose the new bot, click `Disable` and you’re done.
@@ -219,7 +223,7 @@ Here are the steps of how to start using Speech Services:
 - Create a new [Cognitive Speech Service](https://portal.azure.com/?quickstart=True#create/Microsoft.CognitiveServicesSpeechServices) by choosing our Free Tier. 
 - After initial deployment is complete we can go to the resource and select keys and resources.
   
-We take one of the secret keys and the value of location which we’ll use in our Node.js application. Store the secret key in your `.env` file as `SUBSCRIPTIO_KEY`. After this we’re ready to start implementing this service in our bot application.
+We take one of the secret keys and the value of location which we’ll use in our Node.js application. Store the secret key in your `.env` file as `SUBSCRIPTION_KEY`. After this we’re ready to start implementing this service in our bot application.
 
 Microsoft provides [Speech SDK for Node.js]() that we need to install in our project
 npm install microsoft-cognitiveservices-speech-sdk
