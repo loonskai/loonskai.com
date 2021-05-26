@@ -1,6 +1,6 @@
 import { Theme } from '@emotion/react';
 
-export const mainColor = '#86ff6d';
+export const mainColor = '#51e8a7';
 export const whiteColor = '#ffffff';
 export const blackColor ='#2f2f2f';
 

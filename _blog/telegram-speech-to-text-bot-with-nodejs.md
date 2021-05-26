@@ -6,7 +6,7 @@ date: '2020-03-16T05:35:07.322Z'
 estimated: 15 minutes
 ---
 
-# Telegram speech to text bot with Node.js
+## Table of Contents
 
 ## Background
 
@@ -40,7 +40,7 @@ console.log("Hello");
 
 As you can see we’re going to use TypeScript. Let’s install it together with ts-node which will allow us to run the code without compilation:
 
-```bash
+```
 npm i -D typescript ts-node
 ```
 
@@ -51,15 +51,15 @@ To create the `tsconfig.json` file in our project run `npx typescript --init` co
 ```json
 {
   "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "outDir": "dist",
-      "typeRoots": ["./node_modules/@types", "./typings"]
-    },
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "typeRoots": ["./node_modules/@types", "./typings"]
+  },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
@@ -70,7 +70,7 @@ To create the `tsconfig.json` file in our project run `npx typescript --init` co
 
 Let’s add nodemon to watch the changes in our code during local development:
 
-```bash
+```
 npm -i D nodemon
 ```
 
@@ -78,42 +78,42 @@ We need to customize its configuration to make it work with TypeScript:
 
 **package.json**
 
-```diff
+```json
 {
-+  "nodemonConfig": {
-+    "watch": ["src"],
-+    "ext": "ts,json",
-+    "exec": "ts-node ./src/index.ts"
+  "nodemonConfig": {
+    "watch": ["src"],
+    "ext": "ts,json",
+    "exec": "ts-node ./src/index.ts"
   }
 }
 ```
 
 Add ESLint so our codestyle stays consistent:
 
-```bash
+```
 npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
 **package.json**
 
-```diff
+```json
 {
-+  "eslintConfig": {
-+    "root": true,
-+    "parser": "@typescript-eslint/parser",
-+    "plugins": [
-+      "@typescript-eslint"
-+    ],
-+    "extends": [
-+      "eslint:recommended",
-+      "plugin:@typescript-eslint/recommended"
-+    ],
-+    "rules": {
-+      "semi": "error",
-+      "indent": [ "error", 2 ],
-+     "quotes": [ "error", "single" ]
-+    }
-+  }
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "semi": "error",
+      "indent": [ "error", 2 ],
+     "quotes": [ "error", "single" ]
+    }
+  }
 }
 ```
 
@@ -130,18 +130,18 @@ The final thing we need to do is to create `docker-compose.yml.dev` to run our t
 ```yaml
 version: '3.8'
 services:
- bot:
-   env_file: .env
-   build:
-     context: .
-     target: dev
-   volumes:
-     - .:/app:delegated
+  bot:
+    env_file: .env
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app:delegated
 ```
  
 Have you noticed the `target` property? Yes, it points to the `dev` stage in our Docker image which we were discussing just a moment ago. Now we can run our project locally:
 
-```bash
+```
 docker-compose -f docker-compose.dev.yml up --build
 ```
 
@@ -149,7 +149,7 @@ docker-compose -f docker-compose.dev.yml up --build
 
 Finally we got the actual bot implementation code. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. Let's install it
 
-```bash
+```
 npm i telegraf
 ```
 
@@ -159,13 +159,13 @@ Install `dotenv` to get access to the environment variables. One of them will be
 
 ```typescript
 declare global {
- namespace NodeJS {
-   interface ProcessEnv {
+  namespace NodeJS {
+    interface ProcessEnv {
      BOT_TOKEN: string;
-   }
- }
+    }
+  }
 }
- 
+
 export {};
 ```
 
@@ -192,22 +192,17 @@ In our case we want to handle **voice** event. Context object also encapsulates 
 
 **src/index.ts**
 
-```diff
-- const bot = new Telegraf(process.env.BOT_TOKEN);
-- bot.on('text', async ctx => {
--   ctx.telegram.sendMessage(ctx.message.chat.id, 'pong');
-- });
-
-+ bot.on('voice', async ctx => {
-+   try {
-+      ctx.telegram.sendMessage(ctx.message.chat.id, 'Processing voice message ...');
-+      const { href: fileUrl } = await ctx.telegram.getFileLink(ctx.message.voice.file_id);
-+      const { data: voiceMessageStream } = await axios(fileUrl, { responseType: 'stream' });
-+   } catch (error) {
-+      console.log(error);
-+      ctx.telegram.sendMessage(ctx.message.chat.id, 'Something went wrong');
-+   }
-+ });
+```typescript
+bot.on('voice', async ctx => {
+  try {
+    ctx.telegram.sendMessage(ctx.message.chat.id, 'Processing voice message ...');
+    const { href: fileUrl } = await ctx.telegram.getFileLink(ctx.message.voice.file_id);
+    const { data: voiceMessageStream } = await axios(fileUrl, { responseType: 'stream' });
+  } catch (error) {
+    console.log(error);
+    ctx.telegram.sendMessage(ctx.message.chat.id, 'Something went wrong');
+  }
+});
 ```
 
 After we have the access to the voice messages data we need to think about how to translate it to the text. We’re going to use Microsoft Azure Speech Recognition service which provides 10,000 free transactions per month and that perfectly meets our needs.
@@ -217,7 +212,7 @@ After we have the access to the voice messages data we need to think about how t
 Here are the steps of how to start using Speech Services:
 
 - Go to [Azure Portal](https://portal.azure.com/#home) and sign in using your Microsoft account.
-- Find the **Cognitive Services** section where you’ll be suggested to start a free trial. 
+- Find the **"Cognitive Services"** section where you’ll be suggested to start a free trial. 
 - You will be asked to complete some verification steps which also includes providing you payment card details. You should not be worried about any charges as you pay only if you explicitly upgrade the account. 
 - If you successfully complete the verification process you’ll see the notification about starting your free trial. 
 - Create a new [Cognitive Speech Service](https://portal.azure.com/?quickstart=True#create/Microsoft.CognitiveServicesSpeechServices) by choosing our Free Tier. 
@@ -236,14 +231,14 @@ First of all we need to configure the client. Let’s encapsulate this logic int
 
 **src/index.ts**
 
-```diff
-+ import { configureRecognizer } from './recognizer';
- 
-+ const recognize = configureRecognizer({
-+   key: process.env.SUBSCRIPTION_KEY,
-+   region: 'eastus',
-+   language: 'en-US'
-+ });
+```typescript
+import { configureRecognizer } from './recognizer';
+
+const recognize = configureRecognizer({
+  key: process.env.SUBSCRIPTION_KEY,
+  region: 'eastus',
+  language: 'en-US'
+});
 ```
 
 **src/recognizer.ts**
@@ -334,25 +329,25 @@ Let’s wrap all decoding functionality into helper that will look like this:
 import { spawn } from 'child_process';
 import { Duplex } from 'stream';
 import duplexify from 'duplexify';
- 
+
 type Args = {
- forceWav?: boolean
- rate?: number
+  forceWav?: boolean
+  rate?: number
 }
  
 export const opusStream = ({ forceWav = false, rate }: Args): Duplex => {
- let args: string[] = [];
- 
- if (forceWav) args = args.concat(['--force-wav']);
- if (rate) args = args.concat(['--rate', rate.toString()]);
- args = args.concat(['-', '-']);
- 
- const opusdec = spawn('opusdec', args);
- opusdec.on('error', err => {
-   console.error('Decoding error', err);
- });
- 
- return duplexify(opusdec.stdin, opusdec.stdout);
+  let args: string[] = [];
+
+  if (forceWav) args = args.concat(['--force-wav']);
+  if (rate) args = args.concat(['--rate', rate.toString()]);
+  args = args.concat(['-', '-']);
+
+  const opusdec = spawn('opusdec', args);
+  opusdec.on('error', err => {
+    console.error('Decoding error', err);
+  });
+
+  return duplexify(opusdec.stdin, opusdec.stdout);
 };
 ```
 
@@ -360,15 +355,13 @@ Now we can modify our `recognize()` method a little to accept transform steam an
 
 **src/recognize.ts**
 
-```diff
+```typescript
 const getSpeechRecognize = (config: SpeechConfig) => async ({
   inputStream,
-+ transformStream = new PassThrough()
+  transformStream = new PassThrough()
 }: RecognizeArgs): Promise<string> => {
-    /* ... */
-- await promisePipeline(inputStream, outputStream);
-+ await promisePipeline(inputStream, transformStream, outputStream);
-    /* ... */
+  await promisePipeline(inputStream, outputStream);
+  await promisePipeline(inputStream, transformStream, outputStream);
 };
 ```
 
@@ -376,17 +369,15 @@ And then in our main file we just get the resolved text and reply it to the init
 
 **src/index.ts**
 
-```diff
-+ import { opusStream } from './opusStream';
+```typescript
+import { opusStream } from './opusStream';
 
 bot.on('voice', async ctx => {
-    /* ... */
   const text = await recognize({
     inputStream: voiceMessageStream,
-+   transformStream: opusStream({ forceWav: true, rate: 16000 })
+    transformStream: opusStream({ forceWav: true, rate: 16000 })
   });
-+ ctx.reply(text, { reply_to_message_id: ctx.message.message_id });
-    /* ... */
+  ctx.reply(text, { reply_to_message_id: ctx.message.message_id });
 });
 ```
 
@@ -406,16 +397,16 @@ But first we need to do a small configuration inside our application project. As
 ```yaml
 version: '3.8'
 services:
- bot:
-   build:
-     context: .
-     target: prod
-   environment:
-     - BOT_TOKEN
-     - SUBSCRIPTION_KEY
+  bot:
+    build:
+      context: .
+      target: prod
+    environment:
+      - BOT_TOKEN
+      - SUBSCRIPTION_KEY
 ```
 
-After this we can start AWS configuration. Sign in to your AWS Console and go to Elastic Beanstalk **Applications** tab. Click on  **Create new application** button and select **Docker**.
+After this we can start AWS configuration. Sign in to your AWS Console and go to Elastic Beanstalk **"Applications"** tab. Click on  **"Create new application"** button and select **"Docker**.
 ![Create new Elastic Beanstalk application](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-create-app.png)
 <span class="img-description">Create new Elastic Beanstalk application</span>
 

@@ -11,9 +11,10 @@ export const Tag = ({ tag }: Props): JSX.Element => {
     <span
       css={css`
         background: ${theme.background.primary};
+        font-weight: 600;
         border-radius: 0.375rem;
         padding: 0.25rem;
-        margin-right: 0.5rem;
+        margin: 0 0.145rem;
       `}
     >{tag}</span>
   );

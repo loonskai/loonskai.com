@@ -25,6 +25,7 @@ export const PostPreviewPublicationInfo = ({ post }: Props): JSX.Element => {
       css={css`
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         margin-bottom: 0.25rem;
       `}
@@ -44,10 +45,13 @@ export const PostPreviewPublicationInfo = ({ post }: Props): JSX.Element => {
       </StyledDetailsStatement>
       <div
         css={css`
+          width: 100%;
           margin: 0.5rem 0;
         `}
       >
-        {post.keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
+        <StyledDetailsStatement>
+          Tags: {post.keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
+        </StyledDetailsStatement>
       </div>
     </div>
   );

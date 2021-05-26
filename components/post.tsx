@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { css, useTheme, Theme } from '@emotion/react';
 import { containerCss } from './container';
 import { PostPreviewPublicationInfo } from './post-preview-publication-info';
+import { Heading } from './ui/heading';
 import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
 
@@ -33,16 +34,6 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     overflow-x: auto;
   }
 
-  pre,
-  pre > code {
-    background: ${theme.snippet.background};
-  }
-
-  pre > code {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
   p {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
@@ -69,7 +60,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 2rem 0;
   }
 
@@ -126,7 +117,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   ul {
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
     margin-bottom: 1.5rem;
   }
 
@@ -169,6 +160,7 @@ export const Post = ({ post }: Props): JSX.Element => {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
+        <Heading>{post.title}</Heading>
         <PostPreviewPublicationInfo post={post} />
         <StyledArticle theme={theme}>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />

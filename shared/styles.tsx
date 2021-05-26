@@ -1,5 +1,4 @@
 import { css, Global } from '@emotion/react';
-import { mainColor } from './themes';
 import { mapValues } from '../lib/mapValues';
 
 /* Media queries */
@@ -60,7 +59,13 @@ export const resetStyles = (
       input, select {
         vertical-align:middle;
       }
+    `}
+  />
+);
 
+export const globalStyles = (
+  <Global
+    styles={css`
       html,
       body,
       div#__next {
@@ -71,68 +76,132 @@ export const resetStyles = (
   />
 );
 
-/* Code snippets highlight.js theme */
+
 export const codeStyles = (
   <Global
     styles={css`
-      .hljs {
-        color: #eae9e5;
-        background: #2f2f2f;
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #f8f8f2;
+        background: none;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        font-size: 0.9rem;
+
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
       }
 
-      .hljs-keyword,
-      .hljs-selector-tag,
-      .hljs-literal,
-      .hljs-section,
-      .hljs-link {
-        color: white;
+      /* Code blocks */
+      pre[class*="language-"] {
+        padding: 1em;
+        margin: 0.5em 0;
+        overflow: auto;
+        border-radius: 0.3em;
       }
 
-      .hljs-subst {
-        /* default */
+      :not(pre) > code[class*="language-"],
+      pre[class*="language-"] {
+        background: #414142;
       }
 
-      .hljs-string,
-      .hljs-title,
-      .hljs-name,
-      .hljs-type,
-      .hljs-attribute,
-      .hljs-symbol,
-      .hljs-bullet,
-      .hljs-built_in,
-      .hljs-addition,
-      .hljs-variable,
-      .hljs-template-tag,
-      .hljs-template-variable {
-        color: ${mainColor};
+      /* Inline code */
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
       }
 
-      .hljs-deletion {
-        color: #f1b0b0;
+      .token.comment,
+      .token.prolog,
+      .token.doctype,
+      .token.cdata {
+        color: #a0a0a0;
       }
 
-      .hljs-comment,
-      .hljs-quote,
-      .hljs-meta {
-        color: #777;
+      .token.punctuation {
+        color: #fefefe;
       }
 
-      .hljs-keyword,
-      .hljs-selector-tag,
-      .hljs-literal,
-      .hljs-title,
-      .hljs-section,
-      .hljs-doctag,
-      .hljs-type,
-      .hljs-name,
-      .hljs-strong {
+      .token.property,
+      .token.tag,
+      .token.constant,
+      .token.symbol,
+      .token.deleted {
+        color: #ff8eb9;
+      }
+
+      .token.boolean,
+      .token.number {
+        color: #00e0e0;
+      }
+
+      .token.selector,
+      .token.attr-name,
+      .token.string,
+      .token.char,
+      .token.builtin,
+      .token.inserted {
+        color: #51e8a7;
+      }
+
+      .token.operator,
+      .token.entity,
+      .token.url,
+      .language-css .token.string,
+      .style .token.string,
+      .token.variable {
+        color: #00e0e0;
+      }
+
+      .token.atrule,
+      .token.attr-value,
+      .token.function {
+        color: #00ffaa;
+      }
+
+      .token.keyword {
+        color: #00e0e0;
+      }
+
+      .token.regex,
+      .token.important {
+        color: #ffd700;
+      }
+
+      .token.keyword,
+      .token.important,
+      .token.bold {
         font-weight: bold;
       }
 
-      .hljs-emphasis {
+      .token.italic {
         font-style: italic;
       }
-    `}
+
+      .token.entity {
+        cursor: help;
+      }
+
+      .remark-highlight-code-line {
+        display: block;
+        width: 100%;
+        background: #5c5c5c;
+        box-shadow: inset 5px 0 0 #51e8a7;
+        margin-left: -16px;
+        padding: 0 16px;
+      }
+  `}
   />
 );
 
