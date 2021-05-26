@@ -1,23 +1,25 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import { getAllPosts } from '../lib/api';
-import { Container } from '../components/container';
-import { SearchBar } from '../components/ui/search-bar';
-import { PostPreview } from '../components/post-preview';
-import { PostType } from '../components/post';
+import { getAllBlogPosts } from '../../lib/api';
+import { Container } from '../../components/container';
+// import { SearchBar } from '../components/ui/search-bar';
+import { PostPreview } from '../../components/post-preview';
+import { PostType } from '../../components/post';
+import { Heading } from '../../components/ui/heading';
 
 type Props = {
   allPosts: PostType[];
 }
 
-const IndexPage = ({ allPosts }: Props): JSX.Element => {
+const BlogPage = ({ allPosts }: Props): JSX.Element => {
   return (
     <>
       <Head>
         <title>loonskai.com</title>
       </Head>
       <Container>
-        <SearchBar />
+        {/* <SearchBar /> */}
+        <Heading>Recent posts</Heading>
         <div>
           {allPosts.map(post => <PostPreview key={post.slug} post={post} />)}
         </div>
@@ -26,10 +28,10 @@ const IndexPage = ({ allPosts }: Props): JSX.Element => {
   );
 };
 
-export default IndexPage;
+export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = getAllPosts([
+  const allPosts = getAllBlogPosts([
     'title',
     'slug',
     'excerpt',

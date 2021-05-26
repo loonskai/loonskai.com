@@ -1,5 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import { css } from '@emotion/react';
+import Link from 'next/link';
 import { NavigationLink } from './navigation/navigation-link';
 import { StyledLogo } from './styled/styled-logo';
 
@@ -17,8 +18,10 @@ export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
         flex-wrap: wrap;
       `}
     >
-      <StyledLogo>loonskai.com</StyledLogo>
-      <NavigationLink href="/">Blog</NavigationLink>
+      <Link href="/blog">
+        <StyledLogo>loonskai.com</StyledLogo>
+      </Link>
+      <NavigationLink href="/blog">Blog</NavigationLink>
       <NavigationLink href="/about">About</NavigationLink>
     </div>
     <div>

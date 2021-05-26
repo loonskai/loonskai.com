@@ -9,4 +9,5 @@ export const StyledLogo = styled.span`
   line-height: 2rem;
   font-weight: 700;
   ${serif}
+  cursor: pointer;
 `;

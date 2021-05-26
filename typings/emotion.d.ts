@@ -11,6 +11,12 @@ declare module '@emotion/react' {
       primary: string
       secondary: string
     },
+    menu: {
+      activeLink: {
+        color: string
+        background: string
+      },
+    },
     buttons: {
       background: string
       color: string

@@ -50,12 +50,12 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
       >{excerpt}</p>
       <div
         css={css`
-          align-self: flex-end;
+          align-self: flex-start;
         `}
       >
         <Link
-          as={`/posts/${slug}`}
-          href="/posts/[slug]"
+          as={`/blog/${slug}`}
+          href="/blog/[slug]"
           passHref
         >
           <PrimaryLink>Read more</PrimaryLink>

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import markdownToHtml from '../../lib/markdownToHtml';
-import { getAllPosts, getPostBySlug } from '../../lib/api';
+import { getAllBlogPosts, getPostBySlug } from '../../lib/api';
 import { Post } from '../../components/post';
 import { codeStyles } from '../../shared/styles';
 
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts([ 
+  const posts = getAllBlogPosts([ 
     'slug',
     'keywords',
     'date',

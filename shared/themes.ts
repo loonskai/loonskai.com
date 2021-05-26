@@ -20,9 +20,15 @@ export const themeValues = {
       primary: '#eae9e5',
       secondary: whiteColor,
     },
+    menu: {
+      activeLink: {
+        color: blackColor,
+        background: whiteColor,
+      },
+    },
     buttons: {
       background: '#414142',
-      color: '#ffffff',
+      color: whiteColor,
     },
     buttonsHover: {
       background: mainColor,
@@ -41,6 +47,12 @@ export const themeValues = {
     background: {
       primary: '#414142',
       secondary: blackColor,
+    },
+    menu: {
+      activeLink: {
+        color: whiteColor,
+        background: blackColor,
+      },
     },
     buttons: {
       background: mainColor,

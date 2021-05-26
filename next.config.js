@@ -10,4 +10,13 @@ module.exports = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/blog',
+        permanent: false
+      },
+    ]
+  },
 };

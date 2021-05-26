@@ -37,6 +37,7 @@ export const PostPreviewPublicationInfo = ({ post }: Props): JSX.Element => {
             height: 1.4rem;
             fill: ${theme.text.primary};
             margin-right: 0.2rem;
+            transition: all ease 0.3s;
           `}
         />
         {post.estimated} read

@@ -64,7 +64,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   h1 {
-    font-size: 3.75rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
   }
 
