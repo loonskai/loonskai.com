@@ -19,7 +19,7 @@ But then I thought that this might be a nice opportunity to write my own Telegra
 
 ## Initialize bot with BotFather
 
-> The full version of the code is [available on Github](https://github.com/loonskai/voice-textify-bot).
+> The full version of the code is [available on Github.](https://github.com/loonskai/voice-textify-bot)
 
 Before starting to write code we need to initialize our bot. Fortunately Telegram provides a friendly way to do this by using [BotFather](https://t.me/botfather). The documentation is very clear on this process so you can [check it](https://core.telegram.org/bots#3-how-do-i-create-a-bot) for more details.
 
