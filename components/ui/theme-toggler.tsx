@@ -84,7 +84,6 @@ const btn = css`
 const btnChecked = css`
   ${btn}
 	background-color: ${blackColor};
-	animation: changeColor .6s ease forwards;
 
 	& .ripple--dark {
 		z-index: 2;

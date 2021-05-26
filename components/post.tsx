@@ -6,6 +6,8 @@ import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 import { Heading } from './ui/heading';
 import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
+import { TopScroll } from './top-scroll';
+import { visuallyHidden } from '../shared/styles';
 
 export type PostType = {
   title?: string
@@ -154,7 +156,8 @@ export const Post = ({ post }: Props): JSX.Element => {
   `;
 
   return (
-    <>
+    <TopScroll>
+      <span id="top" css={visuallyHidden} />
       <Head>
         <title>{post.title}</title>
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
@@ -166,6 +169,6 @@ export const Post = ({ post }: Props): JSX.Element => {
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>
       </div>
-    </>
+    </TopScroll>
   );
 }; 
