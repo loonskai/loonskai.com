@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import { PostType } from '../components/post';
+import { IPost } from '../components/post';
 
 const blogDirectory = join(process.cwd(), '_blog');
 
@@ -9,7 +9,7 @@ export function getBlogSlugs(): string[] {
   return fs.readdirSync(blogDirectory);
 }
 
-export function getPostBySlug(slug: string, fields = []): PostType {
+export function getPostBySlug(slug: string, fields = []): IPost {
   const realSlug = slug.replace(/.md$/, '');
   const fullPath = join(blogDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -32,7 +32,7 @@ export function getPostBySlug(slug: string, fields = []): PostType {
   return items;
 }
 
-export function getAllBlogPosts(fields = []): PostType[] {
+export function getAllBlogPosts(fields = []): IPost[] {
   const slugs = getBlogSlugs();
   return slugs.map(slug => getPostBySlug(slug, fields))
     .sort((post1, post2) => post1.date > post2.date ? -1 : 1);

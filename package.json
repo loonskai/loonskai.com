@@ -28,6 +28,7 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gray-matter": "^4.0.2",
+    "jsonp": "^0.2.1",
     "mdast-util-to-hast": "^10.2.0",
     "next": "^10.2.2",
     "prismjs": "^1.23.0",

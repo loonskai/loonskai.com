@@ -9,7 +9,7 @@ import { serif } from '../shared/fonts';
 import { TopScroll } from './top-scroll';
 import { visuallyHidden } from '../shared/styles';
 
-export type PostType = {
+export type IPost = {
   title?: string
   slug?: string
   excerpt?: string
@@ -20,7 +20,7 @@ export type PostType = {
 }
 
 type Props = {
-  post: PostType
+  post: IPost
 }
 
 type StyledArticleProps = {

@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { css, useTheme } from '@emotion/react';
 import { PrimaryLink } from './ui/primary-link';
 import { serif } from '../shared/fonts';
-import { PostType } from '../components/post';
+import { IPost } from '../components/post';
 import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 
 type Props = {
-  post: PostType;
+  post: IPost;
 }
 
 export const PostPreview = ({ post }: Props): JSX.Element => {

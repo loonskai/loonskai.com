@@ -2,13 +2,13 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { getAllBlogPosts } from '../../lib/api';
 import { Container } from '../../components/container';
-// import { SearchBar } from '../components/ui/search-bar';
 import { PostPreview } from '../../components/post-preview';
-import { PostType } from '../../components/post';
+import { IPost } from '../../components/post';
 import { Heading } from '../../components/ui/heading';
+import { SubscribeForm } from '../../components/subscribe-form';
 
 type Props = {
-  allPosts: PostType[];
+  allPosts: IPost[];
 }
 
 const BlogPage = ({ allPosts }: Props): JSX.Element => {
@@ -18,11 +18,11 @@ const BlogPage = ({ allPosts }: Props): JSX.Element => {
         <title>loonskai.com</title>
       </Head>
       <Container>
-        {/* <SearchBar /> */}
         <Heading>Recent posts</Heading>
         <div>
           {allPosts.map(post => <PostPreview key={post.slug} post={post} />)}
         </div>
+        <SubscribeForm />
       </Container>
     </>
   );

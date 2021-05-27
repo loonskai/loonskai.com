@@ -2,11 +2,11 @@ import { css, useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import dayjs from 'dayjs';
 import { Tag } from './ui/tag';
-import { PostType } from '../components/post';
+import { IPost } from '../components/post';
 import BookIcon from '../public/assets/icons/book.svg';
 
 type Props = {
-  post: PostType;
+  post: IPost;
 }
 
 const StyledDetailsStatement = styled.span`
