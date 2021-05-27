@@ -312,7 +312,7 @@ To use `opusdec` from Node.js we’ll create a separate process using `spawn()` 
 Plus, we need to pass dashes `-` for input and output sources to use the standard I/O.
 
 ```typescript
-spawn('opusdec', ['--force-wav', ‘--rate’, 16000, ‘-’, ‘-’ ]);
+spawn('opusdec', ['--force-wav', '--rate', 16000, '-', '-' ]);
 ```
 
 As in our case the audio decoding is a transitional step we need to make the decoding stream both readable and writable to put it in the middle of the streams pipeline. We can accomplish this by creating a duplex stream from `opusdec` channels using `duplexify` library. 
