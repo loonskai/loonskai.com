@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react';
 import { mapValues } from '../lib/mapValues';
+import { secondaryColor } from './themes';
 
 /* Media queries */
 export const breakpoints = {
@@ -215,4 +216,12 @@ export const visuallyHidden = css`
   padding: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
+`;
+
+export const focusOutline = css`
+  &:focus, &:active {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${secondaryColor};
+    transition: all ease 0.3s;
+  }
 `;

@@ -1,6 +1,8 @@
 import { Theme } from '@emotion/react';
 
 export const mainColor = '#51e8a7';
+export const secondaryColor = '#00e0e0';
+export const errorColor = '#ff3783';
 export const whiteColor = '#ffffff';
 export const blackColor ='#2f2f2f';
 
@@ -12,6 +14,8 @@ export enum THEME {
 export const themeValues = {
   [THEME.LIGHT]: {
     mainColor,
+    secondaryColor,
+    errorColor,
     text: {
       primary: '#414142',
       description: '#747474',
@@ -27,12 +31,23 @@ export const themeValues = {
       },
     },
     buttons: {
-      background: '#414142',
-      color: whiteColor,
+      default: {
+        background: '#414142',
+        color: whiteColor,
+      },
+      hover: {
+        background: mainColor,
+        color: blackColor,
+      },
+      disabled: {
+        background: '#bababa',
+        color: '#747474',
+      },
     },
-    buttonsHover: {
-      background: mainColor,
-      color: blackColor,
+    inputs: {
+      text: {
+        color: '#414142',
+      },
     },
     snippet: {
       background: '#414142',
@@ -40,6 +55,8 @@ export const themeValues = {
   },
   [THEME.DARK]: {
     mainColor,
+    secondaryColor,
+    errorColor,
     text: {
       primary: '#eae9e5',
       description: '#d1d1d1',
@@ -55,12 +72,23 @@ export const themeValues = {
       },
     },
     buttons: {
-      background: mainColor,
-      color: '#414142',
+      default: {
+        background: mainColor,
+        color: '#414142',
+      },
+      hover: {
+        background: '#414142',
+        color: mainColor,
+      },
+      disabled: {
+        background: '#bababa',
+        color: '#747474',
+      },
     },
-    buttonsHover: {
-      background: '#414142',
-      color: mainColor,
+    inputs: {
+      text: {
+        color: '#414142',
+      },
     },
     snippet: {
       background: '#414142',
