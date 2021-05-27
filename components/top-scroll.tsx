@@ -51,7 +51,7 @@ export const TopScroll = ({ children }: PropsWithChildren<ReactNode>): JSX.Eleme
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: ${theme.background.secondary};
+            background-color: ${theme.text.primary};
             box-shadow: rgba(51, 51, 51, 0.1) 0px 32px 64px 0px;
           `, 
           visible ? cssVisible : cssHidden, 
@@ -62,7 +62,7 @@ export const TopScroll = ({ children }: PropsWithChildren<ReactNode>): JSX.Eleme
           css={css`
             width: 1.5rem;
             height: 1.5rem;
-            fill: ${theme.text.primary};
+            fill: ${theme.background.secondary};
           `}
         />
       </button>

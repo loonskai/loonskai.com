@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { css, useTheme, Theme } from '@emotion/react';
 import { containerCss } from './container';
 import { PostPreviewPublicationInfo } from './post-preview-publication-info';
+import { SharePost } from './share-post';
 import { Heading } from './ui/heading';
 import { mediaQueries } from '../shared/styles';
 import { serif } from '../shared/fonts';
@@ -164,7 +165,9 @@ export const Post = ({ post }: Props): JSX.Element => {
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
         <Heading>{post.title}</Heading>
-        <PostPreviewPublicationInfo post={post} />
+        <PostPreviewPublicationInfo post={post}>
+          <SharePost />
+        </PostPreviewPublicationInfo>
         <StyledArticle theme={theme}>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </StyledArticle>
