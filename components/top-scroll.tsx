@@ -1,7 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { PropsWithChildren, ReactNode, useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
 import ArrowUpIcon from '../public/assets/icons/arrow-up.svg';
+import { svgIconHover } from '../shared/styles';
 
 const heightMarker = 1000;
 const cssVisible = css`
@@ -53,6 +53,8 @@ export const TopScroll = ({ children }: PropsWithChildren<ReactNode>): JSX.Eleme
             right: 30px;
             background-color: ${theme.text.primary};
             box-shadow: rgba(51, 51, 51, 0.1) 0px 32px 64px 0px;
+
+            ${svgIconHover}
           `, 
           visible ? cssVisible : cssHidden, 
         ]}

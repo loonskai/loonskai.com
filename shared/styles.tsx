@@ -1,6 +1,6 @@
 import { css, Global } from '@emotion/react';
 import { mapValues } from '../lib/mapValues';
-import { secondaryColor } from './themes';
+import { mainColor, secondaryColor } from './themes';
 
 /* Media queries */
 export const breakpoints = {
@@ -223,5 +223,22 @@ export const focusOutline = css`
     outline: 0;
     box-shadow: 0 0 0 3px ${secondaryColor};
     transition: all ease 0.3s;
+  }
+`;
+
+export const svgIconHover = css`
+  &, & svg {
+    transition: all ease 0.3s;
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.3);
+    transition: all ease 0.3s;
+    outline: 0;
+
+    & svg {
+      fill: ${mainColor};
+      transition: all ease 0.3s;
+    }
   }
 `;

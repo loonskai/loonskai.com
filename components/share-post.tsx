@@ -3,29 +3,18 @@ import { css, useTheme } from '@emotion/react';
 import LinkIcon from '../public/assets/icons/share/link.svg';
 import TwitterIcon from '../public/assets/icons/share/twitter.svg';
 import LinkedinIcon from '../public/assets/icons/share/linkedin.svg';
+import TelegramIcon from '../public/assets/icons/share/telegram.svg';
 import FacebookIcon from '../public/assets/icons/share/facebook.svg';
+import { svgIconHover } from '../shared/styles';
 
-const StyledShareLink = styled.a(({ theme }) => css`
+const StyledShareLink = styled.a`
   width: 3.5rem;
   height: 3.5rem;
   margin: 0 0.4rem;
   cursor: pointer;
-  
-  &, & svg {
-    transition: all ease 0.3s;
-  }
 
-  &:hover, &:focus {
-    transform: scale(1.3);
-    transition: all ease 0.3s;
-    outline: 0;
-
-    & svg {
-      fill: ${theme.mainColor};
-      transition: all ease 0.3s;
-    }
-  }
-`);
+  ${svgIconHover}
+`;
 
 export const SharePost = (/* { children }: PropsWithChildren<ReactNode> */): JSX.Element => {
   const theme = useTheme();
@@ -48,6 +37,9 @@ export const SharePost = (/* { children }: PropsWithChildren<ReactNode> */): JSX
       </StyledShareLink>
       <StyledShareLink tabIndex={0}>
         <LinkedinIcon css={iconCss} />
+      </StyledShareLink>
+      <StyledShareLink tabIndex={0}>
+        <TelegramIcon css={iconCss} />
       </StyledShareLink>
       <StyledShareLink tabIndex={0}>
         <FacebookIcon css={iconCss} />
