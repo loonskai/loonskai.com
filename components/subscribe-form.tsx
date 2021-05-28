@@ -36,6 +36,8 @@ const StyledLabelText = styled.span<{
   position: relative;
   font-style: italic;
   margin-right: 1rem;
+  flex-basis: 30%;
+  text-align: right;
 
   ${required && `&:after {
       content: ' *';
@@ -45,7 +47,7 @@ const StyledLabelText = styled.span<{
       position: absolute;
       color: ${theme.errorColor};
       top: -0.3rem;
-      left: 5rem;
+      left: 1.3rem;
   }`}
 `);
 

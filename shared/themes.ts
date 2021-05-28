@@ -2,6 +2,7 @@ import { Theme } from '@emotion/react';
 
 export const mainColor = '#51e8a7';
 export const secondaryColor = '#00e0e0';
+export const darkColor = '#414142';
 export const errorColor = '#ff3783';
 export const whiteColor = '#ffffff';
 export const blackColor ='#2f2f2f';
@@ -17,7 +18,7 @@ export const themeValues = {
     secondaryColor,
     errorColor,
     text: {
-      primary: '#414142',
+      primary: darkColor,
       description: '#747474',
     },
     background: {
@@ -32,7 +33,7 @@ export const themeValues = {
     },
     buttons: {
       default: {
-        background: '#414142',
+        background: darkColor,
         color: whiteColor,
       },
       hover: {
@@ -46,11 +47,11 @@ export const themeValues = {
     },
     inputs: {
       text: {
-        color: '#414142',
+        color: darkColor,
       },
     },
     snippet: {
-      background: '#414142',
+      background: darkColor,
     },
   },
   [THEME.DARK]: {
@@ -62,7 +63,7 @@ export const themeValues = {
       description: '#d1d1d1',
     },
     background: {
-      primary: '#414142',
+      primary: darkColor,
       secondary: blackColor,
     },
     menu: {
@@ -74,10 +75,10 @@ export const themeValues = {
     buttons: {
       default: {
         background: mainColor,
-        color: '#414142',
+        color: darkColor,
       },
       hover: {
-        background: '#414142',
+        background: darkColor,
         color: mainColor,
       },
       disabled: {
@@ -87,11 +88,11 @@ export const themeValues = {
     },
     inputs: {
       text: {
-        color: '#414142',
+        color: darkColor,
       },
     },
     snippet: {
-      background: '#414142',
+      background: darkColor,
     },
   },
 } as { [T in THEME]: Theme };

@@ -9,7 +9,7 @@ export const PopUpTooltip = ({ children }: PropsWithChildren<ReactNode>): JSX.El
       css={css`
         position: absolute;
         width: max-content;
-        top: -1.5rem;
+        top: 3rem;
         left: 50%;
         font-size: 0.9rem;
         font-style: italic;

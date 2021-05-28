@@ -22,7 +22,7 @@ export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
         <StyledLogo>loonskai.com</StyledLogo>
       </Link>
       <NavigationLink href="/blog">Blog</NavigationLink>
-      <NavigationLink href="/about">About</NavigationLink>
+      <NavigationLink href="/about">About Me</NavigationLink>
     </div>
     <div>
       {children}

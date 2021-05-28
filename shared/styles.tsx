@@ -73,6 +73,25 @@ export const globalStyles = (
         min-height: 100vh;
         box-sizing: border-box;
       }
+
+      main {
+        box-sizing: border-box;
+        padding: 1rem;
+      }
+
+      // https://openmoji.org/library/#group=flags%: 2Fcountry flag;
+      .flag {
+        width: 1.63rem;
+        height: 1rem;
+        display: inline-block;
+        background-size: cover;
+      }
+      .my-flag {
+        background-image: url('./assets/about/belarus.svg');
+      }
+      .current-flag {
+        background-image: url('./assets/about/poland.svg');
+      }
     `}
   />
 );

@@ -1,28 +1,17 @@
-import styled from '@emotion/styled';
 import { css, useTheme } from '@emotion/react';
 import { getShareLinks } from '../lib/getShareLinks';
 import { PopUpTooltip } from './ui/popup-tooltip';
-import LinkIcon from '../public/assets/icons/share/link.svg';
-import TwitterIcon from '../public/assets/icons/share/twitter.svg';
-import LinkedinIcon from '../public/assets/icons/share/linkedin.svg';
-import TelegramIcon from '../public/assets/icons/share/telegram.svg';
-import FacebookIcon from '../public/assets/icons/share/facebook.svg';
-import { svgIconHover } from '../shared/styles';
+import { SocialLink } from './styled/social-link';
+import LinkIcon from '../public/assets/icons/social/link.svg';
+import TwitterIcon from '../public/assets/icons/social/twitter.svg';
+import LinkedinIcon from '../public/assets/icons/social/linkedin.svg';
+import TelegramIcon from '../public/assets/icons/social/telegram.svg';
+import FacebookIcon from '../public/assets/icons/social/facebook.svg';
 import { useEffect, useState } from 'react';
 
 type Props = {
   title: string
 }
-
-const StyledShareLink = styled.a`
-  position: relative;
-  width: 3.5rem;
-  height: 3.5rem;
-  margin: 0 0.4rem;
-  cursor: pointer;
-
-  ${svgIconHover}
-`;
 
 export const SharePost = ({ title }: Props): JSX.Element => {
   const theme = useTheme();
@@ -53,22 +42,36 @@ export const SharePost = ({ title }: Props): JSX.Element => {
 
   return (
     <>
-      <StyledShareLink onClick={copyToClipboard} tabIndex={0} theme={theme}>
-        {copiedToClipboard && <PopUpTooltip>Copied to clipboard</PopUpTooltip>}
-        <LinkIcon css={iconCss} />
-      </StyledShareLink>
-      <StyledShareLink tabIndex={0} onClick={bindNewWindow(shareLinks.twitter)}>
-        <TwitterIcon css={iconCss} />
-      </StyledShareLink>
-      <StyledShareLink tabIndex={0} onClick={bindNewWindow(shareLinks.linkedin)}>
-        <LinkedinIcon css={iconCss} />
-      </StyledShareLink>
-      <StyledShareLink tabIndex={0} onClick={bindNewWindow(shareLinks.telegram)}>
-        <TelegramIcon css={iconCss} />
-      </StyledShareLink>
-      <StyledShareLink tabIndex={0} onClick={bindNewWindow(shareLinks.facebook)}>
-        <FacebookIcon css={iconCss} />
-      </StyledShareLink>
+      <span
+        css={css`
+          white-space: nowrap;
+          font-style: italic;
+          margin-right: 1rem;
+        `}
+      >
+        Share this post:</span>
+      <div
+        css={css`
+          display: flex;
+        `}
+      >
+        <SocialLink onClick={copyToClipboard} tabIndex={0} theme={theme}>
+          {copiedToClipboard && <PopUpTooltip>Copied to the clipboard</PopUpTooltip>}
+          <LinkIcon css={iconCss} />
+        </SocialLink>
+        <SocialLink tabIndex={0} onClick={bindNewWindow(shareLinks.twitter)}>
+          <TwitterIcon css={iconCss} />
+        </SocialLink>
+        <SocialLink tabIndex={0} onClick={bindNewWindow(shareLinks.linkedin)}>
+          <LinkedinIcon css={iconCss} />
+        </SocialLink>
+        <SocialLink tabIndex={0} onClick={bindNewWindow(shareLinks.telegram)}>
+          <TelegramIcon css={iconCss} />
+        </SocialLink>
+        <SocialLink tabIndex={0} onClick={bindNewWindow(shareLinks.facebook)}>
+          <FacebookIcon css={iconCss} />
+        </SocialLink>
+      </div>
     </>
   );
 }; 

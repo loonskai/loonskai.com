@@ -27,6 +27,7 @@ module.exports = {
         'plugin:jsx-a11y/recommended',
       ],
       rules: {
+        'react/no-unescaped-entities': 'off',
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/self-closing-comp': 2,

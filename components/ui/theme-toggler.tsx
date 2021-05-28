@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { THEME, whiteColor, blackColor } from '../../shared/themes';
+import { THEME, whiteColor, darkColor } from '../../shared/themes';
 
 type Props = {
   activeTheme: THEME
@@ -20,7 +20,7 @@ const toggle = css`
 
 const toggleDark = css`
   ${toggle}
-	background-color: ${blackColor};
+	background-color: ${darkColor};
 	left: ${MARGIN};
 `;
 	
@@ -40,7 +40,7 @@ const ripple = css`
 
 const rippleDark = css`
   ${ripple}
-	background-color: ${blackColor};
+	background-color: ${darkColor};
 	left: ${MARGIN};
 `;
 
@@ -82,7 +82,7 @@ const btn = css`
 
 const btnChecked = css`
   ${btn}
-	background-color: ${blackColor};
+	background-color: ${darkColor};
 
 	& .ripple--dark {
 		z-index: 2;
