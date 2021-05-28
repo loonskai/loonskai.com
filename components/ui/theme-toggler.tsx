@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import { THEME, whiteColor, blackColor } from '../../shared/themes';
-import { focusOutline } from '../../shared/styles';
 
 type Props = {
   activeTheme: THEME
@@ -64,8 +63,6 @@ const btn = css`
 	overflow: hidden;
   cursor: pointer;
 	
-	${focusOutline}
-
 	&:active {
 		box-shadow: none;
 	}

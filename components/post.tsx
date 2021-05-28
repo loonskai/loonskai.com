@@ -13,7 +13,7 @@ import { visuallyHidden } from '../shared/styles';
 export type IPost = {
   title?: string
   slug?: string
-  excerpt?: string
+  description?: string
   content?: string
   date?: string
   keywords?: string[]

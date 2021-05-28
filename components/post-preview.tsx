@@ -11,7 +11,7 @@ type Props = {
 
 export const PostPreview = ({ post }: Props): JSX.Element => {
   const theme = useTheme();
-  const { title, excerpt, slug } = post;
+  const { title, description, slug } = post;
 
   return (
     <section
@@ -47,7 +47,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
         css={css`
           margin-bottom: 0.5rem;
         `}
-      >{excerpt}</p>
+      >{description}</p>
       <div
         css={css`
           align-self: flex-start;

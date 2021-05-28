@@ -1,6 +1,6 @@
 ---
 title: Telegram speech to text bot with Node.js
-excerpt: How to combine Telegram Bot API with a speech recognition service to transcribe voice messages to text.
+description: How to combine Telegram Bot API with a speech recognition service to transcribe voice messages to text.
 keywords: [Node.js, DIY]
 date: '2020-03-16T05:35:07.322Z'
 estimated: 15 minutes
