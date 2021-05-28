@@ -10,20 +10,22 @@ import markdownToHtml from '../lib/markdownToHtml';
   console.log('baseUrl', baseUrl);
   const date = new Date();
   const author = {
-    name: 'Siarhei Lunski',
+    name: 'Siarhei Lunski loonskai.com RSS Feed',
     email: 'loonskai@gmail.com',
     link: 'https://twitter.com/loonskai',
   };
 
   const feed = new Feed({
     title: 'Siarhei Lunski blog',
-    description: 'Things about development and not only',
+    description: 'Personal blog of Siarhei Lunski. Things about development and not only',
     id: baseUrl,
     link: baseUrl,
     language: 'en',
-    copyright: `All rights reserved ${date.getFullYear()}, Siarhei Lunski`,
+    image: `${baseUrl}/image.png`,
+    favicon: `${baseUrl}/favicon.ico`,
+    copyright: 'All rights reserved 2021, Siarhei Lunski',
     updated: date,
-    generator: 'Next.js using Feed for Node.js',
+    generator: 'Next.js',
     feedLinks: {
       rss2: `${baseUrl}/rss/feed.xml`,
     },
@@ -36,7 +38,6 @@ import markdownToHtml from '../lib/markdownToHtml';
     'description',
     'keywords',
     'date',
-    'estimated',
     'content',
   ]);
 
@@ -52,6 +53,9 @@ import markdownToHtml from '../lib/markdownToHtml';
       author: [ author ],
       contributor: [ author ],
       date: new Date(post.date),
+    });
+    post.keywords.forEach(keyword => {
+      feed.addCategory(keyword);
     });
   }));
 
