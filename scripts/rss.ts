@@ -5,7 +5,6 @@ import markdownToHtml from '../lib/markdownToHtml';
 
 (async (): Promise<void> => {
   if (process.env.NODE_ENV === 'development') return;
-
   const baseUrl = process.env.BASE_URL;
   console.log('baseUrl', baseUrl);
   const date = new Date();
