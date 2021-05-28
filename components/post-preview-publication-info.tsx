@@ -24,9 +24,10 @@ export const PostPreviewPublicationInfo = ({ children, post }: Props): JSX.Eleme
   return (
     <div
       css={css`
-      display: flex;
-      justify-content: space-between;
-    `}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      `}
     >
       <div
         css={css`

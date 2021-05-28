@@ -231,8 +231,7 @@ export const svgIconHover = css`
     transition: all ease 0.3s;
   }
 
-  &:hover, &:focus {
-    transform: scale(1.3);
+  &:hover {
     transition: all ease 0.3s;
     outline: 0;
 

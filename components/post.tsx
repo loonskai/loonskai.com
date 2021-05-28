@@ -166,7 +166,7 @@ export const Post = ({ post }: Props): JSX.Element => {
       <div css={[ containerCss, postContainerCss ]}>
         <Heading>{post.title}</Heading>
         <PostPreviewPublicationInfo post={post}>
-          <SharePost />
+          <SharePost title={post.title} />
         </PostPreviewPublicationInfo>
         <StyledArticle theme={theme}>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
