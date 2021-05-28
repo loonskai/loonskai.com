@@ -100,6 +100,8 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   img {
+    max-width: 100%;
+    height: auto;
     display: block;
     border-radius: 0.2rem;
     margin: 2rem auto 1rem auto;

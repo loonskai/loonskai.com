@@ -5,6 +5,7 @@ import GithubIcon from '../public/assets/icons/social/github.svg';
 import TelegramIcon from '../public/assets/icons/social/telegram.svg';
 import TwitterIcon from '../public/assets/icons/social/twitter.svg';
 import LinkedinIcon from '../public/assets/icons/social/linkedin.svg';
+import { mediaQueries } from '../shared/styles';
 
 export const ContactLinks = (): JSX.Element => {
   const theme = useTheme();
@@ -18,7 +19,12 @@ export const ContactLinks = (): JSX.Element => {
     <div
       css={css`
         display: flex;
+        justify-content: center;
         margin: 1rem 0;
+
+        ${mediaQueries.laptopSmall} {
+          justify-content: flex-start;
+        }
       `}
     >
       <SocialLink tabIndex={0} href="mailto:loonskai@gmail.com" target='_blank' rel='noopener noreferrer'>

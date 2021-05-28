@@ -185,7 +185,7 @@ bot.launch();
 ```
 
 `Telegraf` class implements event emitter API so in order to handle `voice` events we simply add an asynchronous function as event listener. It has the `ctx` object as an argument which we can use for Telegram API requests. For example, to send a message to the user we can the `ctx.telegram.sendMessage(chatId, message)` method. To start our bot run `bot.launch()`. Now if we try to send a text message we'll get a response:
-![Get the first response from the bot](/assets/blog/telegram-speech-to-text-bot-with-nodejs/ping-pong.png)
+![Get the first response from the bot](/assets/blog/telegram-speech-to-text-bot-with-nodejs/ping-pong.jpg)
 <span class="img-description">Get the first response from the bot</span>
 
 In our case we want to handle **voice** event. Context object also encapsulates update event data such as client details, chat information, message data etc. We can retrieve the voice message as well. Telegram returns a link to the audio file so to get an actual bytes of data we need to make a separate request. For that we can use `axios`. Let's also notify everyone that something is happening:
@@ -383,7 +383,7 @@ bot.on('voice', async ctx => {
 
 Now we should be able to recognize our voice messages:
 
-![Now we’re heard](/assets/blog/telegram-speech-to-text-bot-with-nodejs/done.png)
+![Now we’re heard](/assets/blog/telegram-speech-to-text-bot-with-nodejs/done.jpg)
 <span class="img-description">Now we’re heard</span>
 
 ## Going live with AWS Elastic Beanstalk
@@ -407,27 +407,27 @@ services:
 ```
 
 After this we can start AWS configuration. Sign in to your AWS Console and go to Elastic Beanstalk **"Applications"** tab. Click on  **"Create new application"** button and select **"Docker**.
-![Create new Elastic Beanstalk application](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-create-app.png)
+![Create new Elastic Beanstalk application](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-create-app.jpg)
 <span class="img-description">Create new Elastic Beanstalk application</span>
 
 We need to add our secret keys so to keep it simple let’s just use application environment properties. Select **Configure more options**, click **Edit** in the Software section and **Environment properties** at the bottom of the page. 
-![Add environment variables](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-keys.png)
+![Add environment variables](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-keys.jpg)
 <span class="img-description">Add environment variables<span>
 
 Click **Save** and **Create app**. Amazon will create all necessary resources for us including environment, security group and storage. In a minute you should be able to use it.
 
-![New Elastic Beanstalk environment is created](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-ready.png)
+![New Elastic Beanstalk environment is created](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-ready.jpg)
 <span class="img-description">New Elastic Beanstalk environment is created<span>
 
 Now to deploy our application we just need to ship the source code to the Beanstalk environment we just created. The cool thing is that we can automate this process by adding continuous delivery with another AWS service **CodePipeline**.
 
 Find CodePipeline in AWS Console and click **"Create pipeline"**. Type the new pipeline name and click next. 
-![CodePipeline. Create a pipeline](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step1.png)
+![CodePipeline. Create a pipeline](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step1.jpg)
 <span class="img-description">CodePipeline. Create a pipeline<span>
 
 Select **"Github (Version 2)"** as the source provider and click **"Connect to Github"**. 
 
-![CodePipeline. Connect to Github](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step2.png)
+![CodePipeline. Connect to Github](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step2.jpg)
 <span class="img-description">CodePipeline. Connect to Github<span>
 
 You'll probably be asked to create a new Github connection where you need to select the repository with bot source code. 
@@ -436,7 +436,7 @@ The next **"Build stage"** can be skipped for now.
 
 On the last **"Deploy"** stage we select our Beanstalk application so the pipeline will finish by deploying the code there. Finally click **"Next"** and submit the pipeline. In a couple of seconds you should be able to see that our bot application is successfully deployed to Elastic Beanstalk. 
 
-![Bot is deployed](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-ready.png)
+![Bot is deployed](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-ready.jpg)
 <span class="img-description">Bot is deployed<span>
 
 ## Summary

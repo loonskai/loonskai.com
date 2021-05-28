@@ -50,7 +50,7 @@ const AboutPage = (): JSX.Element => {
             height: 10rem;
             border-radius: 50%;
           `}
-            src="./assets/about/me.png"
+            src="./assets/about/me.jpg"
             alt="This is me"
           />
           <p>My name is <strong>Siarhei Lunski</strong> and I’m a software developer. I was born in a small town in Belarus <span className="flag my-flag"/> called David-Gorodok and currently I'm located in Warsaw, Poland. <span className="flag current-flag"/></p>

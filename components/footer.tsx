@@ -3,7 +3,7 @@ import { css, useTheme } from '@emotion/react';
 import { SubscribeForm } from '../components/subscribe-form';
 import { ContactLinks } from '../components/contact-links';
 import { serif } from '../shared/fonts';
-import { svgIconHover } from '../shared/styles';
+import { svgIconHover, mediaQueries } from '../shared/styles';
 import RssIcon from '../public/assets/icons/rss.svg';
 
 export const Footer = (): JSX.Element => {
@@ -22,7 +22,14 @@ export const Footer = (): JSX.Element => {
           width: 100%;
           margin: 0 auto;
           display: flex;
-          justify-content: space-between;
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+
+          ${mediaQueries.laptopSmall} {
+            justify-content: space-between;
+            text-align: left;
+          }
         `}
       >
         <SubscribeForm />
@@ -32,9 +39,22 @@ export const Footer = (): JSX.Element => {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            margin: 1rem 0;
+            align-items: center;
+            text-align: center
+
+            ${mediaQueries.laptopSmall} {
+              margin: 0;
+              align-items: flex-start;
+              text-align: left;
+            }
           `}
         >
-          <div>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
             <h3
               css={css`
                 ${serif}
@@ -44,7 +64,11 @@ export const Footer = (): JSX.Element => {
             >Contact me:</h3>
             <ContactLinks />
           </div>
-          <div>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
             <Link href='/rss/feed.xml' passHref>
               <a 
                 target='_blank' 

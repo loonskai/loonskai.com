@@ -39,15 +39,20 @@ const StyledLabelText = styled.span<{
   flex-basis: 30%;
   text-align: right;
 
-  ${required && `&:after {
+  & > span {
+    position: relative;
+  }
+
+  ${required && `
+    & > span:after {
       content: ' *';
       width: 1rem;
       height: 1rem;
       display: block;
       position: absolute;
       color: ${theme.errorColor};
-      top: -0.3rem;
-      left: 1.3rem;
+      top: -0.5rem;
+      left: -1.2rem;
   }`}
 `);
 
@@ -141,7 +146,7 @@ export const SubscribeForm = (): JSX.Element => {
             </StyledLabel>
             <StyledLabel>
               <StyledLabelText required theme={theme}>
-                Your Email:
+                <span>Your Email:</span>
               </StyledLabelText>
               <StyledInput type="email" name="email" onChange={change} value={email} required />
             </StyledLabel>
