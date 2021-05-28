@@ -5,7 +5,6 @@ import { Container } from '../../components/container';
 import { PostPreview } from '../../components/post-preview';
 import { IPost } from '../../components/post';
 import { Heading } from '../../components/ui/heading';
-import { SubscribeForm } from '../../components/subscribe-form';
 
 type Props = {
   allPosts: IPost[];
@@ -22,7 +21,6 @@ const BlogPage = ({ allPosts }: Props): JSX.Element => {
         <div>
           {allPosts.map(post => <PostPreview key={post.slug} post={post} />)}
         </div>
-        <SubscribeForm />
       </Container>
     </>
   );

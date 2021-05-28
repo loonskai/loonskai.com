@@ -8,7 +8,7 @@ import { PrimaryButton } from './ui/primary-button';
 
 const StyledSubscribeFormContainer = styled.div(({ theme }) => css`
   max-width: 400px;
-  margin: 2rem auto;
+  margin: 0 1rem;
   display: flex;
   flex-direction: column;
   background: ${theme.background.secondary};
@@ -112,7 +112,7 @@ export const SubscribeForm = (): JSX.Element => {
           line-height: 2.25rem;
           text-align: center;
         `}
-      >Subscribe to updates</h3>
+      >Subscribe for updates</h3>
       {success ? (
         <div
           css={css`

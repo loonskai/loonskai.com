@@ -75,7 +75,7 @@ export const globalStyles = (
       }
 
       main {
-        box-sizing: border-box;
+        flex: 1;
         padding: 1rem;
       }
 

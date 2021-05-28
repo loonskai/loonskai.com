@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { getAllBlogPosts, getPostBySlug } from '../../lib/api';
 import { Post } from '../../components/post';
-import { SubscribeForm } from '../../components/subscribe-form';
 import { codeStyles } from '../../shared/styles';
 
 const PostPage = (props): JSX.Element => {
@@ -13,7 +12,6 @@ const PostPage = (props): JSX.Element => {
     <>
       {codeStyles}
       {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
-      <SubscribeForm />
     </>
   );
 };
