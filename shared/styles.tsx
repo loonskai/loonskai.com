@@ -125,9 +125,13 @@ export const codeStyles = (
       /* Code blocks */
       pre[class*="language-"] {
         padding: 1em;
+        padding-right: 0;
         margin: 0.5em 0;
         overflow: auto;
         border-radius: 0.3em;
+        float: left;
+        min-width: 100%;
+        box-sizing: border-box;
       }
 
       :not(pre) > code[class*="language-"],
@@ -213,10 +217,13 @@ export const codeStyles = (
         cursor: help;
       }
 
+      .remark-highlight {
+        overflow: auto;
+      }
+
       .remark-highlight-code-line {
         display: block;
-        width: 100%;
-        background: #5c5c5c;
+        background: #575757;
         box-shadow: inset 5px 0 0 #51e8a7;
         margin-left: -16px;
         padding: 0 16px;

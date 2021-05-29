@@ -1,36 +1,39 @@
-import remark from 'remark';
-import html from 'remark-html';
 import prism from 'remark-prism';
-import slug from 'remark-slug';
-import toc from 'remark-toc';
-import all from 'mdast-util-to-hast/lib/all';
-import normalize from 'mdurl/encode.js';
+import unified from 'unified';
+import markdown from 'remark-parse';
+import remark2rehype from 'remark-rehype';
+import raw from 'rehype-raw';
+import slug from 'rehype-slug';
+import format from 'rehype-format';
+import toc from '@jsdevtools/rehype-toc';
+import minify from 'rehype-preset-minify';
+import html from 'rehype-stringify';
+import visit from 'unist-util-visit';
 
-export default async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark()
-    .use(html, {
-      handlers: {
-        link: (h, node) => {
-          const props = { 
-            href: normalize(node.url),
-            target: null,
-            rel: null,
-          };
-
-          const url = node.url as string;
-          if (!url.startsWith('#')) {
-            props.target = '_blank';
-            props.rel = 'noopener noreferrer';
-          }
-
-          return h(node, 'a', props, all(h, node));
-        },
-      }, 
-    })
+export default async function markdownToHtml(data: string): Promise<string> {
+  const result = await unified()
+    .use(markdown)
     .use(prism)
+    .use(remark2rehype, { allowDangerousHtml: true })
+    .use(raw)
     .use(slug)
+    .use(format)
     .use(toc)
-    .process(markdown);
+    .use(minify)
+    .use(prism)
+    .use(() => ast => {
+      visit(ast, 'element', (tree: any) => {
+        if (tree.tagName === 'a') {
+          const { href } = tree.properties;
+          if (href && !href.startsWith('#')) {
+            tree.properties.target = '_blank';
+            tree.properties.rel = 'noopener noreferrer';
+          }
+        }
+      });
+    })
+    .use(html)
+    .process(data);
 
   return result.toString();
 }

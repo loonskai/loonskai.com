@@ -6,8 +6,6 @@ date: '2020-03-16T05:35:07.322Z'
 estimated: 15 minutes
 ---
 
-## Table of Contents
-
 ## Background
 
 High speed and no advertising makes Telegram probably one the best online messaging app in 2021. Their team constantly evolves user experience and introduces cool things that I’m always excited to try out. However, I’m still quite conservative towards one particular feature - voice messages. Just as it’s convenient for the sender to send a message using their voice so it may be painful for others to check what their beloved friend wants to tell them. Especially in a noisy or rather completely silent environment.
@@ -357,10 +355,15 @@ Let’s discuss what happens inside `configureRecognizer()`. First, we import th
 
 **./src/recognizer.ts**
 
-```typescript{8,10-12,15,21,23,30-32}
+```typescript{13,15-17,20,26,28,35-37}
 import { Transform, PassThrough, pipeline } from 'stream';
 import { promisify } from 'util';
-import { SpeechConfig, AudioConfig, AudioInputStream, SpeechRecognizer } from 'microsoft-cognitiveservices-speech-sdk';
+import { 
+  SpeechConfig,
+  AudioConfig,
+  AudioInputStream,
+  SpeechRecognizer
+} from 'microsoft-cognitiveservices-speech-sdk';
 
 const promisePipeline = promisify(pipeline);
 
@@ -435,7 +438,7 @@ spawn('opusdec', ['--force-wav', '--rate', 16000, '-', '-' ]);
 
 As in our case, the audio decoding is a transitional step so we need to make the decoding stream both readable and writable and put it in the middle of the streams pipeline. We can accomplish this by creating a duplex stream from `opusdec` channels using `duplexify` library. 
 
-```bash
+```
 npm i duplexify
 ```
 

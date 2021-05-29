@@ -31,10 +31,7 @@ type StyledArticleProps = {
 const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   pre {
     line-height: inherit;
-    padding: 1rem;
-    margin: 1rem 0;
     border-radius: 0.5rem;
-    overflow-x: auto;
   }
 
   p {
@@ -130,6 +127,10 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     font-size: 1.125rem;
     margin-bottom: 1.125rem;
     line-height: 1.5;
+  }
+
+  .toc {
+    padding: 1rem 5rem;
   }
 
   .img-description {
