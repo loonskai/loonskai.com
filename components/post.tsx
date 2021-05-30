@@ -6,7 +6,6 @@ import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 import { SharePost } from './share-post';
 import { Heading } from './ui/heading';
 import { mediaQueries } from '../shared/styles';
-import { serif } from '../shared/fonts';
 import { TopScroll } from './top-scroll';
 import { visuallyHidden } from '../shared/styles';
 
@@ -52,7 +51,6 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    ${serif}
     font-weight: 700;
     line-height: 1.2;
   }

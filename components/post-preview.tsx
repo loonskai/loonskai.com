@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { css, useTheme } from '@emotion/react';
 import { PrimaryLink } from './ui/primary-link';
-import { serif } from '../shared/fonts';
 import { IPost } from '../components/post';
 import { PostPreviewPublicationInfo } from './post-preview-publication-info';
 
@@ -36,7 +35,6 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
       >
         <h2
           css={css`
-            ${serif}
             font-size: 1.875rem;
             line-height: 2.25rem;
           `}

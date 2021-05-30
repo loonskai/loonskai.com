@@ -2,7 +2,6 @@ import { FormEvent, ChangeEvent, useState } from 'react';
 import jsonp from 'jsonp';
 import styled from '@emotion/styled';
 import { css, Theme, useTheme } from '@emotion/react';
-import { serif, sans } from '../shared/fonts';
 import { focusOutline } from '../shared/styles';
 import { PrimaryButton } from './ui/primary-button';
 
@@ -63,7 +62,6 @@ const StyledInput = styled.input(({ theme }) => css`
   box-shadow: 0 0 0 2px ${theme.background.primary};
   font-size: 1rem;
   flex: 1;
-  ${sans}
   transition: all ease 0.3s;
   font-weight: 600;
   color: ${theme.inputs.text.color};
@@ -112,7 +110,6 @@ export const SubscribeForm = (): JSX.Element => {
     <StyledSubscribeFormContainer theme={theme}>
       <h3
         css={css`
-          ${serif}
           font-size: 1.7rem;
           line-height: 2.25rem;
           text-align: center;

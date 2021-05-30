@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { css, useTheme } from '@emotion/react';
 import { SubscribeForm } from '../components/subscribe-form';
 import { ContactLinks } from '../components/contact-links';
-import { serif } from '../shared/fonts';
 import { svgIconHover, mediaQueries } from '../shared/styles';
 import RssIcon from '../public/assets/icons/rss.svg';
 
@@ -57,7 +56,6 @@ export const Footer = (): JSX.Element => {
           >
             <h3
               css={css`
-                ${serif}
                 font-size: 1.7rem;
                 line-height: 2.25rem;
             `}

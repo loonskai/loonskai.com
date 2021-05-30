@@ -5,7 +5,6 @@ import { Meta } from './meta';
 import { Header } from './header';
 import { Footer } from './footer';
 import { ThemeToggler } from './ui/theme-toggler';
-import { sans } from '../shared/fonts';
 import { THEME } from '../shared/themes';
 
 const Wrapper = styled.div(({ theme }) => css`
@@ -16,7 +15,6 @@ const Wrapper = styled.div(({ theme }) => css`
   color: ${theme.text.primary};
   background: ${theme.background.primary};
   transition: all ease 0.3s;
-  ${sans}
 `);
 
 type Props = {
