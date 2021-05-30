@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { css, useTheme } from '@emotion/react';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
-import { serif } from '../shared/fonts';
 import { ContactLinks } from '../components/contact-links';
 
 const AboutPage = (): JSX.Element => {
@@ -39,7 +38,6 @@ const AboutPage = (): JSX.Element => {
           <h2
             css={css`
               font-size: 2rem;
-              ${serif}
             `}
           >
             Hi!

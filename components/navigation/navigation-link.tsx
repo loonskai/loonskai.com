@@ -20,9 +20,9 @@ const StyledLink = styled.a<StyledLinkProps>(({ theme, isActive }) => css`
   align-items: center;
   padding: 0.5rem;
   margin: 0 0.2rem;
+  color: ${theme.text.primary};
   text-decoration: none;
   font-weight: ${isActive ? 700 : 400};
-  color: ${theme.menu.activeLink.color};
   border-bottom: ${isActive ? `2px solid ${theme.menu.activeLink.color}` : 'none' };
   cursor: ${isActive ? 'default' : 'pointer' };
 

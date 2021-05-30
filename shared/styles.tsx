@@ -79,6 +79,10 @@ export const globalStyles = (
         padding: 1rem;
       }
 
+      * {
+        font-family: 'Roboto', sans-serif;
+      }
+
       // https://openmoji.org/library/#group=flags%: 2Fcountry flag;
       .flag {
         width: 1.63rem;
