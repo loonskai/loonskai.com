@@ -1,7 +1,9 @@
+import { forwardRef } from 'react';
+
 import { css, useTheme } from '@emotion/react';
 import LogoSvg from '../public/assets/logo.svg';
 
-export const Logo = (): JSX.Element => {
+const LogoComponent = forwardRef<HTMLLinkElement, any>(() => {
   const theme = useTheme();
 
   return (
@@ -13,4 +15,8 @@ export const Logo = (): JSX.Element => {
       `}
     />
   );
-}; 
+});
+
+LogoComponent.displayName = 'Logo';
+
+export const Logo = LogoComponent;
