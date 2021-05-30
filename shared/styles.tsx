@@ -72,15 +72,12 @@ export const globalStyles = (
       div#__next {
         min-height: 100vh;
         box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
       }
 
       main {
         flex: 1;
         padding: 1rem;
-      }
-
-      * {
-        font-family: 'Roboto', sans-serif;
       }
 
       // https://openmoji.org/library/#group=flags%: 2Fcountry flag;

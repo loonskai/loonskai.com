@@ -41,12 +41,19 @@ export const SharePost = ({ title }: Props): JSX.Element => {
   };
 
   return (
-    <>
+    <div
+      css={css`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      `}
+    >
       <span
         css={css`
           white-space: nowrap;
           font-style: italic;
           margin-right: 1rem;
+          margin-bottom: 1rem;
         `}
       >
         Share this post:</span>
@@ -72,6 +79,6 @@ export const SharePost = ({ title }: Props): JSX.Element => {
           <FacebookIcon css={iconCss} />
         </SocialLink>
       </div>
-    </>
+    </div>
   );
 }; 

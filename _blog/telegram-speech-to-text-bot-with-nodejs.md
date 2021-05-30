@@ -271,10 +271,16 @@ First, we need to initialize the service. Here are the steps of how to start usi
 - Find the **Cognitive Services** section where you’ll be suggested to start a free trial;
 - You will be asked to complete some verification steps which also include providing your payment card details. You should not be worried about any charges as you pay only if you explicitly upgrade the account;
 - When you complete the verification process you’ll see the notification about starting your free trial;
+![Azure Free trial notification](/assets/blog/telegram-speech-to-text-bot-with-nodejs/complete-verification.png)
+
 - Create a new [Cognitive Speech Service](https://portal.azure.com/?quickstart=True#create/Microsoft.CognitiveServicesSpeechServices) by choosing **Free Tier**; 
+![Create a new Cognitive Service](/assets/blog/telegram-speech-to-text-bot-with-nodejs/create-cognitive-service.png)
+
 - After the initial deployment, we can go to the resource and select keys and resources.
+![Deployment is complete](/assets/blog/telegram-speech-to-text-bot-with-nodejs/deployment-is-complete.png)
   
 We take one of the secret keys and the value of location which we’ll use in our bot application.
+![Keys and endpoint](/assets/blog/telegram-speech-to-text-bot-with-nodejs/keys-and-endpoint.png)
 
 **./.env**
 

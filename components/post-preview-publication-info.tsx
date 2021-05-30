@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { Tag } from './ui/tag';
 import { IPost } from '../components/post';
 import BookIcon from '../public/assets/icons/book.svg';
+import { mediaQueries } from '../shared/styles';
 
 type Props = {
   post: IPost;
@@ -28,6 +29,10 @@ export const PostPreviewPublicationInfo = ({ children, post }: Props): JSX.Eleme
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+
+        ${mediaQueries.laptopSmall} {
+          flex-wrap: nowrap;
+        }
       `}
     >
       <div
@@ -59,7 +64,7 @@ export const PostPreviewPublicationInfo = ({ children, post }: Props): JSX.Eleme
           `}
         >
           <StyledDetailsStatement>
-          Tags: {post.keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
+            Tags: {post.keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
           </StyledDetailsStatement>
         </div>
       </div>
