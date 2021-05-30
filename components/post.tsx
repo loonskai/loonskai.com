@@ -162,7 +162,6 @@ export const Post = ({ post }: Props): JSX.Element => {
       <span id="top" css={visuallyHidden} />
       <Head>
         <title>{post.title}</title>
-        <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <div css={[ containerCss, postContainerCss ]}>
         <Heading>{post.title}</Heading>

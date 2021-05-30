@@ -21,7 +21,7 @@ import markdownToHtml from '../lib/markdownToHtml';
     link: baseUrl,
     language: 'en',
     image: `${baseUrl}/image.png`,
-    favicon: `${baseUrl}/favicon.ico`,
+    favicon: `${baseUrl}/favicon/favicon.ico`,
     copyright: 'All rights reserved 2021, Siarhei Lunski',
     updated: date,
     generator: 'Next.js',

@@ -3,6 +3,7 @@ import { css, useTheme } from '@emotion/react';
 import { SubscribeForm } from '../components/subscribe-form';
 import { ContactLinks } from '../components/contact-links';
 import { svgIconHover, mediaQueries } from '../shared/styles';
+import { Logo } from './logo';
 import RssIcon from '../public/assets/icons/rss.svg';
 
 export const Footer = (): JSX.Element => {
@@ -61,6 +62,13 @@ export const Footer = (): JSX.Element => {
             `}
             >Contact me:</h3>
             <ContactLinks />
+          </div>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
+            <Logo />
           </div>
           <div
             css={css`

@@ -88,10 +88,10 @@ export const globalStyles = (
         background-size: cover;
       }
       .my-flag {
-        background-image: url('./assets/about/belarus.svg');
+        background-image: url('/assets/about/belarus.svg');
       }
       .current-flag {
-        background-image: url('./assets/about/poland.svg');
+        background-image: url('/assets/about/poland.svg');
       }
     `}
   />

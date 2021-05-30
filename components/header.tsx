@@ -1,6 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import { css } from '@emotion/react';
-import Link from 'next/link';
 import { Logo } from './logo';
 import { NavigationLink } from './navigation/navigation-link';
 import { mediaQueries } from '../shared/styles';
@@ -30,7 +29,7 @@ export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
         }
         `}
     >
-      <Link href="/blog"><Logo /></Link>
+      <Logo/>
       <nav
         css={css`
           width: 100%;
