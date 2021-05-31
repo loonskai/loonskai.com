@@ -39,11 +39,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     line-height: 1.725rem;
   }
 
-  pre {
-    margin-bottom: 2rem;
-  }
-
-  p > code, li > code {
+  p > code, li > code, strong > code {
     padding: 0.125rem 0.250rem;
     border-radius: 0.2rem;
     background: ${theme.background.primary};
@@ -67,35 +63,24 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   a {
-    font-weight: 600;
+    display: inline !important;
     color: ${theme.text.primary};
-    position: relative;
     text-decoration: none;
     font-style: italic;
-    display: inline-block;
-    padding: 0 1px;
-    transition: color ease 0.3s;
+    font-weight: 600;
     z-index: 0;
-  }
-
-  a::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 10%;
-    left: 0;
-    bottom: 0;
-    background-color: ${theme.mainColor};
+    background-image: linear-gradient(to bottom, ${theme.mainColor}, ${theme.mainColor});
+    background-position: 0 1.3em;
+    background-repeat: repeat-x;
+    background-size: 8px 4px;
+    padding-bottom: 4px;
     transition: all ease 0.3s;
   }
-  
-  a:hover {
-    color: #ffffff;
-  }
 
-  a:hover::after {
-    height: 100%;
+  a:hover {
+    color: ${theme.mainColor};
+    background-image: none;
+    transition: all ease 0.3s;
   }
 
   img {
@@ -132,7 +117,7 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
   }
 
   .toc {
-    padding: 1rem 5rem;
+    padding: 2rem 2rem 0 2rem;
   }
 
   .img-description {
@@ -142,6 +127,12 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     font-size: 1rem;
     font-style: italic;
     color: ${theme.text.description};
+  }
+
+  ${mediaQueries.laptopMedium} {
+    .toc {
+      padding: 4rem 5rem 1rem 5rem;
+    }
   }
 `);
 

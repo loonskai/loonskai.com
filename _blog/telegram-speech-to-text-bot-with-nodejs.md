@@ -30,7 +30,7 @@ Before going to the code editor it’s worth quickly recapping the idea of our b
 
 Let’s create a new project for our future bot. Create a new file in the `src` folder and call it `index.ts`. For now, let's just put there a dummy `console.log()`:
 
-**./src/index.ts**
+**`./src/index.ts`**
 
 ```typescript
 console.log("Hello");
@@ -44,7 +44,7 @@ npm i -D typescript ts-node
 
 The next required step is to add `tsconfig.json` file in the directory by running `npx typescript --init`. Here is the final version of the configuration:
 
-**./tsconfig.json**
+**`./tsconfig.json`**
 
 ```json
 {
@@ -74,7 +74,7 @@ npm -i D nodemon
 
 To make it work with TypeScript we need to add some configuration:
 
-**./package.json**
+**`./package.json`**
 
 ```json
 {
@@ -94,7 +94,7 @@ Then let's add `eslint` to the project so our code style stays consistent:
 npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-**./package.json**
+**`./package.json`**
 
 ```json
 {
@@ -121,7 +121,7 @@ The next step is to set up the **Docker image** with multi-stage builds. We'll a
 
 > Make sure you have both `docker` and `docker-compose` installed on your machine.
 
-**./Dockerfile**
+**`./Dockerfile`**
 
 ```dockerfile
 # Base
@@ -153,7 +153,7 @@ We use the `base` stage to install production dependencies and `dev` to install 
 
 The final thing we need to do is to create `docker-compose.yml.dev`. As we don't need any additional services for our bot application, the configuration should be pretty straightforward:
 
-**./docker-compose.yml.dev**
+**`./docker-compose.yml.dev`**
 
 ```yaml
 version: '3.8'
@@ -181,7 +181,7 @@ Let's start implementating it. We will use [Telegraf](https://github.com/influxd
 npm i telegraf dotenv
 ```
 
-**./.env**
+**`./.env`**
 
 ```
 BOT_TOKEN=token_from_botfather
@@ -189,7 +189,7 @@ BOT_TOKEN=token_from_botfather
 
 Also, we may want to add a `global.d.ts` file to populate the global namespace with the environment variables we’ll use in our application:
 
-**./src/global.d.ts**
+**`./src/global.d.ts`**
 
 ```typescript
 declare global {
@@ -205,7 +205,7 @@ export {};
 
 Now we’re ready to create our bot:
 
-**./src/index.ts**
+**`./src/index.ts`**
 
 ```typescript
 import { Telegraf } from 'telegraf';
@@ -235,7 +235,7 @@ npm i axios
 
 And if any error occurs we'll send a message so everyone is aware that something is wrong:
 
-**./src/index.ts**
+**`./src/index.ts`**
 
 ```typescript{2,9,11-13,16}
 import { Telegraf } from 'telegraf';
@@ -281,14 +281,14 @@ First, we need to initialize the service. Here are the steps of how to start usi
 We take one of the secret keys and the value of location which we’ll use in our bot application.
 ![Keys and endpoint](/assets/blog/telegram-speech-to-text-bot-with-nodejs/keys-and-endpoint.jpg)
 
-**./.env**
+**`./.env`**
 
 ```{2}
 BOT_TOKEN=token_from_botfather
 SUBSCRIPTION_KEY=azure_subscription_key
 ```
 
-**./src/global.d.ts**
+**`./src/global.d.ts`**
 
 ```typescript{5}
 declare global {
@@ -315,7 +315,7 @@ To start using it we need to configure the client. Let’s encapsulate this logi
 - `region` - region (from Azure dashboard);
 - `language` - the language of speech (we’ll use `en-US`).
 
-**./src/index.ts**
+**`./src/index.ts`**
 
 ```typescript{4,10-14}
 import { Telegraf } from 'telegraf';
@@ -336,7 +336,7 @@ const recognize = configureRecognizer({
 /* ... */
 ```
 
-**./src/recognizer.ts**
+**`./src/recognizer.ts`**
 
 ```typescript{3,11}
 import { SpeechConfig } from 'microsoft-cognitiveservices-speech-sdk';
@@ -358,7 +358,7 @@ export const configureRecognizer = ({
 
 Let’s discuss what happens inside `configureRecognizer()`. First, we import the `SpeechConfig` object from the SDK library. Its `fromSubscription()` method returns a configuration object that is used in requests to Speech Service. Finally we execute another fabric function `getSpeechRecognize()` that we’ll discuss next.
 
-**./src/recognizer.ts**
+**`./src/recognizer.ts`**
 
 ```typescript{13,15-17,20,26,28,35-37}
 import { Transform, PassThrough, pipeline } from 'stream';
@@ -415,7 +415,7 @@ There is an open-source [Opus codec](https://opus-codec.org/) with **opusdec** t
 
 As we use Docker we need to make sure that we have this tool installed inside our container.
 
-**./Dockerfile**
+**`./Dockerfile`**
 
 ```dockerfile{4}
 # Base
@@ -449,7 +449,7 @@ npm i duplexify
 
 Let’s wrap all decoding functionality into a helper that will look like this (we'll receive `opusdec` arguments as configuration object and construct arguments array separately):
 
-**./src/opusStream.ts**
+**`./src/opusStream.ts`**
 
 ```typescript{10-12,14,19}
 import { spawn } from 'child_process';
@@ -476,7 +476,7 @@ export const opusStream = ({ forceWav = false, rate }: Args): Duplex => {
 
 Now we can modify our `recognize()` method to accept transform steam and put it in the middle of the pipeline:
 
-**./src/recognize.ts**
+**`./src/recognize.ts`**
 
 ```typescript{4,7}
 /* ... */
@@ -493,7 +493,7 @@ const getSpeechRecognize = (config: SpeechConfig) => async ({
 
 And then in our main file we just get the resolved text and reply to the initial voice message by calling `ctx.reply()`:
 
-**./src/index.ts**
+**`./src/index.ts`**
 
 ```typescript{1,8,11}
 import { opusStream } from './opusStream';
@@ -524,7 +524,7 @@ Even though initially we didn't plan to deploy to production, it’s still impor
 
 First, we need to do a small configuration inside our project. As we use Docker multi-stage build we need to customize deployment configuration for Elastic Beanstalk. Fortunately, it supports **docker-compose** which is nice as we already use this tool in development. The production version of the configuration, however, will look a bit different. Let's add it as a default `docker-compose.yml` file:
 
-**./docker-compose.yml**
+**`./docker-compose.yml`**
 
 ```yaml
 version: '3.8'

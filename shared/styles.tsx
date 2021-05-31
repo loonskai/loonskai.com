@@ -220,6 +220,7 @@ export const codeStyles = (
 
       .remark-highlight {
         overflow: auto;
+        margin-bottom: 2rem;
       }
 
       .remark-highlight-code-line {
