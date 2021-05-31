@@ -163,12 +163,12 @@ export const codeStyles = (
       .token.constant,
       .token.symbol,
       .token.deleted {
-        color: #ff8eb9;
+        color: #FFC7DB;
       }
 
       .token.boolean,
       .token.number {
-        color: #00e0e0;
+        color: #20EEEE;
       }
 
       .token.selector,
@@ -186,7 +186,7 @@ export const codeStyles = (
       .language-css .token.string,
       .style .token.string,
       .token.variable {
-        color: #00e0e0;
+        color: #20EEEE;
       }
 
       .token.atrule,
@@ -196,7 +196,7 @@ export const codeStyles = (
       }
 
       .token.keyword {
-        color: #00e0e0;
+        color: #20EEEE;
       }
 
       .token.regex,
