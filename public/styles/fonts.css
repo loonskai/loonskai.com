@@ -2,6 +2,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('../fonts/roboto/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
        url('../fonts/roboto/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -14,6 +15,7 @@
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: url('../fonts/roboto/roboto-v27-latin-italic.eot'); /* IE9 Compat Modes */
   src: local(''),
        url('../fonts/roboto/roboto-v27-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -26,6 +28,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('../fonts/roboto/roboto-v27-latin-700.eot'); /* IE9 Compat Modes */
   src: local(''),
        url('../fonts/roboto/roboto-v27-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */

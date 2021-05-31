@@ -24,7 +24,7 @@ const StyledLink = styled.a<StyledLinkProps>(({ theme, isActive }) => css`
   text-decoration: none;
   font-weight: ${isActive ? 700 : 400};
   border-bottom: ${isActive ? `2px solid ${theme.menu.activeLink.color}` : 'none' };
-  cursor: ${isActive ? 'default' : 'pointer' };
+  cursor: 'pointer';
 
   ${focusOutline}
   &:focus, &:active {
@@ -37,7 +37,7 @@ export const NavigationLink = ({ href, as, children }: PropsWithChildren<Navigat
   const theme = useTheme();
   const isActive = asPath.startsWith(href) || asPath.startsWith(as);
 
-  return isActive ? <StyledLink theme={theme} isActive={isActive}>{children}</StyledLink> : (
+  return (
     <Link href={href} passHref>
       <StyledLink theme={theme} isActive={isActive}>{children}</StyledLink>
     </Link>

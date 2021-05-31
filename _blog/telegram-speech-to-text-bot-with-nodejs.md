@@ -20,7 +20,7 @@ Anyway, I thought that this might be a nice chance to create my Telegram bot tha
 
 > This bot is not intended to run in production and the process is described just for learning purposes and simply fun. You can find the final version [on Github.](https://github.com/loonskai/voice-textify-bot)
 
-Before starting to code we need to initialize our bot. Fortunately, Telegram provides a friendly way to do this by using [BotFather](https://t.me/botfather). You can check [their documentation]((https://core.telegram.org/bots#3-how-do-i-create-a-bot)) which is very clear so we won't get much into the details here.
+Before starting to code we need to initialize our bot. Fortunately, Telegram provides a friendly way to do this by using [BotFather](https://t.me/botfather). You can check [their documentation](https://core.telegram.org/bots#3-how-do-i-create-a-bot) which is very clear so we won't get much into the details here.
 
 In short, after we choose our bot’s name and username, BotFather will give us **an access token** for Telegram HTTP API which we’ll need to use in our Node.js application. We should also not forget to switch the privacy mode off to make our bot automatically process voice messages from the group chats. Send the `/setprivacy` command to BotFather, choose the new bot, click `Disable`, and we’re done.
 

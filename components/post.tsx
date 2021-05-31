@@ -39,6 +39,10 @@ const StyledArticle = styled.article<StyledArticleProps>(({ theme }) => css`
     line-height: 1.725rem;
   }
 
+  pre {
+    margin-bottom: 2rem;
+  }
+
   p > code, li > code {
     padding: 0.125rem 0.250rem;
     border-radius: 0.2rem;

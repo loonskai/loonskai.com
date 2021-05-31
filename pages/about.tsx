@@ -10,7 +10,8 @@ const AboutPage = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>loonskai.com</title>
+        <title>About Me | loonskai.com</title>
+        <meta name="description" content="Page with some information about me" />
       </Head>
       <Container>
         <Heading>About Me</Heading>
