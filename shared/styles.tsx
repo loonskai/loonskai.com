@@ -151,7 +151,7 @@ export const codeStyles = (
       .token.prolog,
       .token.doctype,
       .token.cdata {
-        color: #a0a0a0;
+        color: #b0b0b0;
       }
 
       .token.punctuation {

@@ -79,6 +79,7 @@ export const Footer = (): JSX.Element => {
               <a 
                 target='_blank' 
                 rel='noopener noreferrer'
+                aria-label='RSS Feed'
                 css={css`
                 cursor: pointer;
                 text-decoration: none;
