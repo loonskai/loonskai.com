@@ -27,19 +27,19 @@ export const ContactLinks = (): JSX.Element => {
         }
       `}
     >
-      <SocialLink tabIndex={0} href="mailto:loonskai@gmail.com" target='_blank' rel='noopener noreferrer'>
+      <SocialLink tabIndex={0} href="mailto:loonskai@gmail.com" target='_blank' rel='noopener noreferrer' aria-label='Gmail contact link'>
         <GmailIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://github.com/loonskai" target='_blank' rel='noopener noreferrer'>
+      <SocialLink tabIndex={0} href="https://github.com/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Github link'>
         <GithubIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://twitter.com/loonskai" target='_blank' rel='noopener noreferrer'>
+      <SocialLink tabIndex={0} href="https://twitter.com/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Twitter link'>
         <TwitterIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://www.linkedin.com/in/siarhei-lunski" target='_blank' rel='noopener noreferrer'>
+      <SocialLink tabIndex={0} href="https://www.linkedin.com/in/siarhei-lunski" target='_blank' rel='noopener noreferrer' aria-label='Linkedin link'>
         <LinkedinIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://t.me/loonskai" target='_blank' rel='noopener noreferrer'>
+      <SocialLink tabIndex={0} href="https://t.me/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Telegram link'>
         <TelegramIcon css={iconCss} />
       </SocialLink>
     </div>

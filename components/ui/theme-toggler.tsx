@@ -103,7 +103,8 @@ export const ThemeToggler = ({ activeTheme, toggleTheme }: Props): JSX.Element =
   return (
     <button
       css={darkThemeActive ? btnChecked : btn}
-      onClick={toggleTheme} 
+      onClick={toggleTheme}
+      aria-label="Toggle dark mode"
     >
       <div css={rippleDark} className="ripple--dark" />
       <div css={rippleLight} className="ripple--light" />

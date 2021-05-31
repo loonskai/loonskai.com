@@ -56,7 +56,7 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
           href="/blog/[slug]"
           passHref
         >
-          <PrimaryLink>Read more</PrimaryLink>
+          <PrimaryLink aria-label={`Read the post "${title}"`}>Read more</PrimaryLink>
         </Link>
       </div>
     </section>
