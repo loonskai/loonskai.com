@@ -6,7 +6,7 @@ import { Heading } from '../components/ui/heading';
 const Page404 = (): JSX.Element => (
   <>
     <Head>
-      <title>Page not found| loonskai.com</title>
+      <title>Page not found | loonskai.com</title>
       <meta name="description" content="Page not found" />
     </Head>
     <section>
