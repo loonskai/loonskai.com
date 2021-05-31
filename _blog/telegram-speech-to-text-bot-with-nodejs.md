@@ -1,35 +1,34 @@
 ---
-title: Telegram speech to text bot with Node.js
-description: How to combine Telegram Bot API with a speech recognition service to transcribe voice messages to text.
+title: Telegram speech-to-text bot with Node.js
+description: How to create a Telegram bot that will transcribe voice messages into the text using Node.js and speech recognition service.
 keywords: [Node.js, DIY]
 date: '2021-06-01'
-estimated: 15 minutes
+estimated: 10 minutes
 ---
 
 ## Background
 
-High speed and no advertising makes Telegram probably one the best online messaging app in 2021. Their team constantly evolves user experience and introduces cool things that I’m always excited to try out. However, I’m still quite conservative towards one particular feature - voice messages. Just as it’s convenient for the sender to send a message using their voice so it may be painful for others to check what their beloved friend wants to tell them. Especially in a noisy or rather completely silent environment.
+High speed and no advertising makes Telegram probably one the best online messaging app in 2021. Their team constantly evolves user experience and introduces cool things that I’m always excited to try out. However, I’m still quite conservative towards one particular feature - **voice messages**. Just as it’s convenient for the sender to send a message using their voice so it may be painful for others to check what their beloved friend wants to tell them. Especially in a noisy or rather completely silent environment.
 
 So I asked myself, what if I could make my life a little bit easier and create, let's say, a Telegram bot that would transcribe these wonderful voice messages into the text?
 
-I realized almost immediately that this idea is not new and there are already many bots that do the same. Furthermore, all voice recognition services are not fully free.
+I realized almost immediately that this idea is not new and there are already many bots that do the same. Furthermore, all voice recognition services are not fully free and I didn't plan to spend additional money just because some (or many) people always use voice messages ¯\\\_(ツ)\_/¯.
 
-Anyway, I thought that this might be a nice chance to create my Telegram bot that potentially could satisfy someone's needs. So enough talk and let’s see how we can implement this idea using **Node.js.**
+Anyway, I thought that this might be a nice chance to create my own Telegram bot that potentially could satisfy someone's needs. So enough talk and let’s see how we can implement this idea using **Node.js.**
 
 ## Initialize bot with BotFather
 
-> This bot is not intended to run in production and the process is described just for learning purposes and simply fun. You can find the final version [on Github.](https://github.com/loonskai/voice-textify-bot)
+> This bot doesn't run in production and the process is described just for learning purposes and fun. If you're interested you can find the source code on [Github.](https://github.com/loonskai/voice-textify-bot)
 
 Before starting to code we need to initialize our bot. Fortunately, Telegram provides a friendly way to do this by using [BotFather](https://t.me/botfather). You can check [their documentation](https://core.telegram.org/bots#3-how-do-i-create-a-bot) which is very clear so we won't get much into the details here.
 
-In short, after we choose our bot’s name and username, BotFather will give us **an access token** for Telegram HTTP API which we’ll need to use in our Node.js application. We should also not forget to switch the privacy mode off to make our bot automatically process voice messages from the group chats. Send the `/setprivacy` command to BotFather, choose the new bot, click `Disable`, and we’re done.
+In short, after we choose our bot’s name and username, BotFather will give us an **access token** for Telegram HTTP API which we’ll need to use in our Node.js application. We should also not forget to switch the privacy mode off to make our bot automatically process voice messages from the group chats. Send the `/setprivacy` command to BotFather, choose the new bot, click `Disable`, and you’re done.
 
-Now it’s worth quickly recapping the idea of our bot. The functionality will be very simple: when someone sends a voice message the bot will automatically ship it to the voice recognition service and then reply to the chat with the transcribed text. Looks simple, right?
-Now we’re ready to open the code editor.
+Before going to the code editor it’s worth quickly recapping the idea of our bot. The functionality will be the following: when someone sends a voice message the bot will automatically ship it to the voice recognition service and then reply to the chat with the transcribed text. Looks simple, right?
 
 ## Project setup
 
-Let’s create a new project for our future bot. Create a new file in the `src` folder and call it `index.ts`. For now, let's just put a dummy `console.log()` here:
+Let’s create a new project for our future bot. Create a new file in the `src` folder and call it `index.ts`. For now, let's just put there a dummy `console.log()`:
 
 **./src/index.ts**
 
@@ -150,9 +149,9 @@ COPY --from=build /app/dist .
 CMD ["node", "index.js"]
 ```
 
-We use the `base` stage to install production dependencies and `dev` to install development dependencies. Because we use compiled version of the code in production we don’t need to have there any development packages. So we compile the code in a separate `build` stage and copy its result to `prod`. The main benefit of this technique is that it exponentially reduces the size of our production image and allows us to work with a single `Dockerfile` in all environments.
+We use the `base` stage to install production dependencies and `dev` to install development dependencies. Because we use compiled version of the code in production we don’t need to have any development packages there. So we compile the code in a separate `build` stage and copy its result to `prod`. The main benefit of this technique is that it exponentially reduces the size of our production image and allows us to work with a single `Dockerfile` in all environments.
 
-The final thing we need to do is to create `docker-compose.yml.dev`. As we don't need any additional services for our bot application, the configuration will be pretty straightforward:
+The final thing we need to do is to create `docker-compose.yml.dev`. As we don't need any additional services for our bot application, the configuration should be pretty straightforward:
 
 **./docker-compose.yml.dev**
 
@@ -168,7 +167,7 @@ services:
       - .:/app:delegated
 ```
  
-Have you noticed the `target` property? Yes, it points to the `dev` stage in our Docker image which we were discussing just a moment ago. Now we can run our project locally:
+Have you noticed the `target` property? Yes, it points to the `dev` stage in our Docker image that we discussed just a moment ago. Now we can run our project locally:
 
 ```
 docker-compose -f docker-compose.dev.yml up --build
@@ -176,7 +175,7 @@ docker-compose -f docker-compose.dev.yml up --build
 
 ## Create bot instance
 
-Finally, we can start with bot implementation. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. We also install `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
+Let's start implementating it. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. We also need `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
 
 ```
 npm i telegraf dotenv
@@ -224,11 +223,11 @@ bot.launch();
 
 `Telegraf` class implements event emitter API. Each event handler has a `ctx` object as an argument that we can use for Telegram API requests. For example, to send a message to chat we run `ctx.telegram.sendMessage(chatId, message)`. 
 
-After we defined the listeners we can launch the bot with `bot.launch()`. Now when you send any message you we'll get a response from the bot:
+After we define the listeners we can launch the bot with `bot.launch()`. Now when you send any message you we'll get a response from the bot:
 ![Get the first response from the bot](/assets/blog/telegram-speech-to-text-bot-with-nodejs/ping-pong.jpg)
 <span class="img-description">Get the first response from the bot</span>
 
-In our case, we need to handle the **voice** event. The context object also encapsulates **update** events data such as client details, chat information, message data, etc. We can retrieve the voice message as well. Telegram returns a link to the audio file so to get actual bytes of data we need to make a separate request. For that, we can use `axios`.
+In our particular case, we need to handle the **voice** event. The context object also encapsulates [update events](https://core.telegram.org/bots/api#getting-updates) data such as client details, chat information, message data, etc. We can retrieve the voice message as well. Telegram returns a link to the audio file so to get actual bytes of data we need to make a separate request. For that, we can use `axios`.
 
 ```
 npm i axios
@@ -316,26 +315,6 @@ To start using it we need to configure the client. Let’s encapsulate this logi
 - `region` - region (from Azure dashboard);
 - `language` - the language of speech (we’ll use `en-US`).
 
-**./src/recognizer.ts**
-
-```typescript
-import { SpeechConfig } from 'microsoft-cognitiveservices-speech-sdk';
-
-export const configureRecognizer = ({
-  key,
-  region,
-  language
-}: RecognizerConfig): ((args: RecognizeArgs) => Promise<string>) | void => {
-  try {
-    const speechConfig = SpeechConfig.fromSubscription(key, region);
-    speechConfig.speechRecognitionLanguage = language;
-    return getSpeechRecognize(speechConfig);
-  } catch (error) {
-    console.error('Recognition service error', error);
-  }
-};
-```
-
 **./src/index.ts**
 
 ```typescript{4,10-14}
@@ -355,6 +334,26 @@ const recognize = configureRecognizer({
 });
 
 /* ... */
+```
+
+**./src/recognizer.ts**
+
+```typescript{3,11}
+import { SpeechConfig } from 'microsoft-cognitiveservices-speech-sdk';
+
+export const configureRecognizer = ({
+  key,
+  region,
+  language
+}: RecognizerConfig): ((args: RecognizeArgs) => Promise<string>) | void => {
+  try {
+    const speechConfig = SpeechConfig.fromSubscription(key, region);
+    speechConfig.speechRecognitionLanguage = language;
+    return getSpeechRecognize(speechConfig);
+  } catch (error) {
+    console.error('Recognition service error', error);
+  }
+};
 ```
 
 Let’s discuss what happens inside `configureRecognizer()`. First, we import the `SpeechConfig` object from the SDK library. Its `fromSubscription()` method returns a configuration object that is used in requests to Speech Service. Finally we execute another fabric function `getSpeechRecognize()` that we’ll discuss next.
@@ -404,13 +403,13 @@ const getSpeechRecognize = (config: SpeechConfig) => async ({
 /* ... */
 ```
 
-All the `getSpeechRecognize()` does is just return another function that has access to the configuration object from closure. This returned function, for its part, does the main job to transcribe the voice message to text. It receives an object with `inputStream` which is the Telegram voice message stream. Inside it we use `AudioInputStream.createPushStream()` and `AudioConfig.fromStreamInput()` methods to prepare audio data streams for Speech API. We can’t directly pipe the audio stream to the `pushStream` as it’s not a regular stream, so we wrap it with `Transform` to call `pushStream.write()` inside as soon as it gets the chunks of data from the voice message.
+All the `getSpeechRecognize()` does is just return another function that has access to the configuration object from closure. This returned function, for its part, does the main job to transcribe the voice message to text. It receives an object with `inputStream` which is the Telegram voice message stream. `AudioInputStream.createPushStream()` and `AudioConfig.fromStreamInput()` methods prepare audio data streams for Speech API. We can’t directly pipe the audio stream to the `pushStream` as it’s not a regular stream, so we wrap it with `Transform` to call `pushStream.write()` inside as soon as it gets the chunks of data from the voice message.
 
 To start sending data to Speech Service we create an instance of the `SpeechRecognizer` class and add a listener to its `recognizeOnceAsync()` method that will run as soon as recognition is finished. Now everything is ready to start so we pipe our voice message input stream into a Speech API audio input stream by using promisified `pipeline()` helper. After we’re done we close the input stream and return a promise that will be resolved with the recognized text.
 
 But what if I tell you that this code will not work? At least yet. At the time I’m writing this post there is an unfortunate incompatibility between Telegram voice messages that come in **opus** audio format, and Speech Service that [doesn’t support this format for Node.js SDK yet](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/351). But the good news is that we can work around this problem by decoding incoming audio data into a compatible format using **opus-tools.**
 
-## Opus-tools for the rescue
+## Opus-tools to the rescue
 
 There is an open-source [Opus codec](https://opus-codec.org/) with **opusdec** tool that we can use to decode **opus** voice message coming from Telegram into compatible **wav** format. A nice bonus is that this tool works with standard I/O so we don’t need to create any temporary files during the decoding process.
 
@@ -475,7 +474,7 @@ export const opusStream = ({ forceWav = false, rate }: Args): Duplex => {
 };
 ```
 
-Now we can modify our `recognize()` method a little to accept transform steam and put it in the middle of the pipeline:
+Now we can modify our `recognize()` method to accept transform steam and put it in the middle of the pipeline:
 
 **./src/recognize.ts**
 
@@ -521,9 +520,9 @@ Now we should be able to recognize our voice messages:
 
 ## Going live with AWS Elastic Beanstalk
 
-Even though we’re making this bot for learning purposes, it’s still important to highlight the final step - production deployment. As our bot is a simple Node.js application running in Docker we can deploy and run it on pretty much any cloud platform. Amazon Elastic Beanstalk is one of them and it’s really easy to use. Just don’t forget to keep track of your Free Tier Amazon account billing stats so you won’t be charged lately if that’s not a part of your plan.
+Even though initially we didn't plan to deploy to production, it’s still important to highlight this final step. As our bot is a simple Node.js application running in Docker we can run it on pretty much any cloud platform. Amazon Elastic Beanstalk is one of them and it’s really easy to use. Just don’t forget to keep track of your Free Tier Amazon account billing stats so you won’t be charged lately if that’s not a part of your plan.
 
-But first, we need to do a small configuration inside our project. As we use Docker multi-stage build we need to customize deployment configuration for Beanstalk. Fortunately, it can be easily done with **docker-compose** which is supported by Elastic Beanstalk. That is nice as we already use this tool for development. The production version of the configuration, however, will look a bit different. Let's add it as a default `docker-compose.yml` file:
+First, we need to do a small configuration inside our project. As we use Docker multi-stage build we need to customize deployment configuration for Elastic Beanstalk. Fortunately, it supports **docker-compose** which is nice as we already use this tool in development. The production version of the configuration, however, will look a bit different. Let's add it as a default `docker-compose.yml` file:
 
 **./docker-compose.yml**
 
@@ -552,7 +551,7 @@ Click **Save** and **Create app.** Amazon will create all necessary resources fo
 ![New Elastic Beanstalk environment is created](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-ready.jpg)
 <span class="img-description">New Elastic Beanstalk environment is created<span>
 
-Now to deploy our application we just need to ship the source code to the Beanstalk environment we just created. The cool thing is that we can automate this process by implementing a continuous delivery mechanism using another AWS service called **CodePipeline.**
+Now to deploy our application we just need to ship the source code to the Beanstalk environment. The cool thing is that we can automate this process by implementing a continuous delivery using another AWS service called **CodePipeline.**
 
 Find CodePipeline in AWS Console and click **Create pipeline.** Type the new pipeline name and click next. 
 ![CodePipeline. Create a pipeline](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step1.jpg)
@@ -565,13 +564,13 @@ Select **Github (Version 2)** as the source provider and click **Connect to Gith
 
 You'll probably be asked to create a new Github connection where you need to select the repository with bot source code. 
 
-The next **Build stage** can be skipped for now.
+The **Build stage** can be skipped for now.
 
-On the last **Deploy** stage we select our Beanstalk application so the pipeline will be finished by deploying the code there. Click **Next** and submit the pipeline. In a couple of seconds, you should be able to see that our bot application is successfully deployed to Elastic Beanstalk and can be used in production. 
+On the last **Deploy** stage we select our Beanstalk application where our application will be deployed to. Click **Next** and submit the pipeline. In a couple of seconds, you should be able to see that our bot application is successfully deployed to Elastic Beanstalk and can be used in production. 
 
 ![The bot is deployed](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-ready.jpg)
 <span class="img-description">The bot is deployed<span>
 
 ## Summary
 
-We just wrote a simple Telegram bot using Node.js. We connected it with the Microsoft Azure Speech Recognition service and deployed to it AWS Elastic Beanstalk. There’re still some limits related to the payment requirements and Telegram API (like the maximum size of the audio file we can operate on). However, we were able to see how Telegram API works and tried out some Node.js API to work with streams and child processes. You can find the final version of the code [on Github](https://github.com/loonskai/voice-textify-bot).
+We just wrote a simple Telegram bot using Node.js. We connected it with the Microsoft Azure Speech Recognition service and deployed it to AWS Elastic Beanstalk. There’re still some limits related to the payment requirements and Telegram API (like the maximum size of the audio file we can operate on). However, we were able to see how Telegram API works and tried out some Node.js API to work with streams and child processes. You can find the final version of the code on [Github](https://github.com/loonskai/voice-textify-bot).
