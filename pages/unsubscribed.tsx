@@ -1,11 +1,9 @@
 import { css } from '@emotion/react';
-import { CustomHead } from '../components/custom-head';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 
 const UnsubscribedPage = (): JSX.Element => (
   <>
-    <CustomHead title="Unsubscribed" description="Successfully unsubscribed" />
     <section>
       <Heading>Thanks and goodbye!</Heading>
       <Container>
@@ -21,6 +19,8 @@ const UnsubscribedPage = (): JSX.Element => (
 
 export const getStaticProps= async () => ({
   props: {
+    title: 'Unsubscribed',
+    description: 'Successfully unsubscribed',
     displaySubscriptionForm: false,
   },
 });

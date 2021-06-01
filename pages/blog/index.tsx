@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next';
 import { getAllBlogPosts } from '../../lib/api';
-import { CustomHead } from '../../components/custom-head';
 import { Container } from '../../components/container';
 import { PostPreview } from '../../components/post-preview';
 import { IPost } from '../../components/post';
@@ -13,7 +12,6 @@ type Props = {
 const BlogPage = ({ allPosts }: Props): JSX.Element => {
   return (
     <>
-      <CustomHead title="Blog" description="Siarhei Lunski personal blog page" />
       <Container>
         <Heading>Recent posts</Heading>
         <div>
@@ -35,7 +33,12 @@ export const getStaticProps: GetStaticProps = async () => {
     'date',
     'estimated',
   ]);
+
   return {
-    props: { allPosts },
+    props: { 
+      title: 'Blog',
+      description: 'Siarhei Lunski personal blog page',
+      allPosts, 
+    },
   };
 };

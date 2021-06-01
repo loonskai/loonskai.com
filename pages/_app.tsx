@@ -4,11 +4,12 @@ import { Layout } from '../components/layout';
 import { resetStyles, globalStyles } from '../shared/styles';
 import { themeValues, THEME } from '../shared/themes';
 import { useStickyState } from '../lib/hooks/useStickyState';
+import { CustomHead } from '../components/custom-head';
 
 const App = ({ Component, pageProps }): JSX.Element => {
   const [ mode, setMode ] = useStickyState(THEME.LIGHT, 'mode');
   const [ mounted, setMounted ] = useState(false);
-  const { displaySubscriptionForm = true } = pageProps;
+  const { title, description, displaySubscriptionForm = true } = pageProps;
 
   useEffect(() => {
     if (!mounted) setMounted(true);
@@ -19,18 +20,23 @@ const App = ({ Component, pageProps }): JSX.Element => {
     setMode(themeToSet);
   };
 
-  return mounted && (
-    <ThemeProvider theme={themeValues[mode]}>
-      {resetStyles}
-      {globalStyles}
-      <Layout 
-        activeTheme={mode} 
-        toggleTheme={toggleTheme} 
-        displaySubscriptionForm={displaySubscriptionForm}
-      >
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+  return (
+    <>
+      <CustomHead title={title} description={description} />
+      {mounted && (
+        <ThemeProvider theme={themeValues[mode]}>
+          {resetStyles}
+          {globalStyles}
+          <Layout 
+            activeTheme={mode} 
+            toggleTheme={toggleTheme} 
+            displaySubscriptionForm={displaySubscriptionForm}
+          >
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      )}
+    </>
   );
 };
 

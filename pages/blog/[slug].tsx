@@ -2,7 +2,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { getAllBlogPosts, getPostBySlug } from '../../lib/api';
-import { CustomHead } from '../../components/custom-head';
 import { Post, IPost } from '../../components/post';
 import { codeStyles } from '../../shared/styles';
 
@@ -12,11 +11,9 @@ type Props = {
 
 const PostPage = (props: Props): JSX.Element => {
   const router = useRouter();
-  const { post } = props;
 
   return (
     <>
-      <CustomHead title={post.title} description={post.description} />
       {codeStyles}
       {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
     </>
@@ -38,6 +35,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const content = await markdownToHtml(post.content || '');
   return {
     props: {
+      title: post.title,
+      description: post.description,
       post: {
         ...post,
         content,

@@ -1,5 +1,4 @@
 import { css, useTheme } from '@emotion/react';
-import { CustomHead } from '../components/custom-head';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 import { ContactLinks } from '../components/contact-links';
@@ -9,7 +8,6 @@ const AboutPage = (): JSX.Element => {
 
   return (
     <>
-      <CustomHead title="About Me" description="Things about web development and not only" />
       <Container>
         <Heading>About Me</Heading>
         <section
@@ -59,5 +57,13 @@ const AboutPage = (): JSX.Element => {
     </>
   );
 };
+
+export const getStaticProps= async () => ({
+  props: {
+    title: 'About Me',
+    description: 'Things about web development and not only"',
+    displaySubscriptionForm: false,
+  },
+});
 
 export default AboutPage;
