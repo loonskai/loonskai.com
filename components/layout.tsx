@@ -1,7 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Meta } from './meta';
 import { Header } from './header';
 import { Footer } from './footer';
 import { ThemeToggler } from './ui/theme-toggler';
@@ -25,15 +24,12 @@ type Props = {
 
 export const Layout = ({ children, activeTheme, toggleTheme, displaySubscriptionForm }: Props): JSX.Element => {
   return (
-    <>
-      <Meta/>
-      <Wrapper>
-        <Header>
-          <ThemeToggler activeTheme={activeTheme} toggleTheme={toggleTheme} />
-        </Header>
-        <main>{children}</main>
-        <Footer displaySubscriptionForm={displaySubscriptionForm} />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Header>
+        <ThemeToggler activeTheme={activeTheme} toggleTheme={toggleTheme} />
+      </Header>
+      <main>{children}</main>
+      <Footer displaySubscriptionForm={displaySubscriptionForm} />
+    </Wrapper>
   );
 };

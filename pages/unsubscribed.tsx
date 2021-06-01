@@ -1,14 +1,11 @@
-import Head from 'next/head';
 import { css } from '@emotion/react';
+import { CustomHead } from '../components/custom-head';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 
 const UnsubscribedPage = (): JSX.Element => (
   <>
-    <Head>
-      <title>Unsubscribed | loonskai.com</title>
-      <meta name="description" content="Page not found" />
-    </Head>
+    <CustomHead title="Unsubscribed" description="Successfully unsubscribed" />
     <section>
       <Heading>Thanks and goodbye!</Heading>
       <Container>

@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import markdownToHtml from '../../lib/markdownToHtml';
 import { getAllBlogPosts, getPostBySlug } from '../../lib/api';
+import { CustomHead } from '../../components/custom-head';
 import { Post, IPost } from '../../components/post';
 import { codeStyles } from '../../shared/styles';
 
@@ -16,12 +16,7 @@ const PostPage = (props: Props): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>{post.title} | loonskai.com</title>
-        <meta name="description" content={post.description} />
-        <meta property="og:title" content={post.title} key="ogtitle" />
-        <meta property="og:description" content={post.description} key="ogdesc" />
-      </Head>
+      <CustomHead title={post.title} description={post.description} />
       {codeStyles}
       {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
     </>

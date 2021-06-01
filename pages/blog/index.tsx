@@ -1,6 +1,6 @@
-import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { getAllBlogPosts } from '../../lib/api';
+import { CustomHead } from '../../components/custom-head';
 import { Container } from '../../components/container';
 import { PostPreview } from '../../components/post-preview';
 import { IPost } from '../../components/post';
@@ -13,12 +13,7 @@ type Props = {
 const BlogPage = ({ allPosts }: Props): JSX.Element => {
   return (
     <>
-      <Head>
-        <title>Blog | loonskai.com</title>
-        <meta name="description" content="Siarhei Lunski personal blog page" />
-        <meta property="og:title" content="Siarhei Lunski personal blog page" key="ogtitle" />
-        <meta property="og:description" content="Things about web development and not only." key="ogdesc" />
-      </Head>
+      <CustomHead title="Blog" description="Siarhei Lunski personal blog page" />
       <Container>
         <Heading>Recent posts</Heading>
         <div>

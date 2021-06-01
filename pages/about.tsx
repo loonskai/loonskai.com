@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { css, useTheme } from '@emotion/react';
+import { CustomHead } from '../components/custom-head';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 import { ContactLinks } from '../components/contact-links';
@@ -9,12 +9,7 @@ const AboutPage = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>About Me | loonskai.com</title>
-        <meta name="description" content="Page with some information about me" />
-        <meta property="og:title" content="Siarhei Lunski personal blog page" key="ogtitle" />
-        <meta property="og:description" content="Things about web development and not only." key="ogdesc" />
-      </Head>
+      <CustomHead title="About Me" description="Things about web development and not only" />
       <Container>
         <Heading>About Me</Heading>
         <section

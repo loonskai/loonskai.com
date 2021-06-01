@@ -1,14 +1,11 @@
-import Head from 'next/head';
 import { css } from '@emotion/react';
+import { CustomHead } from '../components/custom-head';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 
 const Page404 = (): JSX.Element => (
   <>
-    <Head>
-      <title>Page not found | loonskai.com</title>
-      <meta name="description" content="Page not found" />
-    </Head>
+    <CustomHead title="Page not found" description="Page not found" />
     <section>
       <Heading>404 Not found</Heading>
       <Container>
