@@ -8,7 +8,7 @@ import LinkedinIcon from '../public/assets/icons/social/linkedin.svg';
 import { mediaQueries } from '../shared/styles';
 
 type Props = {
-  center: boolean
+  center?: boolean
 }
 
 export const ContactLinks = ({ center = false }: Props): JSX.Element => {
