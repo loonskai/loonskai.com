@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 type Props = {
   title: string
@@ -7,8 +7,8 @@ type Props = {
 }
 
 export const CustomHead = ({ title, description }: Props): JSX.Element => {
-  const { asPath } = useRouter();
-  const currentUrl = process.env.NEXT_PUBLIC_BASE_URL + asPath;
+  // const { asPath } = useRouter();
+  // const currentUrl = process.env.NEXT_PUBLIC_BASE_URL + asPath;
 
   return (
     <Head>
@@ -25,7 +25,7 @@ export const CustomHead = ({ title, description }: Props): JSX.Element => {
       <meta name="author" content="Siarhei Lunski" />
       <meta name="image" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={currentUrl} />
+      {/* <meta property="og:url" content={currentUrl} /> */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
@@ -34,7 +34,7 @@ export const CustomHead = ({ title, description }: Props): JSX.Element => {
       <meta property="og:locale" content="en_US" />
       <meta name="twitter:site" content="@loonskai" />
       <meta name="twitter:creator" content="@loonskai" />
-      <meta property="twitter:url" content={currentUrl} />
+      {/* <meta property="twitter:url" content={currentUrl} /> */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
