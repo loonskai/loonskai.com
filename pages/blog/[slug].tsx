@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       title: post.title,
       description: post.description,
+      currentUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.slug}`,
       post: {
         ...post,
         content,

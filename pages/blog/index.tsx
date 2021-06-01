@@ -25,6 +25,7 @@ const BlogPage = ({ allPosts }: Props): JSX.Element => {
 export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
+  console.log(process.env.NEXT_PUBLIC_BASE_URL);
   const allPosts = getAllBlogPosts([
     'title',
     'slug',
@@ -36,8 +37,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { 
-      title: 'Blog',
-      description: 'Siarhei Lunski personal blog page',
+      title: 'loonskai.com - A blog by Siarhei Lunski',
+      description: 'Things about software development, web technologies, and life.',
+      currentUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
       allPosts, 
     },
   };

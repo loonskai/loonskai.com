@@ -19,8 +19,9 @@ const UnsubscribedPage = (): JSX.Element => (
 
 export const getStaticProps= async () => ({
   props: {
-    title: 'Unsubscribed',
-    description: 'Successfully unsubscribed',
+    title: 'loonskai.com - Unsubscribed',
+    description: 'Successfully unsubscribed from the newsletter',
+    currentUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/unsubscribed`,
     displaySubscriptionForm: false,
   },
 });

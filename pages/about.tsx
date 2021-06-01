@@ -60,8 +60,9 @@ const AboutPage = (): JSX.Element => {
 
 export const getStaticProps= async () => ({
   props: {
-    title: 'About Me',
-    description: 'Things about web development and not only"',
+    title: 'loonskai.com - About me',
+    description: 'Things about web development and not only',
+    currentUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
     displaySubscriptionForm: false,
   },
 });

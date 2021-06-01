@@ -19,8 +19,9 @@ const Page404 = (): JSX.Element => (
 
 export const getStaticProps= async () => ({
   props: {
-    title: 'Page not found',
-    description: 'Page not found',
+    title: 'loonskai.com - Page not found',
+    description: 'This resource doesn\'t exist.',
+    currentUrl: process.env.NEXT_PUBLIC_BASE_URL,
     displaySubscriptionForm: false,
   },
 });
