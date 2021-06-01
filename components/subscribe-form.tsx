@@ -1,5 +1,4 @@
 import { FormEvent, ChangeEvent, useState } from 'react';
-import jsonp from 'jsonp';
 import styled from '@emotion/styled';
 import { css, Theme, useTheme } from '@emotion/react';
 import { focusOutline } from '../shared/styles';
@@ -82,22 +81,30 @@ export const SubscribeForm = (): JSX.Element => {
     e.preventDefault();
     setPending(true);
     setError(false);
-    const url = new URL(process.env.NEXT_PUBLIC_SUBSCRIPTION_URL);
-    url.searchParams.set('FNAME', firstName || 'Anonymous Friend');
-    url.searchParams.set('EMAIL', email);
-    url.searchParams.set('c', '?');
 
-    jsonp(url.toString(), { param: 'c' }, (err, data) => {
-      setPending(false);
-      if (err || (data && data.result === 'error')) {
-        console.log('Oops, something went wrong');
-        setError(true);
-      } else {
-        setSuccess(true);
-        setFirstName('');
-        setEmail('');
-      }
-    });
+    fetch(process.env.NEXT_PUBLIC_SUBSCRIPTION_URL, {
+      method: 'post',
+      body: JSON.stringify({
+        first_name: firstName|| 'Anonymous Friend',
+        email_address: email,
+      }),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(r => r.json())
+      .then(
+        () => {
+          setPending(false);
+          setSuccess(true);
+        },
+        () => {
+          setError(true);
+        },
+      ).finally(() => {
+        setPending(false);
+      });
   };
 
   const change = (e: ChangeEvent<HTMLInputElement>) => {
@@ -123,7 +130,7 @@ export const SubscribeForm = (): JSX.Element => {
           margin: 1.4rem;
         `}
         >
-          Thanks for subscribing! Enjoy!
+          Thank you! Check your email to confirm subscription.
         </div>
       ) : (
         <>
