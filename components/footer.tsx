@@ -6,7 +6,11 @@ import { svgIconHover, mediaQueries } from '../shared/styles';
 import { Logo } from './logo';
 import RssIcon from '../public/assets/icons/rss.svg';
 
-export const Footer = (): JSX.Element => {
+type Props = {
+  displaySubscriptionForm?: boolean
+}
+
+export const Footer = ({ displaySubscriptionForm }: Props): JSX.Element => {
   const theme = useTheme();
 
   return (
@@ -32,7 +36,7 @@ export const Footer = (): JSX.Element => {
           }
         `}
       >
-        <SubscribeForm />
+        {displaySubscriptionForm && <SubscribeForm />}
         <section
           css={css`
             flex: 1;
@@ -41,12 +45,11 @@ export const Footer = (): JSX.Element => {
             justify-content: space-between;
             margin: 1rem 0;
             align-items: center;
-            text-align: center
 
             ${mediaQueries.laptopSmall} {
               margin: 0;
               align-items: flex-start;
-              text-align: left;
+              text-align: ${displaySubscriptionForm ? 'auto' : 'center'};
             }
           `}
         >
@@ -61,7 +64,7 @@ export const Footer = (): JSX.Element => {
                 line-height: 2.25rem;
             `}
             >Contact me:</h3>
-            <ContactLinks />
+            <ContactLinks center={!displaySubscriptionForm} />
           </div>
           <div
             css={css`

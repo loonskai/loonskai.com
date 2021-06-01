@@ -3,20 +3,20 @@ import { css } from '@emotion/react';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
 
-const Page404 = (): JSX.Element => (
+const UnsubscribedPage = (): JSX.Element => (
   <>
     <Head>
-      <title>Page not found | loonskai.com</title>
+      <title>Unsubscribed | loonskai.com</title>
       <meta name="description" content="Page not found" />
     </Head>
     <section>
-      <Heading>404 Not found</Heading>
+      <Heading>Thanks and goodbye!</Heading>
       <Container>
         <p
           css={css`
             text-align: center;
           `}
-        >Ooops, seems like this page doesn't exist :(</p>
+        >And remember that you can always come back ;)</p>
       </Container>
     </section>
   </>
@@ -28,4 +28,4 @@ export const getStaticProps= async () => ({
   },
 });
 
-export default Page404;
+export default UnsubscribedPage;

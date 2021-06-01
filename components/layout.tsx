@@ -20,9 +20,10 @@ const Wrapper = styled.div(({ theme }) => css`
 type Props = {
   activeTheme: THEME
   toggleTheme(string): void
+  displaySubscriptionForm?: boolean
 } & PropsWithChildren<ReactNode>
 
-export const Layout = ({ children, activeTheme, toggleTheme }: Props): JSX.Element => {
+export const Layout = ({ children, activeTheme, toggleTheme, displaySubscriptionForm }: Props): JSX.Element => {
   return (
     <>
       <Meta/>
@@ -31,7 +32,7 @@ export const Layout = ({ children, activeTheme, toggleTheme }: Props): JSX.Eleme
           <ThemeToggler activeTheme={activeTheme} toggleTheme={toggleTheme} />
         </Header>
         <main>{children}</main>
-        <Footer />
+        <Footer displaySubscriptionForm={displaySubscriptionForm} />
       </Wrapper>
     </>
   );

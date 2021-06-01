@@ -8,6 +8,7 @@ import { useStickyState } from '../lib/hooks/useStickyState';
 const App = ({ Component, pageProps }): JSX.Element => {
   const [ mode, setMode ] = useStickyState(THEME.LIGHT, 'mode');
   const [ mounted, setMounted ] = useState(false);
+  const { displaySubscriptionForm = true } = pageProps;
 
   useEffect(() => {
     if (!mounted) setMounted(true);
@@ -22,7 +23,11 @@ const App = ({ Component, pageProps }): JSX.Element => {
     <ThemeProvider theme={themeValues[mode]}>
       {resetStyles}
       {globalStyles}
-      <Layout activeTheme={mode} toggleTheme={toggleTheme}>
+      <Layout 
+        activeTheme={mode} 
+        toggleTheme={toggleTheme} 
+        displaySubscriptionForm={displaySubscriptionForm}
+      >
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
