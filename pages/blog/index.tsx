@@ -25,7 +25,6 @@ const BlogPage = ({ allPosts }: Props): JSX.Element => {
 export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  console.log(process.env.NEXT_PUBLIC_BASE_URL);
   const allPosts = getAllBlogPosts([
     'title',
     'slug',
