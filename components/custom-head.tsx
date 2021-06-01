@@ -20,17 +20,25 @@ export const CustomHead = ({ title, description }: Props): JSX.Element => {
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#51e8a7" />
+      <meta name="title" content={title} />
+      <meta name="description" content={description} />
+      <meta name="author" content="Siarhei Lunski" />
       <meta name="image" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:type" content="website" />
       <meta property="og:image" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
-      <meta name="author" content="Siarhei Lunski" />
-      <meta property="og:site_name" content="Siarhei Lunski" />
+      <meta property="og:image:secure_url" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
+      <meta property="og:site_name" content="loonskai.com" />
       <meta property="og:locale" content="en_US" />
       <meta name="twitter:site" content="@loonskai" />
       <meta name="twitter:creator" content="@loonskai" />
+      <meta property="twitter:url" content={currentUrl} />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={process.env.NEXT_PUBLIC_BASE_URL + '/assets/cover.jpg'} />
     </Head>
   );
 }; 
