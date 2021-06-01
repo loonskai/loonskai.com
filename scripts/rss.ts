@@ -5,7 +5,7 @@ import markdownToHtml from '../lib/markdownToHtml';
 
 (async (): Promise<void> => {
   if (process.env.NODE_ENV === 'development') return;
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const date = new Date();
   const author = {
     name: 'Siarhei Lunski loonskai.com RSS Feed',
