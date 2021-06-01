@@ -19,6 +19,8 @@ const PostPage = (props: Props): JSX.Element => {
       <Head>
         <title>{post.title} | loonskai.com</title>
         <meta name="description" content={post.description} />
+        <meta property="og:title" content={post.title} key="ogtitle" />
+        <meta property="og:description" content={post.description} key="ogdesc" />
       </Head>
       {codeStyles}
       {router.isFallback ? <div>Loading...</div> : <Post {...props} />}

@@ -16,6 +16,8 @@ const BlogPage = ({ allPosts }: Props): JSX.Element => {
       <Head>
         <title>Blog | loonskai.com</title>
         <meta name="description" content="Siarhei Lunski personal blog page" />
+        <meta property="og:title" content="Siarhei Lunski personal blog page" key="ogtitle" />
+        <meta property="og:description" content="Things about web development and not only." key="ogdesc" />
       </Head>
       <Container>
         <Heading>Recent posts</Heading>

@@ -12,6 +12,8 @@ const AboutPage = (): JSX.Element => {
       <Head>
         <title>About Me | loonskai.com</title>
         <meta name="description" content="Page with some information about me" />
+        <meta property="og:title" content="Siarhei Lunski personal blog page" key="ogtitle" />
+        <meta property="og:description" content="Things about web development and not only." key="ogdesc" />
       </Head>
       <Container>
         <Heading>About Me</Heading>
