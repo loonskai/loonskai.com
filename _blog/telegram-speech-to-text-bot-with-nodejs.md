@@ -8,7 +8,7 @@ estimated: 10 minutes
 
 ## Background
 
-High speed and no advertising makes Telegram probably one the best online messaging app in 2021. Their team constantly evolves user experience and introduces cool things that I’m always excited to try out. However, I’m still quite conservative towards one particular feature - **voice messages**. Just as it’s convenient for the sender to send a message using their voice so it may be painful for others to check what their beloved friend wants to tell them. Especially in a noisy or rather completely silent environment.
+High speed and no advertising makes Telegram probably one of the best online messaging app in 2021. Their team constantly evolves user experience and introduces cool things that I’m always excited to try out. However, I’m still quite conservative towards one particular feature - **voice messages**. Just as it’s convenient for the sender to send a message using their voice so it may be painful for others to check what their beloved friend wants to tell them. Especially in a noisy or rather completely silent environment.
 
 So I asked myself, what if I could make my life a little bit easier and create, let's say, a Telegram bot that would transcribe these wonderful voice messages into the text?
 
@@ -175,7 +175,7 @@ docker-compose -f docker-compose.dev.yml up --build
 
 ## Create bot instance
 
-Let's start implementating it. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. We also need `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
+Let's start implementing it. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. We also need `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
 
 ```
 npm i telegraf dotenv

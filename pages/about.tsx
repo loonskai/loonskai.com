@@ -48,7 +48,7 @@ const AboutPage = (): JSX.Element => {
             alt="This is me"
           />
           <p>My name is <strong>Siarhei Lunski</strong> and I’m a software developer. I was born in a small town in Belarus <span className="flag my-flag"/> called David-Gorodok and currently I'm located in Warsaw, Poland. <span className="flag current-flag"/></p>
-          <p>I have passion for everything related to web development, clean interfaces and both customer and developer experience. I work with JavaScript most of the time but I’m always interested in learning new things.</p>
+          <p>I'm passionate about everything related to web development, clean interfaces and both customer and developer experience. I work with JavaScript most of the time but I’m always interested in learning new things.</p>
           <p>Also I believe that DIY is the best way to understand things not only in software development but in the outside world as well.</p>
           <p>If I can help you in any way you can always reach me there:</p>
           <ContactLinks />
