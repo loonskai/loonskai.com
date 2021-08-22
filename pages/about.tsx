@@ -1,7 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import { Container } from '../components/container';
 import { Heading } from '../components/ui/heading';
-import { ContactLinks } from '../components/contact-links';
 
 const AboutPage = (): JSX.Element => {
   const theme = useTheme();
@@ -40,25 +39,38 @@ const AboutPage = (): JSX.Element => {
           </h2>
           <img
             css={css`
-            width: 10rem;
-            height: 10rem;
-            border-radius: 50%;
-          `}
+              width: 10rem;
+              height: 10rem;
+              border-radius: 50%;
+            `}
             src="./assets/about/me.jpg"
             alt="This is me"
           />
-          <p>My name is <strong>Siarhei Lunski</strong> and I’m a software developer. I was born in a small town in Belarus <span className="flag my-flag"/> called David-Gorodok and currently I'm located in Warsaw, Poland. <span className="flag current-flag"/></p>
-          <p>I'm passionate about everything related to web development, clean interfaces and both customers and developers experience. I work with JavaScript most of the time but I’m always interested in learning new things.</p>
-          <p>Also I believe that DIY is the best way to understand things not only in software development but in the outside world as well.</p>
-          <p>If I can help you in any way you can always reach me there:</p>
-          <ContactLinks />
+          <p>
+            My name is <strong>Siarhei Lunski</strong> and I’m a software
+            developer. I was born in a small town in Belarus{' '}
+            <span className="flag my-flag" /> called David-Gorodok and currently
+            I'm located in Warsaw working together with a great{' '}
+            <strong>Zendesk</strong> team.{' '}
+            <span className="flag current-flag" />
+          </p>
+          <p>
+            I'm passionate about everything related to web development, clean
+            interfaces and both customers and developers experience. I work with
+            JavaScript most of the time but I’m always interested in learning
+            new things.
+          </p>
+          <p>
+            Also I believe that DIY is the best way to understand things not
+            only in software development but in the outside world as well.
+          </p>
         </section>
       </Container>
     </>
   );
 };
 
-export const getStaticProps= async () => ({
+export const getStaticProps = async () => ({
   props: {
     title: 'loonskai.com - About me',
     description: 'Things about web development and not only',
