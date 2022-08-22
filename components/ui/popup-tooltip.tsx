@@ -1,8 +1,8 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { css, useTheme } from '@emotion/react';
+import { PropsWithChildren, ReactNode } from 'react'
+import { css, useTheme } from '@emotion/react'
 
 export const PopUpTooltip = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <div
@@ -22,5 +22,5 @@ export const PopUpTooltip = ({ children }: PropsWithChildren<ReactNode>): JSX.El
     >
       {children}
     </div>
-  );
-};
+  )
+}

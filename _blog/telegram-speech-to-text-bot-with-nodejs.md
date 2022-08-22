@@ -33,7 +33,7 @@ Let’s create a new project for our future bot. Create a new file in the `src` 
 **`./src/index.ts`**
 
 ```typescript
-console.log("Hello");
+console.log('Hello')
 ```
 
 As you can see we’re going to use TypeScript so let's install it together with `ts-node` that will allow us to run the code without compilation:
@@ -102,15 +102,12 @@ npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
   "eslintConfig": {
     "root": true,
     "parser": "@typescript-eslint/parser",
-    "plugins": [ "@typescript-eslint" ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
+    "plugins": ["@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
     "rules": {
       "semi": "error",
-      "indent": [ "error", 2 ],
-      "quotes": [ "error", "single" ]
+      "indent": ["error", 2],
+      "quotes": ["error", "single"]
     }
   }
   // ...
@@ -166,7 +163,7 @@ services:
     volumes:
       - .:/app:delegated
 ```
- 
+
 Have you noticed the `target` property? Yes, it points to the `dev` stage in our Docker image that we discussed just a moment ago. Now we can run our project locally:
 
 ```
@@ -175,7 +172,7 @@ docker-compose -f docker-compose.dev.yml up --build
 
 ## Create bot instance
 
-Let's start implementing it. We will use [Telegraf](https://github.com/influxdata/telegraf ) - the most popular Telegram bot framework for Node.js. We also need `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
+Let's start implementing it. We will use [Telegraf](https://github.com/influxdata/telegraf) - the most popular Telegram bot framework for Node.js. We also need `dotenv` to get access to the environment variables in our application. One of them will be the API key that we got from BotFather.
 
 ```
 npm i telegraf dotenv
@@ -195,12 +192,12 @@ Also, we may want to add a `global.d.ts` file to populate the global namespace w
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-     BOT_TOKEN: string;
+      BOT_TOKEN: string
     }
   }
 }
 
-export {};
+export {}
 ```
 
 Now we’re ready to create our bot:
@@ -208,20 +205,20 @@ Now we’re ready to create our bot:
 **`./src/index.ts`**
 
 ```typescript
-import { Telegraf } from 'telegraf';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { Telegraf } from 'telegraf'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
-bot.on('text', async ctx => {
-  ctx.telegram.sendMessage(ctx.message.chat.id, 'pong');
-});
+bot.on('text', async (ctx) => {
+  ctx.telegram.sendMessage(ctx.message.chat.id, 'pong')
+})
 
-bot.launch();
+bot.launch()
 ```
 
-`Telegraf` class implements event emitter API. Each event handler has a `ctx` object as an argument that we can use for Telegram API requests. For example, to send a message to chat we run `ctx.telegram.sendMessage(chatId, message)`. 
+`Telegraf` class implements event emitter API. Each event handler has a `ctx` object as an argument that we can use for Telegram API requests. For example, to send a message to chat we run `ctx.telegram.sendMessage(chatId, message)`.
 
 After we define the listeners we can launch the bot with `bot.launch()`. Now when you send any message you we'll get a response from the bot:
 ![Get the first response from the bot](/assets/blog/telegram-speech-to-text-bot-with-nodejs/ping-pong.jpg)
@@ -270,14 +267,14 @@ First, we need to initialize the service. Here are the steps of how to start usi
 - Find the **Cognitive Services** section where you’ll be suggested to start a free trial;
 - You will be asked to complete some verification steps which also include providing your payment card details. You should not be worried about any charges as you pay only if you explicitly upgrade the account;
 - When you complete the verification process you’ll see the notification about starting your free trial;
-![Azure Free trial notification](/assets/blog/telegram-speech-to-text-bot-with-nodejs/complete-verification.jpg)
+  ![Azure Free trial notification](/assets/blog/telegram-speech-to-text-bot-with-nodejs/complete-verification.jpg)
 
-- Create a new [Cognitive Speech Service](https://portal.azure.com/?quickstart=True#create/Microsoft.CognitiveServicesSpeechServices) by choosing **Free Tier**; 
-![Create a new Cognitive Service](/assets/blog/telegram-speech-to-text-bot-with-nodejs/create-cognitive-service.jpg)
+- Create a new [Cognitive Speech Service](https://portal.azure.com/?quickstart=True#create/Microsoft.CognitiveServicesSpeechServices) by choosing **Free Tier**;
+  ![Create a new Cognitive Service](/assets/blog/telegram-speech-to-text-bot-with-nodejs/create-cognitive-service.jpg)
 
 - After the initial deployment, we can go to the resource and select keys and resources.
-![Deployment is complete](/assets/blog/telegram-speech-to-text-bot-with-nodejs/deployment-is-complete.jpg)
-  
+  ![Deployment is complete](/assets/blog/telegram-speech-to-text-bot-with-nodejs/deployment-is-complete.jpg)
+
 We take one of the secret keys and the value of location which we’ll use in our bot application.
 ![Keys and endpoint](/assets/blog/telegram-speech-to-text-bot-with-nodejs/keys-and-endpoint.jpg)
 
@@ -363,7 +360,7 @@ Let’s discuss what happens inside `configureRecognizer()`. First, we import th
 ```typescript{13,15-17,20,26,28,35-37}
 import { Transform, PassThrough, pipeline } from 'stream';
 import { promisify } from 'util';
-import { 
+import {
   SpeechConfig,
   AudioConfig,
   AudioInputStream,
@@ -432,16 +429,17 @@ ENV PATH /app/node_modules/.bin:$PATH
 ```
 
 To use `opusdec` inside Node.js we’ll create a separate process using `spawn()` utility from the built-in `children_process` library. To get the desired behavior we need to pass the following arguments:
+
 - `--force-wav` - to decode the input data into `wav` format;
 - `--rate 16000` - to use a 16000 Hz sample rate that applies to Speech SDK default input format.
 
 Plus, we need to pass `-` hyphens for input and output sources to use the standard I/O.
 
 ```typescript
-spawn('opusdec', ['--force-wav', '--rate', 16000, '-', '-' ]);
+spawn('opusdec', ['--force-wav', '--rate', 16000, '-', '-'])
 ```
 
-As in our case, the audio decoding is a transitional step so we need to make the decoding stream both readable and writable and put it in the middle of the streams pipeline. We can accomplish this by creating a duplex stream from `opusdec` channels using `duplexify` library. 
+As in our case, the audio decoding is a transitional step so we need to make the decoding stream both readable and writable and put it in the middle of the streams pipeline. We can accomplish this by creating a duplex stream from `opusdec` channels using `duplexify` library.
 
 ```
 npm i duplexify
@@ -542,7 +540,7 @@ After this, we can start AWS configuration. Sign in to your AWS Console and go t
 ![Create a new Elastic Beanstalk application](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-create-app.jpg)
 <span class="img-description">Create a new Elastic Beanstalk application</span>
 
-We need to add our secret keys so to keep it simple let’s just use application environment properties. Select **Configure more options**, click **Edit** in the Software section, and find **Environment properties** at the bottom of the page. 
+We need to add our secret keys so to keep it simple let’s just use application environment properties. Select **Configure more options**, click **Edit** in the Software section, and find **Environment properties** at the bottom of the page.
 ![Add environment variables](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-eb-env-keys.jpg)
 <span class="img-description">Add environment variables<span>
 
@@ -553,20 +551,20 @@ Click **Save** and **Create app.** Amazon will create all necessary resources fo
 
 Now to deploy our application we just need to ship the source code to the Beanstalk environment. The cool thing is that we can automate this process by implementing a continuous delivery using another AWS service called **CodePipeline.**
 
-Find CodePipeline in AWS Console and click **Create pipeline.** Type the new pipeline name and click next. 
+Find CodePipeline in AWS Console and click **Create pipeline.** Type the new pipeline name and click next.
 ![CodePipeline. Create a pipeline](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step1.jpg)
 <span class="img-description">CodePipeline. Create a pipeline<span>
 
-Select **Github (Version 2)** as the source provider and click **Connect to Github.** 
+Select **Github (Version 2)** as the source provider and click **Connect to Github.**
 
 ![CodePipeline. Connect to Github](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-step2.jpg)
 <span class="img-description">CodePipeline. Connect to Github<span>
 
-You'll probably be asked to create a new Github connection where you need to select the repository with bot source code. 
+You'll probably be asked to create a new Github connection where you need to select the repository with bot source code.
 
 The **Build stage** can be skipped for now.
 
-On the last **Deploy** stage we select our Beanstalk application where our application will be deployed to. Click **Next** and submit the pipeline. In a couple of seconds, you should be able to see that our bot application is successfully deployed to Elastic Beanstalk and can be used in production. 
+On the last **Deploy** stage we select our Beanstalk application where our application will be deployed to. Click **Next** and submit the pipeline. In a couple of seconds, you should be able to see that our bot application is successfully deployed to Elastic Beanstalk and can be used in production.
 
 ![The bot is deployed](/assets/blog/telegram-speech-to-text-bot-with-nodejs/aws-codepipeline-ready.jpg)
 <span class="img-description">The bot is deployed<span>

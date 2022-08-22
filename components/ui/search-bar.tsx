@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { visuallyHidden } from '../../shared/styles';
-import SearchIcon from '../../public/assets/icons/search.svg';
+import { css } from '@emotion/react'
+import { visuallyHidden } from '../../shared/styles'
+import SearchIcon from '../../public/assets/icons/search.svg'
 
 export const SearchBar = (): JSX.Element => (
   <div
@@ -12,7 +12,7 @@ export const SearchBar = (): JSX.Element => (
     `}
   >
     <form
-      role="search"
+      role='search'
       css={css`
         position: relative;
         background: white;
@@ -21,9 +21,9 @@ export const SearchBar = (): JSX.Element => (
         border-radius: 0.5rem;
       `}
     >
-      <input type="search" aria-label="Search bar" />
+      <input type='search' aria-label='Search bar' />
       <label>
-        <input css={visuallyHidden} type="submit" />
+        <input css={visuallyHidden} type='submit' />
         <SearchIcon
           css={css`
             position: absolute;
@@ -36,4 +36,4 @@ export const SearchBar = (): JSX.Element => (
       </label>
     </form>
   </div>
-);
+)

@@ -1,6 +1,6 @@
-import { css, useTheme } from '@emotion/react';
-import { PropsWithChildren, ReactNode } from 'react';
-import { focusOutline } from '../../shared/styles';
+import { css, useTheme } from '@emotion/react'
+import { PropsWithChildren, ReactNode } from 'react'
+import { focusOutline } from '../../shared/styles'
 
 type Props = PropsWithChildren<ReactNode | any>
 
@@ -14,10 +14,10 @@ export const primaryButtonCss = css`
   border-radius: 0.5rem;
   border: none;
   transition: all ease 0.3s;
-`;
+`
 
 export const PrimaryButton = ({ children, ...props }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <button
@@ -43,6 +43,8 @@ export const PrimaryButton = ({ children, ...props }: Props): JSX.Element => {
 
         ${focusOutline}
       `}
-    >{children}</button>
-  );
-}; 
+    >
+      {children}
+    </button>
+  )
+}

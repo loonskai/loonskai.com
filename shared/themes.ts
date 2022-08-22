@@ -1,11 +1,11 @@
-import { Theme } from '@emotion/react';
+import { Theme } from '@emotion/react'
 
-export const mainColor = '#51e8a7';
-export const secondaryColor = '#00e0e0';
-export const darkColor = '#414142';
-export const errorColor = '#ff3783';
-export const whiteColor = '#ffffff';
-export const blackColor ='#2f2f2f';
+export const mainColor = '#51e8a7'
+export const secondaryColor = '#00e0e0'
+export const darkColor = '#414142'
+export const errorColor = '#ff3783'
+export const whiteColor = '#ffffff'
+export const blackColor = '#2f2f2f'
 
 export enum THEME {
   LIGHT,
@@ -95,4 +95,4 @@ export const themeValues = {
       background: darkColor,
     },
   },
-} as { [T in THEME]: Theme };
+} as { [T in THEME]: Theme }

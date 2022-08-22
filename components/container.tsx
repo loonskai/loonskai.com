@@ -1,6 +1,6 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { css } from '@emotion/react';
-import { breakpoints, mediaQueries } from '../shared/styles';
+import { PropsWithChildren, ReactNode } from 'react'
+import { css } from '@emotion/react'
+import { breakpoints, mediaQueries } from '../shared/styles'
 
 export const containerCss = css`
   margin-left: auto;
@@ -16,8 +16,8 @@ export const containerCss = css`
   ${mediaQueries.laptopSmall} {
     max-width: ${breakpoints.laptopSmall};
   }
-`;
+`
 
 export const Container = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => (
   <div css={containerCss}>{children}</div>
-);
+)

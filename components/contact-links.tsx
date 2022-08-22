@@ -1,23 +1,23 @@
-import { css, useTheme } from '@emotion/react';
-import { SocialLink } from '../components/styled/social-link';
-import GmailIcon from '../public/assets/icons/social/gmail.svg';
-import GithubIcon from '../public/assets/icons/social/github.svg';
-import TelegramIcon from '../public/assets/icons/social/telegram.svg';
-import TwitterIcon from '../public/assets/icons/social/twitter.svg';
-import LinkedinIcon from '../public/assets/icons/social/linkedin.svg';
-import { mediaQueries } from '../shared/styles';
+import { css, useTheme } from '@emotion/react'
+import { SocialLink } from '../components/styled/social-link'
+import GmailIcon from '../public/assets/icons/social/gmail.svg'
+import GithubIcon from '../public/assets/icons/social/github.svg'
+import TelegramIcon from '../public/assets/icons/social/telegram.svg'
+import TwitterIcon from '../public/assets/icons/social/twitter.svg'
+import LinkedinIcon from '../public/assets/icons/social/linkedin.svg'
+import { mediaQueries } from '../shared/styles'
 
 type Props = {
   center?: boolean
 }
 
 export const ContactLinks = ({ center = false }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
   const iconCss = css`
     width: 100%;
     height: 100%;
     fill: ${theme.text.primary};
-  `;
+  `
 
   return (
     <div
@@ -31,21 +31,51 @@ export const ContactLinks = ({ center = false }: Props): JSX.Element => {
         }
       `}
     >
-      <SocialLink tabIndex={0} href="mailto:loonskai@gmail.com" target='_blank' rel='noopener noreferrer' aria-label='Gmail contact link'>
+      <SocialLink
+        tabIndex={0}
+        href='mailto:loonskai@gmail.com'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Gmail contact link'
+      >
         <GmailIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://github.com/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Github link'>
+      <SocialLink
+        tabIndex={0}
+        href='https://github.com/loonskai'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Github link'
+      >
         <GithubIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://twitter.com/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Twitter link'>
+      <SocialLink
+        tabIndex={0}
+        href='https://twitter.com/loonskai'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Twitter link'
+      >
         <TwitterIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://www.linkedin.com/in/siarhei-lunski" target='_blank' rel='noopener noreferrer' aria-label='Linkedin link'>
+      <SocialLink
+        tabIndex={0}
+        href='https://www.linkedin.com/in/siarhei-lunski'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Linkedin link'
+      >
         <LinkedinIcon css={iconCss} />
       </SocialLink>
-      <SocialLink tabIndex={0} href="https://t.me/loonskai" target='_blank' rel='noopener noreferrer' aria-label='Telegram link'>
+      <SocialLink
+        tabIndex={0}
+        href='https://t.me/loonskai'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Telegram link'
+      >
         <TelegramIcon css={iconCss} />
       </SocialLink>
     </div>
-  );
-}; 
+  )
+}

@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { svgIconHover } from '../../shared/styles';
+import styled from '@emotion/styled'
+import { svgIconHover } from '../../shared/styles'
 
 export const SocialLink = styled.a`
   position: relative;
@@ -9,4 +9,4 @@ export const SocialLink = styled.a`
   cursor: pointer;
 
   ${svgIconHover}
-`;
+`

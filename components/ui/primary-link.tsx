@@ -1,10 +1,10 @@
-import { forwardRef } from 'react';
-import { css, useTheme } from '@emotion/react';
-import  { primaryButtonCss } from './primary-button';
-import { focusOutline } from '../../shared/styles';
+import { forwardRef } from 'react'
+import { css, useTheme } from '@emotion/react'
+import { primaryButtonCss } from './primary-button'
+import { focusOutline } from '../../shared/styles'
 
 const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...props }, ref) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <a
@@ -25,10 +25,9 @@ const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...pr
     >
       {children}
     </a>
-  );
-});
+  )
+})
 
-PrimaryLinkComponent.displayName = 'PrimaryLink';
+PrimaryLinkComponent.displayName = 'PrimaryLink'
 
-export const PrimaryLink = PrimaryLinkComponent;
-
+export const PrimaryLink = PrimaryLinkComponent

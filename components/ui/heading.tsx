@@ -1,5 +1,5 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { css } from '@emotion/react';
+import { PropsWithChildren, ReactNode } from 'react'
+import { css } from '@emotion/react'
 
 export const Heading = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => (
   <h1
@@ -10,6 +10,7 @@ export const Heading = ({ children }: PropsWithChildren<ReactNode>): JSX.Element
       line-height: 1.2;
       text-align: center;
     `}
-  >{children}</h1>
-);
- 
+  >
+    {children}
+  </h1>
+)

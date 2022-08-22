@@ -1,10 +1,10 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { css } from '@emotion/react';
-import { Logo } from './logo';
-import { NavigationLink } from './navigation/navigation-link';
-import { mediaQueries } from '../shared/styles';
+import { PropsWithChildren, ReactNode } from 'react'
+import { css } from '@emotion/react'
+import { Logo } from './logo'
+import { NavigationLink } from './navigation/navigation-link'
+import { mediaQueries } from '../shared/styles'
 
-export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element =>  (
+export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element => (
   <header
     css={css`
       display: flex;
@@ -27,9 +27,9 @@ export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
           width: auto;
           justify-content: flex-start;
         }
-        `}
+      `}
     >
-      <Logo/>
+      <Logo />
       <nav
         css={css`
           width: 100%;
@@ -44,22 +44,22 @@ export const Header = ({ children }: PropsWithChildren<ReactNode>): JSX.Element 
           }
         `}
       >
-        <NavigationLink href="/blog">Blog</NavigationLink>
-        <NavigationLink href="/about">About Me</NavigationLink>
+        <NavigationLink href='/blog'>Blog</NavigationLink>
+        <NavigationLink href='/about'>About Me</NavigationLink>
       </nav>
     </div>
     <div
       css={css`
-          width: 100%;
-          display: flex;
-          justify-content: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
-          ${mediaQueries.tablet} {
-            width: auto;
-          }
+        ${mediaQueries.tablet} {
+          width: auto;
+        }
       `}
     >
       {children}
     </div>
   </header>
-);
+)

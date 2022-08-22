@@ -1,4 +1,4 @@
-import '@emotion/react';
+import '@emotion/react'
 
 declare module '@emotion/react' {
   export interface Theme {
@@ -12,32 +12,32 @@ declare module '@emotion/react' {
     background: {
       primary: string
       secondary: string
-    },
+    }
     menu: {
       activeLink: {
         color: string
         background: string
-      },
-    },
+      }
+    }
     buttons: {
       default: {
         background: string
         color: string
-      },
+      }
       hover: {
         background: string
         color: string
-      },
+      }
       disabled: {
         background: string
         color: string
       }
-    },
+    }
     inputs: {
       text: {
         color: string
       }
-    },
+    }
     snippet: {
       background: string
     }

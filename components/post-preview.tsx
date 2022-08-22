@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import { css, useTheme } from '@emotion/react';
-import { PrimaryLink } from './ui/primary-link';
-import { IPost } from '../components/post';
-import { PostPreviewPublicationInfo } from './post-preview-publication-info';
+import Link from 'next/link'
+import { css, useTheme } from '@emotion/react'
+import { PrimaryLink } from './ui/primary-link'
+import { IPost } from '../components/post'
+import { PostPreviewPublicationInfo } from './post-preview-publication-info'
 
 type Props = {
-  post: IPost;
+  post: IPost
 }
 
 export const PostPreview = ({ post }: Props): JSX.Element => {
-  const theme = useTheme();
-  const { title, description, slug } = post;
+  const theme = useTheme()
+  const { title, description, slug } = post
 
   return (
     <section
@@ -38,27 +38,27 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
             font-size: 1.875rem;
             line-height: 2.25rem;
           `}
-        >{title}</h2>
+        >
+          {title}
+        </h2>
       </div>
       <PostPreviewPublicationInfo post={post} />
       <p
         css={css`
           margin-bottom: 0.5rem;
         `}
-      >{description}</p>
+      >
+        {description}
+      </p>
       <div
         css={css`
           align-self: flex-start;
         `}
       >
-        <Link
-          as={`/blog/${slug}`}
-          href="/blog/[slug]"
-          passHref
-        >
+        <Link as={`/blog/${slug}`} href='/blog/[slug]' passHref>
           <PrimaryLink aria-label={`Read the post "${title}"`}>Read more</PrimaryLink>
         </Link>
       </div>
     </section>
-  );
-};
+  )
+}

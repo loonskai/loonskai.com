@@ -1,0 +1,10 @@
+coverage
+dist
+public
+README.md
+.eslintrc.js
+.gitlab-ci.yml
+.github/
+.vscode
+babel.config.json
+.next

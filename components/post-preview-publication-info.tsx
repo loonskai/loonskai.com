@@ -1,14 +1,14 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { css, useTheme } from '@emotion/react';
-import styled from '@emotion/styled';
-import dayjs from 'dayjs';
-import { Tag } from './ui/tag';
-import { IPost } from '../components/post';
-import BookIcon from '../public/assets/icons/book.svg';
-import { mediaQueries } from '../shared/styles';
+import { PropsWithChildren, ReactNode } from 'react'
+import { css, useTheme } from '@emotion/react'
+import styled from '@emotion/styled'
+import dayjs from 'dayjs'
+import { Tag } from './ui/tag'
+import { IPost } from '../components/post'
+import BookIcon from '../public/assets/icons/book.svg'
+import { mediaQueries } from '../shared/styles'
 
 type Props = {
-  post: IPost;
+  post: IPost
 } & PropsWithChildren<ReactNode>
 
 const StyledDetailsStatement = styled.span`
@@ -17,10 +17,10 @@ const StyledDetailsStatement = styled.span`
   font-size: 0.95rem;
   font-style: italic;
   margin-right: 1rem;
-`;
+`
 
 export const PostPreviewPublicationInfo = ({ children, post }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <div
@@ -64,11 +64,14 @@ export const PostPreviewPublicationInfo = ({ children, post }: Props): JSX.Eleme
           `}
         >
           <StyledDetailsStatement>
-            Tags: {post.keywords.map((keyword, idx) => <Tag key={idx} tag={keyword} />)}
+            Tags:{' '}
+            {post.keywords.map((keyword, idx) => (
+              <Tag key={idx} tag={keyword} />
+            ))}
           </StyledDetailsStatement>
         </div>
       </div>
       {children}
     </div>
-  );
-};
+  )
+}

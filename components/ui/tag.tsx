@@ -1,11 +1,11 @@
-import { css, useTheme } from '@emotion/react';
+import { css, useTheme } from '@emotion/react'
 
 type Props = {
   tag: string
 }
 
 export const Tag = ({ tag }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <span
@@ -16,6 +16,8 @@ export const Tag = ({ tag }: Props): JSX.Element => {
         padding: 0.25rem;
         margin: 0 0.145rem;
       `}
-    >{tag}</span>
-  );
-}; 
+    >
+      {tag}
+    </span>
+  )
+}

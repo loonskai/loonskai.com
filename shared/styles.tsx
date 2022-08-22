@@ -1,68 +1,151 @@
-import { css, Global } from '@emotion/react';
-import { mapValues } from '../lib/mapValues';
-import { mainColor, secondaryColor } from './themes';
+import { css, Global } from '@emotion/react'
+import { mapValues } from '../lib/mapValues'
+import { mainColor, secondaryColor } from './themes'
 
 /* Media queries */
 export const breakpoints = {
-  mobile: '640px', 
-  tablet: '768px', 
-  laptopSmall: '1024px', 
-  laptopMedium: '1280px', 
-  laptopWide: '1536px', 
-};
+  mobile: '640px',
+  tablet: '768px',
+  laptopSmall: '1024px',
+  laptopMedium: '1280px',
+  laptopWide: '1536px',
+}
 
-export const mediaQueries = mapValues(breakpoints, bp => `@media (min-width: ${bp})`);
+export const mediaQueries = mapValues(breakpoints, (bp) => `@media (min-width: ${bp})`)
 
 /* Reset CSS */
 export const resetStyles = (
   <Global
     styles={css`
-      html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i,dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-        margin:0;
-        padding:0;
-        border:0;
-        outline:0;
-        font-size:100%;
-        vertical-align:baseline;
-        background:transparent;
+      html,
+      body,
+      div,
+      span,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      abbr,
+      address,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      samp,
+      small,
+      strong,
+      sub,
+      sup,
+      var,
+      b,
+      i,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
       }
 
-      article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
-        display:block;
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
       }
 
       nav ul {
-        list-style:none;
+        list-style: none;
       }
 
-      blockquote, q {
-        quotes:none;
+      blockquote,
+      q {
+        quotes: none;
       }
 
-      blockquote:before, blockquote:after,q:before, q:after {
-        content:'';
-        content:none;
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: '';
+        content: none;
       }
 
       a {
-        margin:0;
-        padding:0;
-        font-size:100%;
-        vertical-align:baseline;
-        background:transparent;
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
       }
 
       table {
-        border-collapse:collapse;
-        border-spacing:0;
+        border-collapse: collapse;
+        border-spacing: 0;
       }
 
-      input, select {
-        vertical-align:middle;
+      input,
+      select {
+        vertical-align: middle;
       }
     `}
   />
-);
+)
 
 export const globalStyles = (
   <Global
@@ -95,14 +178,13 @@ export const globalStyles = (
       }
     `}
   />
-);
-
+)
 
 export const codeStyles = (
   <Global
     styles={css`
-      code[class*="language-"],
-      pre[class*="language-"] {
+      code[class*='language-'],
+      pre[class*='language-'] {
         color: #f8f8f2;
         background: none;
         text-align: left;
@@ -124,7 +206,7 @@ export const codeStyles = (
       }
 
       /* Code blocks */
-      pre[class*="language-"] {
+      pre[class*='language-'] {
         padding: 1em;
         padding-right: 0;
         margin: 0.5em 0;
@@ -135,13 +217,13 @@ export const codeStyles = (
         box-sizing: border-box;
       }
 
-      :not(pre) > code[class*="language-"],
-      pre[class*="language-"] {
+      :not(pre) > code[class*='language-'],
+      pre[class*='language-'] {
         background: #414142;
       }
 
       /* Inline code */
-      :not(pre) > code[class*="language-"] {
+      :not(pre) > code[class*='language-'] {
         padding: 0.1em;
         border-radius: 0.3em;
         white-space: normal;
@@ -163,12 +245,12 @@ export const codeStyles = (
       .token.constant,
       .token.symbol,
       .token.deleted {
-        color: #FFC7DB;
+        color: #ffc7db;
       }
 
       .token.boolean,
       .token.number {
-        color: #20EEEE;
+        color: #20eeee;
       }
 
       .token.selector,
@@ -186,7 +268,7 @@ export const codeStyles = (
       .language-css .token.string,
       .style .token.string,
       .token.variable {
-        color: #20EEEE;
+        color: #20eeee;
       }
 
       .token.atrule,
@@ -196,7 +278,7 @@ export const codeStyles = (
       }
 
       .token.keyword {
-        color: #20EEEE;
+        color: #20eeee;
       }
 
       .token.regex,
@@ -230,9 +312,9 @@ export const codeStyles = (
         margin-left: -16px;
         padding: 0 16px;
       }
-  `}
+    `}
   />
-);
+)
 
 /* Visually hidden */
 export const visuallyHidden = css`
@@ -244,18 +326,20 @@ export const visuallyHidden = css`
   padding: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
-`;
+`
 
 export const focusOutline = css`
-  &:focus, &:active {
+  &:focus,
+  &:active {
     outline: 0;
     box-shadow: 0 0 0 3px ${secondaryColor};
     transition: all ease 0.3s;
   }
-`;
+`
 
 export const svgIconHover = css`
-  &, & svg {
+  &,
+  & svg {
     transition: all ease 0.3s;
   }
 
@@ -268,4 +352,4 @@ export const svgIconHover = css`
       transition: all ease 0.3s;
     }
   }
-`;
+`

@@ -1,17 +1,17 @@
-import Link from 'next/link';
-import { css, useTheme } from '@emotion/react';
-import { SubscribeForm } from '../components/subscribe-form';
-import { ContactLinks } from '../components/contact-links';
-import { svgIconHover, mediaQueries } from '../shared/styles';
-import { Logo } from './logo';
-import RssIcon from '../public/assets/icons/rss.svg';
+import Link from 'next/link'
+import { css, useTheme } from '@emotion/react'
+import { SubscribeForm } from '../components/subscribe-form'
+import { ContactLinks } from '../components/contact-links'
+import { svgIconHover, mediaQueries } from '../shared/styles'
+import { Logo } from './logo'
+import RssIcon from '../public/assets/icons/rss.svg'
 
 type Props = {
   displaySubscriptionForm?: boolean
 }
 
 export const Footer = ({ displaySubscriptionForm }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <footer
@@ -62,8 +62,10 @@ export const Footer = ({ displaySubscriptionForm }: Props): JSX.Element => {
               css={css`
                 font-size: 1.7rem;
                 line-height: 2.25rem;
-            `}
-            >Contact me:</h3>
+              `}
+            >
+              Contact me:
+            </h3>
             <ContactLinks center={!displaySubscriptionForm} />
           </div>
           <div
@@ -79,16 +81,16 @@ export const Footer = ({ displaySubscriptionForm }: Props): JSX.Element => {
             `}
           >
             <Link href='/rss/feed.xml' passHref>
-              <a 
-                target='_blank' 
+              <a
+                target='_blank'
                 rel='noopener noreferrer'
                 aria-label='RSS Feed'
                 css={css`
-                cursor: pointer;
-                text-decoration: none;
-                color: ${theme.text.primary};
-                ${svgIconHover}
-              `}
+                  cursor: pointer;
+                  text-decoration: none;
+                  color: ${theme.text.primary};
+                  ${svgIconHover}
+                `}
               >
                 <RssIcon
                   css={css`
@@ -104,11 +106,12 @@ export const Footer = ({ displaySubscriptionForm }: Props): JSX.Element => {
                 align-self: flex-end;
                 font-weight: 600;
               `}
-            >© Siarhei Lunski, 2021
+            >
+              © Siarhei Lunski, {new Date().getFullYear()}
             </div>
           </div>
         </section>
       </section>
     </footer>
-  );
-}; 
+  )
+}

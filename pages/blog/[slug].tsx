@@ -1,29 +1,29 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
-import markdownToHtml from '../../lib/markdownToHtml';
-import { getAllBlogPosts, getPostBySlug } from '../../lib/api';
-import { Post, IPost } from '../../components/post';
-import { codeStyles } from '../../shared/styles';
+import { GetStaticProps, GetStaticPaths } from 'next'
+import { useRouter } from 'next/router'
+import markdownToHtml from '../../lib/markdownToHtml'
+import { getAllBlogPosts, getPostBySlug } from '../../lib/api'
+import { Post, IPost } from '../../components/post'
+import { codeStyles } from '../../shared/styles'
 
 type Props = {
   post: IPost
 }
 
 const PostPage = (props: Props): JSX.Element => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <>
       {codeStyles}
       {router.isFallback ? <div>Loading...</div> : <Post {...props} />}
     </>
-  );
-};
+  )
+}
 
-export default PostPage;
+export default PostPage
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = typeof params.slug === 'string' && params.slug;
+  const slug = typeof params.slug === 'string' && params.slug
   const post = getPostBySlug(slug, [
     'title',
     'description',
@@ -31,8 +31,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'keywords',
     'date',
     'estimated',
-  ]);
-  const content = await markdownToHtml(post.content || '');
+  ])
+  const content = await markdownToHtml(post.content || '')
   return {
     props: {
       title: post.title,
@@ -43,23 +43,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         content,
       },
     },
-  };
-};
+  }
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllBlogPosts([ 
-    'slug',
-    'keywords',
-    'date',
-    'estimated',
-  ]);
+  const posts = getAllBlogPosts(['slug', 'keywords', 'date', 'estimated'])
 
   return {
-    paths: posts.map(post => ({
+    paths: posts.map((post) => ({
       params: {
         slug: post.slug,
       },
     })),
     fallback: false,
-  };
-};
+  }
+}

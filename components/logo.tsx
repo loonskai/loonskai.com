@@ -1,22 +1,22 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import { css, useTheme } from '@emotion/react';
-import LogoSvg from '../public/assets/logo.svg';
+import { css, useTheme } from '@emotion/react'
+import LogoSvg from '../public/assets/logo.svg'
 
 const LogoComponent = forwardRef<HTMLLinkElement, any>(() => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <LogoSvg
       css={css`
         width: 180px;
         margin: 1rem;
-        fill: ${theme.text.primary}; 
+        fill: ${theme.text.primary};
       `}
     />
-  );
-});
+  )
+})
 
-LogoComponent.displayName = 'Logo';
+LogoComponent.displayName = 'Logo'
 
-export const Logo = LogoComponent;
+export const Logo = LogoComponent

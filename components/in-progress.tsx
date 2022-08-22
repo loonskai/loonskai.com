@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
 export const InProgress = (): JSX.Element => (
   <p
@@ -10,4 +10,4 @@ export const InProgress = (): JSX.Element => (
   >
     Coming soon
   </p>
-); 
+)
