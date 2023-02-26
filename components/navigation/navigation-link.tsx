@@ -15,7 +15,7 @@ type NavigationLinkProps = {
   as?: string
 }
 
-const StyledLink = styled.a<StyledLinkProps>(
+const StyledLink = styled(Link)<StyledLinkProps>(
   ({ theme, isActive }) => css`
     display: flex;
     align-items: center;
@@ -44,10 +44,8 @@ export const NavigationLink = ({
   const isActive = asPath.startsWith(href) || asPath.startsWith(as)
 
   return (
-    <Link href={href} passHref>
-      <StyledLink theme={theme} isActive={isActive}>
-        {children}
-      </StyledLink>
-    </Link>
+    <StyledLink href={href} passHref theme={theme} isActive={isActive}>
+      {children}
+    </StyledLink>
   )
 }

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { css, useTheme } from '@emotion/react'
 import { PrimaryLink } from './ui/primary-link'
 import { IPost } from '../components/post'
@@ -55,9 +54,13 @@ export const PostPreview = ({ post }: Props): JSX.Element => {
           align-self: flex-start;
         `}
       >
-        <Link as={`/blog/${slug}`} href='/blog/[slug]' passHref>
-          <PrimaryLink aria-label={`Read the post "${title}"`}>Read more</PrimaryLink>
-        </Link>
+        <PrimaryLink
+          as={`/blog/${slug}`}
+          href='/blog/[slug]'
+          aria-label={`Read the post "${title}"`}
+        >
+          Read more
+        </PrimaryLink>
       </div>
     </section>
   )

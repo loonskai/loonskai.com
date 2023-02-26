@@ -46,6 +46,7 @@ module.exports = {
             arrow: 'parens-new-line',
           },
         ],
+        "react/no-unknown-property": ["error", { "ignore": ["css"] }],
         'jsx-a11y/anchor-is-valid': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
         indent: ['error', 2],

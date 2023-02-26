@@ -9,7 +9,7 @@ const LogoComponent = forwardRef<HTMLLinkElement, any>(() => {
   return (
     <LogoSvg
       css={css`
-        width: 180px;
+        width: 80px;
         margin: 1rem;
         fill: ${theme.text.primary};
       `}

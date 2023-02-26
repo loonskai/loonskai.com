@@ -7,7 +7,7 @@ import { PrimaryButton } from './ui/primary-button'
 const StyledSubscribeFormContainer = styled.div(
   ({ theme }) => css`
     max-width: 400px;
-    margin: 0 1rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     background: ${theme.background.secondary};

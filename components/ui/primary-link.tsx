@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { forwardRef } from 'react'
 import { css, useTheme } from '@emotion/react'
 import { primaryButtonCss } from './primary-button'
@@ -7,7 +8,7 @@ const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...pr
   const theme = useTheme()
 
   return (
-    <a
+    <Link
       ref={ref}
       css={css`
         ${primaryButtonCss}
@@ -24,7 +25,7 @@ const PrimaryLinkComponent = forwardRef<HTMLLinkElement, any>(({ children, ...pr
       {...props}
     >
       {children}
-    </a>
+    </Link>
   )
 })
 
