@@ -1,0 +1,27 @@
+---
+import { getCollection, } from 'astro:content';
+import { H1 } from '../../components/mdx/H1'
+import { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getCollection('blog');
+  return posts.map(post => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: { 
+        post
+      },
+    };
+  })
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props as InferGetStaticPropsType<typeof getStaticPaths>;
+// @ts-expect-error Can't infer 
+const { Content, components } = await post.render();
+export const customComponents = {
+  h1: H1
+}
+---
+<Content components={{...components, ...customComponents}} />
