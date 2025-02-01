@@ -49,7 +49,7 @@ const AboutPage = (): JSX.Element => {
           <p>
             My name is <strong>Siarhei Lunski</strong> and I’m a software developer. I was born in a
             small town in Belarus <span className='flag my-flag' /> called David-Gorodok and
-            currently I'm located in Warsaw working together with a great <strong>Zendesk</strong>{' '}
+            currently I'm located in Warsaw working together with a great <strong>Box</strong>{' '}
             team. <span className='flag current-flag' />
           </p>
           <p>
